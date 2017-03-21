@@ -1,0 +1,13 @@
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\TestProgram.FORM.exe.config
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\TestProgram.FORM.exe
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\TestProgram.FORM.pdb
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\StudentAPI.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\StudentAPI.pdb
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.csprojResolveAssemblyReference.cache
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.Form1.resources
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.Properties.Resources.resources
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.csproj.GenerateResource.Cache
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.exe
+C:\Users\Tajfun695\Desktop\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.pdb

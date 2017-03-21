@@ -1,0 +1,9 @@
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\StudentAPI.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\StudentAPI.pdb
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\RestSharp.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\RestSharp.xml
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.dll
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.pdb
+C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.csprojResolveAssemblyReference.cache
