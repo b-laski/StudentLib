@@ -26,8 +26,9 @@ namespace StudentAPI.Models.API.Deparment
         [JsonProperty("createDate")]
         public static int CreateDate { get; set; }
 
-        public Department(JToken json)
+        public Department(string jsonStr)
         {
+            JObject json = JObject.Parse(jsonStr);
             int id, endDate, createDate;
 
             if (int.TryParse(json.SelectToken("userID").ToString(), out id)) ID = id;

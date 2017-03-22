@@ -12,7 +12,6 @@ namespace StudentAPI.Libs
 {
     internal class Request
     {
-
         internal static async Task<string> MakeGetRequest(string URL, string sessionID = null, string sessionToken=null)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri($"{URL}"));
@@ -46,17 +45,17 @@ namespace StudentAPI.Libs
             switch (errorResp.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    throw new Exception(e.TargetSite.ToString());
+                    throw new Exception(e.Message);
                 case HttpStatusCode.Unauthorized:
-                    throw new InvalidAccessToken(e.TargetSite.ToString());
+                    throw new InvalidAccessToken(e.Message);
                 case HttpStatusCode.Forbidden:
-                    throw new InvalidAccessToken(e.TargetSite.ToString());
+                    throw new InvalidAccessToken(e.Message);
                 case HttpStatusCode.NotFound:
-                    throw new NotFoundPath(e.TargetSite.ToString());
+                    throw new NotFoundPath(e.Message);
                 case HttpStatusCode.MethodNotAllowed:
-                    throw new InvalidAccess(e.TargetSite.ToString());
+                    throw new InvalidAccess(e.Message);
                 case HttpStatusCode.InternalServerError:
-                    throw new ServerError(e.TargetSite.ToString());
+                    throw new ServerError(e.Message);
                 default:
                     throw e;
             }

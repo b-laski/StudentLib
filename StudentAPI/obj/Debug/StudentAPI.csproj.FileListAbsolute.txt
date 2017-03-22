@@ -7,3 +7,9 @@ C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\bin\Debug\RestSharp.xml
 C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.dll
 C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.pdb
 C:\Users\Tajfun695\Desktop\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.csprojResolveAssemblyReference.cache
+D:\StudentAPI\StudentAPI\StudentAPI\bin\Debug\StudentAPI.dll
+D:\StudentAPI\StudentAPI\StudentAPI\bin\Debug\StudentAPI.pdb
+D:\StudentAPI\StudentAPI\StudentAPI\bin\Debug\Newtonsoft.Json.dll
+D:\StudentAPI\StudentAPI\StudentAPI\bin\Debug\Newtonsoft.Json.xml
+D:\StudentAPI\StudentAPI\StudentAPI\obj\Debug\StudentAPI.dll
+D:\StudentAPI\StudentAPI\StudentAPI\obj\Debug\StudentAPI.pdb

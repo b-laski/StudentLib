@@ -40,14 +40,16 @@ namespace StudentAPI
         /// </summary>
         /// <param name="ID">ID of college</param>
         /// <returns></returns>
-        public static Models.API.Collage.Colleges GetCollegeList(string ID = null) => Task.Run(() => Libs.StudentAPI.GetCollegeList(ID)).Result;
+        public static List<Models.API.Collage.College> GetCollegeList() => Task.Run(() => Libs.StudentAPI.GetCollegeList()).Result;
+
+        public static string GetCollege() => Task.Run(() => Libs.StudentAPI.GetCollege()).Result;
 
         /// <summary>
         /// [ASYNC]Giving list of colleges and information
         /// </summary>
         /// <param name="ID">ID of college</param>
         /// <returns></returns>
-        public static async Task<Models.API.Collage.Colleges> GetCollegeListAsync(string ID = null) => await Libs.StudentAPI.GetCollegeList(ID);
+        public static async Task<List<Models.API.Collage.College>> GetCollegeListAsync() => await Libs.StudentAPI.GetCollegeList();
 
         /// <summary>
         /// [SYNC]Giving list of departments and information

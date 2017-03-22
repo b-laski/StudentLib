@@ -70,13 +70,13 @@ namespace TestProgram.FORM
 
             foreach(var item in list)
             {
-                InfoBox.Items.Add(item);
+                InfoBox.Items.Add(item.ToString());
             }
         }
 
         private void btnLoadDeparments_Click(object sender, EventArgs e)
         {
-            var list = StudentAPI.StudentAPI.GetDepartmentList(1);
+            var list = StudentAPI.StudentAPI.GetDepartmentList(0);
 
             foreach (var item in list)
             {
