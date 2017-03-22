@@ -13,44 +13,50 @@ namespace StudentAPI.Libs
     {
         //URL to server
         readonly static string URL = "http://193.239.80.171:3100";
-        #region Requests
+        #region Objects
            
         internal static async Task<Models.API.User> GetUserObject()
         {
-            return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")));
-        }
-
-        internal static async Task<string> GetCollege()
-        {
-            var json = await Request.MakeGetRequest($"{URL}/group/colleges");
-            return json;
+            return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("user"));
         }
             
-        internal static async Task<List<Models.API.Collage.College>> GetCollegeList()
+        internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject()
         {
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges"));
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges")).SelectToken("colleges");
             List<Models.API.Collage.College> colleges= new List<Models.API.Collage.College>();
-            foreach(JToken item in json.SelectToken("colleges"))
+            foreach(JToken item in json)
             {
                 colleges.Add(new Models.API.Collage.College(item.ToString()));
             }
             return colleges;
-
-            //var list = JsonConvert.DeserializeObject<List<Models.API.Collage.College>>(await Request.MakeGetRequest($"{URL}/group/colleges"));
-            //return list;
         }
  
-        internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(int id)
+        internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(string id)
         {
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
             List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
-            foreach(JToken item in json.SelectToken("departments"))
+            foreach(JObject item in json.SelectToken("departments"))
             {
                 departments.Add(new Models.API.Deparment.Department(item.ToString()));
             }
             return departments;
         }
 
+        internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(string id)
+        {
+            List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}")).SelectToken("categories");
+            Logs.Output.Log(json.ToString());
+            foreach (JObject item in json)
+            {
+                categories.Add(new Models.API.Categorie.Categorie(item));
+            }
+            return categories;
+
+            //JObject json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
+            //List<Models.API.Categorie.Categorie> categories = JsonConvert.DeserializeObject<List<Models.API.Categorie.Categorie>>(json.SelectToken("categories").ToString());
+            //return categories;
+        }
         #endregion
 
         #region Settings
@@ -63,7 +69,7 @@ namespace StudentAPI.Libs
         /// <returns></returns>
         internal static async Task<Models.API.Session> SetSession(string auth_provider, string accessToken)
         {
-            return new Models.API.Session(JObject.Parse(await Request.MakeGetRequest($"{URL}/auth/connect-with-provider?auth_provider={auth_provider}&access_token={accessToken}")));
+            return new Models.API.Session(JObject.Parse(await Request.MakeGetRequest($"{URL}/auth/connect-with-provider?auth_provider={auth_provider}&access_token={accessToken}")).SelectToken("authResult"));
         }
 
         /// <summary>
@@ -101,6 +107,16 @@ namespace StudentAPI.Libs
 
             return null;
         }
+        #endregion
+
+        #region TestRegion
+
+        internal static async Task<string> GetCollege()
+        {
+            var json = await Request.MakeGetRequest($"{URL}/group/colleges");
+            return json;
+        }
+
         #endregion
 
     }

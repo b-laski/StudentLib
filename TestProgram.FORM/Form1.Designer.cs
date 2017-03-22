@@ -35,6 +35,8 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnLoadCollege = new System.Windows.Forms.Button();
             this.btnLoadDeparments = new System.Windows.Forms.Button();
+            this.btnLoadCategories = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InfoBox
@@ -42,7 +44,7 @@
             this.InfoBox.FormattingEnabled = true;
             this.InfoBox.Location = new System.Drawing.Point(12, 12);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(1305, 82);
+            this.InfoBox.Size = new System.Drawing.Size(1305, 290);
             this.InfoBox.TabIndex = 0;
             // 
             // btnSignIn
@@ -77,39 +79,60 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 129);
+            this.webBrowser1.Location = new System.Drawing.Point(12, 364);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1416, 328);
+            this.webBrowser1.Size = new System.Drawing.Size(1416, 93);
             this.webBrowser1.TabIndex = 4;
             this.webBrowser1.Visible = false;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_FrameLoadStart);
             // 
             // btnLoadCollege
             // 
-            this.btnLoadCollege.Location = new System.Drawing.Point(12, 100);
+            this.btnLoadCollege.Location = new System.Drawing.Point(12, 308);
             this.btnLoadCollege.Name = "btnLoadCollege";
             this.btnLoadCollege.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCollege.TabIndex = 5;
-            this.btnLoadCollege.Text = "LoadC";
+            this.btnLoadCollege.Text = "Colleges";
             this.btnLoadCollege.UseVisualStyleBackColor = true;
             this.btnLoadCollege.Click += new System.EventHandler(this.btnLoadCollege_Click);
             // 
             // btnLoadDeparments
             // 
-            this.btnLoadDeparments.Location = new System.Drawing.Point(93, 100);
+            this.btnLoadDeparments.Location = new System.Drawing.Point(93, 308);
             this.btnLoadDeparments.Name = "btnLoadDeparments";
             this.btnLoadDeparments.Size = new System.Drawing.Size(75, 23);
             this.btnLoadDeparments.TabIndex = 6;
-            this.btnLoadDeparments.Text = "LoadD";
+            this.btnLoadDeparments.Text = "Departments";
             this.btnLoadDeparments.UseVisualStyleBackColor = true;
             this.btnLoadDeparments.Click += new System.EventHandler(this.btnLoadDeparments_Click);
+            // 
+            // btnLoadCategories
+            // 
+            this.btnLoadCategories.Location = new System.Drawing.Point(174, 308);
+            this.btnLoadCategories.Name = "btnLoadCategories";
+            this.btnLoadCategories.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadCategories.TabIndex = 7;
+            this.btnLoadCategories.Text = "Categories";
+            this.btnLoadCategories.UseVisualStyleBackColor = true;
+            this.btnLoadCategories.Click += new System.EventHandler(this.btnLoadCategories_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(255, 308);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1440, 469);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnLoadCategories);
             this.Controls.Add(this.btnLoadDeparments);
             this.Controls.Add(this.btnLoadCollege);
             this.Controls.Add(this.webBrowser1);
@@ -133,6 +156,8 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btnLoadCollege;
         private System.Windows.Forms.Button btnLoadDeparments;
+        private System.Windows.Forms.Button btnLoadCategories;
+        private System.Windows.Forms.Button button2;
     }
 }
 

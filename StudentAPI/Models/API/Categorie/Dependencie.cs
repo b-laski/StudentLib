@@ -10,5 +10,10 @@ namespace StudentAPI.Models.API.Categorie
     public class Dependencie
     {
         public static int ID { get; set; }
+
+        public Dependencie(string jsonStr)
+        {
+
+        }
     }
 }

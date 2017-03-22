@@ -40,30 +40,32 @@ namespace StudentAPI
         /// </summary>
         /// <param name="ID">ID of college</param>
         /// <returns></returns>
-        public static List<Models.API.Collage.College> GetCollegeList() => Task.Run(() => Libs.StudentAPI.GetCollegeList()).Result;
-
-        public static string GetCollege() => Task.Run(() => Libs.StudentAPI.GetCollege()).Result;
+        public static List<Models.API.Collage.College> GetCollegeList() => Task.Run(() => Libs.StudentAPI.GetCollegeListObject()).Result;
 
         /// <summary>
         /// [ASYNC]Giving list of colleges and information
         /// </summary>
         /// <param name="ID">ID of college</param>
         /// <returns></returns>
-        public static async Task<List<Models.API.Collage.College>> GetCollegeListAsync() => await Libs.StudentAPI.GetCollegeList();
+        public static async Task<List<Models.API.Collage.College>> GetCollegeListAsync() => await Libs.StudentAPI.GetCollegeListObject();
 
         /// <summary>
         /// [SYNC]Giving list of departments and information
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public static List<Models.API.Deparment.Department> GetDepartmentList(int ID) => Task.Run(() => Libs.StudentAPI.GetDepartmentObject(ID)).Result;
+        public static List<Models.API.Deparment.Department> GetDepartmentList(string ID) => Task.Run(() => Libs.StudentAPI.GetDepartmentObject(ID)).Result;
 
         /// <summary>
         /// [ASYNC]Giving list of departments and information
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public static async Task<List<Models.API.Deparment.Department>> GetDepartmentListAsync(int ID) => await Libs.StudentAPI.GetDepartmentObject(ID);
+        public static async Task<List<Models.API.Deparment.Department>> GetDepartmentListAsync(string ID) => await Libs.StudentAPI.GetDepartmentObject(ID);
+
+        public static List<Models.API.Categorie.Categorie> GetCategoriesList(string ID) => Task.Run(() => Libs.StudentAPI.GetCategorieObject(ID)).Result;
+
+        public static async Task<List<Models.API.Categorie.Categorie>> GetCategoriesListAsync(string ID) => await Libs.StudentAPI.GetCategorieObject(ID);
 
         #region Settings
         /// <summary>

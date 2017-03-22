@@ -10,19 +10,19 @@ namespace StudentAPI.Models.API.Collage
 {
     public class College
     {
-        //[JsonProperty("id")]
+        [JsonProperty("id")]
         public static int ID { get; set; }
-        //[JsonProperty("name")]
+        [JsonProperty("name")]
         public static string Name { get; set; }
-        //[JsonProperty("description")]
+        [JsonProperty("description")]
         public static string Description { get; set; }
-        //[JsonProperty("photo")]
+        [JsonProperty("photo")]
         public static string Photo { get; set; }
-        //[JsonProperty("cover")]
+        [JsonProperty("cover")]
         public static string Cover { get; set; }
-        //[JsonProperty("endDate")]
+        [JsonProperty("endDate")]
         public static int? EndDate { get; set; }
-        //[JsonProperty("createDate")]
+        [JsonProperty("createDate")]
         public static int CreateDate { get; set; }
 
         public College(string jsonStr)

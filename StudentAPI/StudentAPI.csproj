@@ -58,6 +58,7 @@
     <Compile Include="Models\API\Categorie\Dependencie.cs" />
     <Compile Include="Models\API\Collage\College.cs" />
     <Compile Include="Models\API\Department\Department.cs" />
+    <Compile Include="Models\API\Group\Groups.cs" />
     <Compile Include="Models\API\Session.cs" />
     <Compile Include="Models\API\User.cs" />
     <Compile Include="StudentAPI.cs" />

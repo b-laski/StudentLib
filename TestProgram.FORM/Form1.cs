@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace TestProgram.FORM
     public partial class Form1 : Form
     {
         private string clientID = "388432308196913";
-        string access_token; //= "EAAFhRvGZC1jEBAFlyyZBLyggUr5DbncPWWTz9gZCWV5Ya86GNS4eF9s9pOr9J28vboQ14eId5SjPFxhs1ieG6cn7Ha5ZBDy0h7aDTeNtkVusPtXsAKCa8I0FIkOnDE51p5BqOZBG7HQZAAbQHKPweVKJSDFYrhU6YZD";
+        string access_token;
         public Form1()
         {
             InitializeComponent();
@@ -61,12 +62,12 @@ namespace TestProgram.FORM
 
         private void btnLoadUser_Click(object sender, EventArgs e)
         {
-            InfoBox.Items.Add($"User: {StudentAPI.StudentAPI.GetUserObject().ToString()}");
+            InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetUserObject().ToString()}");
         }
 
-        private void btnLoadCollege_Click(object sender, EventArgs e)
+        private async void btnLoadCollege_Click(object sender, EventArgs e)
         {
-            var list = StudentAPI.StudentAPI.GetCollegeList();
+            var list = await StudentAPI.StudentAPI.GetCollegeListAsync();
 
             foreach(var item in list)
             {
@@ -74,11 +75,21 @@ namespace TestProgram.FORM
             }
         }
 
-        private void btnLoadDeparments_Click(object sender, EventArgs e)
+        private async void btnLoadDeparments_Click(object sender, EventArgs e)
         {
-            var list = StudentAPI.StudentAPI.GetDepartmentList(0);
+            var list = await StudentAPI.StudentAPI.GetDepartmentListAsync("1");
 
             foreach (var item in list)
+            {
+                InfoBox.Items.Add(item.ToString());
+            }
+        }
+
+        private async void btnLoadCategories_Click(object sender, EventArgs e)
+        {
+            var list = await StudentAPI.StudentAPI.GetCategoriesListAsync("2");
+
+            foreach(var item in list)
             {
                 InfoBox.Items.Add(item);
             }

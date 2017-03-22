@@ -13,15 +13,31 @@ namespace StudentAPI.Models.API.Categorie
     {
         public static int ID { get; set; }
         public static string Name { get; set; }
-        public static List<Dependencie> GroupList { get; set; } = new List<Dependencie>();
+        public static List<string> GroupList { get; set; }
 
-        public Categorie(JToken json)
+        public Categorie(JObject json)
         {
             int id;
-
+            
             if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
 
             Name = json.SelectToken("name").ToString();
+            GroupList = JsonConvert.DeserializeObject<List<string>>(json.SelectToken("dependencies").ToString());
+        }
+
+        private string MakeString()
+        {
+            string result = string.Empty;
+            foreach(var item in GroupList)
+            {
+                result += $" {item}";
+            }
+            return result;
+        }
+
+        public override string ToString()
+        {
+            return $"{ID}, {Name}, Group: {MakeString()}";
         }
     }
 }
