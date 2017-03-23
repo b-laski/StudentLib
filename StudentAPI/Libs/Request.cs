@@ -16,14 +16,15 @@ namespace StudentAPI.Libs
             try
             {
                 //if (!string.IsNullOrEmpty(Models.API.Session.SesionID))
-                    request.Headers.Add("me-session-id", Models.API.Session.SesionID);
+                    
                 //if (!string.IsNullOrEmpty(Models.API.Session.SesionToken))
-                    request.Headers.Add("me-handle", Models.API.Session.SesionToken);
-
+                
                 request.AutomaticDecompression = DecompressionMethods.GZip;
                 request.Method = "GET";
                 request.Accept = "application/json";
                 request.ContentType = "application/json";
+                request.Headers.Add("me-session-id", Models.API.Session.SesionID);
+                request.Headers.Add("me-handle", Models.API.Session.SesionToken);
 
                 using (var responseStream = await request.GetResponseAsync())
                 {
@@ -37,7 +38,37 @@ namespace StudentAPI.Libs
             }
         }
 
-        //TUTAJ BEDZIE POST/PUT/DELETE
+        //OtherMethod
+        internal static async Task<string> MakeRestRequest(string URL, string method, string sessionID = null, string sessionToken = null, string requestData = null, byte[] data = null)
+        {
+            if (data == null)
+                data = new UTF8Encoding().GetBytes(requestData ?? "");
+
+            var request = (HttpWebRequest)WebRequest.Create(new Uri($"{URL}"));
+            request.Method = method;
+            request.Accept = "application/json";
+            request.ContentType = "application/json";
+            request.Headers.Add("me-session-id", Models.API.Session.SesionID);
+            request.Headers.Add("me-handle", Models.API.Session.SesionToken);
+
+            using (var requestStream = await request.GetRequestStreamAsync())
+            {
+                await requestStream.WriteAsync(data, 0, data.Length);
+            }
+
+            try
+            {
+                using (var responseStream = await request.GetResponseAsync())
+                {
+                    return await new StreamReader(responseStream.GetResponseStream(), Encoding.Default, true).ReadToEndAsync();
+                }
+            }
+            catch (WebException e)
+            {
+                handleWebException(e);
+                return null;
+            }
+        }
 
         private static void handleWebException(WebException e)
         {

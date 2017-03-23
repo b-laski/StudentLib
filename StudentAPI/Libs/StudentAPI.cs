@@ -14,7 +14,7 @@ namespace StudentAPI.Libs
         //URL to server
         readonly static string URL = "http://193.239.80.171:3100";
 
-        #region Objects/ObjectLists
+        #region Get Objects
         
         /// <summary>
         /// Giving user object signed on this moment.
@@ -54,13 +54,21 @@ namespace StudentAPI.Libs
         /// <returns></returns>
         internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(int id)
         {
-            List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
-            foreach(JObject item in json.SelectToken("departments"))
+            try
             {
-                departments.Add(new Models.API.Deparment.Department(item.ToString()));
+                List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
+                var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
+                foreach(JObject item in json.SelectToken("departments"))
+                {
+                    departments.Add(new Models.API.Deparment.Department(item.ToString()));
+                }
+                return departments;
             }
-            return departments;
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
 
         /// <summary>
@@ -70,13 +78,22 @@ namespace StudentAPI.Libs
         /// <returns></returns>
         internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(int id)
         {
-            List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
-            foreach (JObject item in json.SelectToken("categories"))
+            try
             {
-                categories.Add(new Models.API.Categorie.Categorie(item));
+                List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
+                var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
+                foreach (JObject item in json.SelectToken("categories"))
+                {
+                    categories.Add(new Models.API.Categorie.Categorie(item));
+                }
+                return categories;
             }
-            return categories;
+            catch (Exception)
+            {
+
+                return null;
+            }
+
 
             //JObject json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
             //List<Models.API.Categorie.Categorie> categories = JsonConvert.DeserializeObject<List<Models.API.Categorie.Categorie>>(json.SelectToken("categories").ToString());
