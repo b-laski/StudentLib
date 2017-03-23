@@ -97,5 +97,10 @@ namespace TestProgram.FORM
                 InfoBox.Items.Add(item);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WYBUCHY!","ERROR JAK CHUJ", MessageBoxButtons.OK , MessageBoxIcon.Error);
+        }
     }
 }
