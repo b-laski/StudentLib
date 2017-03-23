@@ -13,13 +13,23 @@ namespace StudentAPI.Libs
     {
         //URL to server
         readonly static string URL = "http://193.239.80.171:3100";
-        #region Objects
-           
+
+        #region Objects/ObjectLists
+        
+        /// <summary>
+        /// Giving user object signed on this moment.
+        /// </summary>
+        /// <returns></returns>
         internal static async Task<Models.API.User> GetUserObject()
         {
             return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("user"));
         }
             
+        /// <summary>
+        /// Giving college list, can be use to search college.
+        /// </summary>
+        /// <param name="pattern">Part of College`s name</param>
+        /// <returns></returns>
         internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject(string pattern = null)
         {
             List<Models.API.Collage.College> colleges = new List<Models.API.Collage.College>();
@@ -37,7 +47,12 @@ namespace StudentAPI.Libs
             return colleges;
         }
  
-        internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(string id)
+        /// <summary>
+        /// Giving deparment list of college
+        /// </summary>
+        /// <param name="id">College`s ID</param>
+        /// <returns></returns>
+        internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(int id)
         {
             List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
@@ -48,7 +63,12 @@ namespace StudentAPI.Libs
             return departments;
         }
 
-        internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(string id)
+        /// <summary>
+        /// Giving categories list of department
+        /// </summary>
+        /// <param name="id">Department`s ID</param>
+        /// <returns></returns>
+        internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(int id)
         {
             List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
@@ -71,16 +91,24 @@ namespace StudentAPI.Libs
         /// </summary>
         /// <param name="auth_provider">Provider like a "facebook"</param>
         /// <param name="accessToken">Access to provider</param>
-        /// <returns></returns>
-        internal static async Task<Models.API.Session> SetSession(string auth_provider, string accessToken)
+        /// <returns>true/false</returns>
+        internal static async Task<bool> SetSession(string auth_provider, string accessToken)
         {
-            return new Models.API.Session(JObject.Parse(await Request.MakeGetRequest($"{URL}/auth/connect-with-provider?auth_provider={auth_provider}&access_token={accessToken}")).SelectToken("authResult"));
+            try
+            {
+                new Models.API.Session(JObject.Parse(await Request.MakeGetRequest($"{URL}/auth/connect-with-provider?auth_provider={auth_provider}&access_token={accessToken}")).SelectToken("authResult"));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Give information about first login to KotStudent
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true/false</returns>
         internal static bool isNew()
         {
             if (Models.API.Session.New == true)
@@ -116,6 +144,7 @@ namespace StudentAPI.Libs
 
         #region TestRegion
 
+        //funkcja do testowania zapytan i zwrotów
         internal static async Task<string> GetCollege()
         {
             var json = await Request.MakeGetRequest($"{URL}/group/colleges");

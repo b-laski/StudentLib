@@ -36,15 +36,18 @@ namespace TestProgram.FORM
                 access_token = ((webBrowser1.Url.AbsoluteUri).Split(_tokenSep, StringSplitOptions.None)[1]);
                 //MessageBox.Show(access_token);
                 webBrowser1.Visible = false;
-                test(access_token);
+                SignIn(access_token);
             }
             //MessageBox.Show(access_token);
         }
 
-        private void test(string access_token)
+        private void SignIn(string access_token)
         {
-            StudentAPI.StudentAPI.SetSession("facebook", access_token);
-            MessageBox.Show("Succes login");
+            bool flaga = StudentAPI.StudentAPI.SetSession("facebook", access_token);
+            if(flaga)
+                MessageBox.Show("Succes login");
+            else
+                MessageBox.Show("Fail login");
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -77,7 +80,7 @@ namespace TestProgram.FORM
 
         private async void btnLoadDeparments_Click(object sender, EventArgs e)
         {
-            var list = await StudentAPI.StudentAPI.GetDepartmentListAsync("1");
+            var list = await StudentAPI.StudentAPI.GetDepartmentListAsync(1);
 
             foreach (var item in list)
             {
@@ -87,7 +90,7 @@ namespace TestProgram.FORM
 
         private async void btnLoadCategories_Click(object sender, EventArgs e)
         {
-            var list = await StudentAPI.StudentAPI.GetCategoriesListAsync("2");
+            var list = await StudentAPI.StudentAPI.GetCategoriesListAsync(2);
 
             foreach(var item in list)
             {
