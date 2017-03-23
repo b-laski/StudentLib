@@ -38,19 +38,23 @@
             this.btnLoadCategories = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.TestBox = new System.Windows.Forms.TextBox();
+            this.NumericBox = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).BeginInit();
             this.SuspendLayout();
             // 
             // InfoBox
             // 
             this.InfoBox.FormattingEnabled = true;
-            this.InfoBox.Location = new System.Drawing.Point(12, 12);
+            this.InfoBox.Location = new System.Drawing.Point(16, 15);
+            this.InfoBox.Margin = new System.Windows.Forms.Padding(4);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(1305, 290);
+            this.InfoBox.Size = new System.Drawing.Size(940, 355);
             this.InfoBox.TabIndex = 0;
             // 
             // btnSignIn
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(1323, 12);
+            this.btnSignIn.Location = new System.Drawing.Point(964, 15);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(105, 23);
             this.btnSignIn.TabIndex = 1;
@@ -60,7 +64,8 @@
             // 
             // btnLoadSession
             // 
-            this.btnLoadSession.Location = new System.Drawing.Point(1323, 41);
+            this.btnLoadSession.Location = new System.Drawing.Point(964, 51);
+            this.btnLoadSession.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadSession.Name = "btnLoadSession";
             this.btnLoadSession.Size = new System.Drawing.Size(105, 23);
             this.btnLoadSession.TabIndex = 2;
@@ -70,7 +75,8 @@
             // 
             // btnLoadUser
             // 
-            this.btnLoadUser.Location = new System.Drawing.Point(1323, 71);
+            this.btnLoadUser.Location = new System.Drawing.Point(964, 87);
+            this.btnLoadUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadUser.Name = "btnLoadUser";
             this.btnLoadUser.Size = new System.Drawing.Size(105, 23);
             this.btnLoadUser.TabIndex = 3;
@@ -80,17 +86,19 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 364);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Location = new System.Drawing.Point(16, 448);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1416, 93);
+            this.webBrowser1.Size = new System.Drawing.Size(1053, 114);
             this.webBrowser1.TabIndex = 4;
             this.webBrowser1.Visible = false;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_FrameLoadStart);
             // 
             // btnLoadCollege
             // 
-            this.btnLoadCollege.Location = new System.Drawing.Point(12, 308);
+            this.btnLoadCollege.Location = new System.Drawing.Point(16, 379);
+            this.btnLoadCollege.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCollege.Name = "btnLoadCollege";
             this.btnLoadCollege.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCollege.TabIndex = 5;
@@ -100,7 +108,8 @@
             // 
             // btnLoadDeparments
             // 
-            this.btnLoadDeparments.Location = new System.Drawing.Point(93, 308);
+            this.btnLoadDeparments.Location = new System.Drawing.Point(99, 378);
+            this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadDeparments.Name = "btnLoadDeparments";
             this.btnLoadDeparments.Size = new System.Drawing.Size(75, 23);
             this.btnLoadDeparments.TabIndex = 6;
@@ -110,7 +119,8 @@
             // 
             // btnLoadCategories
             // 
-            this.btnLoadCategories.Location = new System.Drawing.Point(174, 308);
+            this.btnLoadCategories.Location = new System.Drawing.Point(182, 378);
+            this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCategories.Name = "btnLoadCategories";
             this.btnLoadCategories.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCategories.TabIndex = 7;
@@ -120,7 +130,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(255, 308);
+            this.button2.Location = new System.Drawing.Point(265, 378);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -130,17 +141,25 @@
             // 
             // TestBox
             // 
-            this.TestBox.Location = new System.Drawing.Point(10, 336);
-            this.TestBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TestBox.Location = new System.Drawing.Point(16, 408);
+            this.TestBox.Margin = new System.Windows.Forms.Padding(2);
             this.TestBox.Name = "TestBox";
-            this.TestBox.Size = new System.Drawing.Size(157, 20);
+            this.TestBox.Size = new System.Drawing.Size(158, 20);
             this.TestBox.TabIndex = 9;
+            // 
+            // NumericBox
+            // 
+            this.NumericBox.Location = new System.Drawing.Point(182, 409);
+            this.NumericBox.Name = "NumericBox";
+            this.NumericBox.Size = new System.Drawing.Size(158, 20);
+            this.NumericBox.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 469);
+            this.ClientSize = new System.Drawing.Size(1081, 577);
+            this.Controls.Add(this.NumericBox);
             this.Controls.Add(this.TestBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnLoadCategories);
@@ -151,9 +170,11 @@
             this.Controls.Add(this.btnLoadSession);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.InfoBox);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +192,7 @@
         private System.Windows.Forms.Button btnLoadCategories;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox TestBox;
+        private System.Windows.Forms.NumericUpDown NumericBox;
     }
 }
 

@@ -80,22 +80,36 @@ namespace TestProgram.FORM
 
         private async void btnLoadDeparments_Click(object sender, EventArgs e)
         {
-            var list = await StudentAPI.StudentAPI.GetDepartmentListAsync(1);
+            var list = await StudentAPI.StudentAPI.GetDepartmentListAsync((int)NumericBox.Value);
 
-            foreach (var item in list)
+            if (list != null)
             {
-                InfoBox.Items.Add(item.ToString());
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item.ToString());
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Niema wydzialow!");
             }
         }
 
         private async void btnLoadCategories_Click(object sender, EventArgs e)
         {
-            var list = await StudentAPI.StudentAPI.GetCategoriesListAsync(2);
-
-            foreach(var item in list)
+            var list = await StudentAPI.StudentAPI.GetCategoriesListAsync((int)NumericBox.Value);
+            if(list!=null)
             {
-                InfoBox.Items.Add(item);
+                foreach(var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
             }
+            else
+            {
+                InfoBox.Items.Add("Niema wydzialow!");
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
