@@ -1,30 +1,64 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentAPI.Models.API.Collage
 {
     public class College
     {
+        //Variable
         [JsonProperty("id")]
-        public static int ID { get; set; }
+        private int _id { get; set; }
         [JsonProperty("name")]
-        public static string Name { get; set; }
+        private string _name { get; set; }
         [JsonProperty("description")]
-        public static string Description { get; set; }
+        private string _description { get; set; }
         [JsonProperty("photo")]
-        public static string Photo { get; set; }
+        private string _photo { get; set; }
         [JsonProperty("cover")]
-        public static string Cover { get; set; }
+        private string _cover { get; set; }
         [JsonProperty("endDate")]
-        public static int? EndDate { get; set; }
+        private int? _endDate { get; set; }
         [JsonProperty("createDate")]
-        public static int CreateDate { get; set; }
+        private int _createDate { get; set; }
 
+        //Property
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public string Photo
+        {
+            get { return _photo; }
+            set { _photo = value; }
+        }
+        public string Cover
+        {
+            get { return _cover; }
+            set { _cover = value; }
+        }
+        public int? EndDate
+        {
+            get { return _endDate; }
+            set { _endDate = value; }
+        }
+        public int CreateDate
+        {
+            get { return _createDate; }
+            set { _createDate = value; }
+        }
+
+        //Ctor
         public College(string jsonStr)
         {
             JObject json = JObject.Parse(jsonStr);

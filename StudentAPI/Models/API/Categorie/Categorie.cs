@@ -11,9 +11,30 @@ namespace StudentAPI.Models.API.Categorie
 {
     public class Categorie
     {
-        public static int ID { get; set; }
-        public static string Name { get; set; }
-        public static List<string> GroupList { get; set; }
+        [JsonProperty("id")]
+        private int _id;
+        [JsonProperty("name")]
+        private string _name;
+        [JsonProperty("dependencies")]
+        private List<string> _groupList = new List<string>();
+
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public List<string> GroupList
+        {
+            get { return _groupList; }
+            set { _groupList = value; }
+        }
 
         public Categorie(JObject json)
         {

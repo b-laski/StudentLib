@@ -1,23 +1,64 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentAPI.Models.API.Deparment
 {
     public class Department
     {
-        public static int ID { get; set; }
-        public static string Name { get; set; }
-        public static string Description { get; set; }
-        public static string Photo { get; set; }
-        public static string Cover { get; set; }
-        public static int? EndDate { get; set; }
-        public static int CreateDate { get; set; }
+        //Variable
+        [JsonProperty("id")]
+        private int _id;
+        [JsonProperty("name")]
+        private string _name;
+        [JsonProperty("description")]
+        private string _description;
+        [JsonProperty("photo")]
+        private string _photo;
+        [JsonProperty("cover")]
+        private string _cover;
+        [JsonProperty("endDate")]
+        private int? _endDate;
+        [JsonProperty("createDate")]
+        private int _createDate;
 
+        //Property
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public string Photo
+        {
+            get { return _photo; }
+            set { _photo = value; }
+        }
+        public string Cover
+        {
+            get { return _cover; }
+            set { _cover = value; }
+        }
+        public int? EndDate
+        {
+            get { return _endDate; }
+            set { _endDate = value; }
+        }
+        public int CreateDate
+        {
+            get { return _createDate; }
+            set { _createDate = value; }
+        }
+
+        //Ctor
         public Department(string jsonStr)
         {
             JObject json = JObject.Parse(jsonStr);
@@ -32,6 +73,11 @@ namespace StudentAPI.Models.API.Deparment
             Description = json.SelectToken("description").ToString();
             Photo = json.SelectToken("photo").ToString();
             Cover = json.SelectToken("cover").ToString();
+        }
+
+        public override string ToString()
+        {
+            return $"{ID}, {Name} {Description}";
         }
     }
 }

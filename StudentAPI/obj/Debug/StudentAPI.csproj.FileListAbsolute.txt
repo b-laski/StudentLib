@@ -19,3 +19,4 @@ D:\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.dll
 D:\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.xml
 D:\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.dll
 D:\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.pdb
+D:\StudentAPI\StudentAPI\StudentAPI\obj\Debug\StudentAPI.csprojResolveAssemblyReference.cache

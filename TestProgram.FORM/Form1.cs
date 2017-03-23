@@ -67,7 +67,7 @@ namespace TestProgram.FORM
 
         private async void btnLoadCollege_Click(object sender, EventArgs e)
         {
-            var list = await StudentAPI.StudentAPI.GetCollegeListAsync();
+            var list = await StudentAPI.StudentAPI.GetCollegeListAsync(TestBox.Text);
 
             foreach(var item in list)
             {

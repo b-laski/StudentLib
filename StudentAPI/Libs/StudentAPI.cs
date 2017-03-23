@@ -20,10 +20,16 @@ namespace StudentAPI.Libs
             return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("user"));
         }
             
-        internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject()
+        internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject(string pattern = null)
         {
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges")).SelectToken("colleges");
-            List<Models.API.Collage.College> colleges= new List<Models.API.Collage.College>();
+            List<Models.API.Collage.College> colleges = new List<Models.API.Collage.College>();
+            JToken json;
+
+            if (string.IsNullOrEmpty(pattern))
+                json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges")).SelectToken("colleges");
+            else
+                json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges?by_name={pattern.ToLower()}")).SelectToken("colleges");
+
             foreach(JToken item in json)
             {
                 colleges.Add(new Models.API.Collage.College(item.ToString()));
@@ -33,8 +39,8 @@ namespace StudentAPI.Libs
  
         internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(string id)
         {
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
             List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
             foreach(JObject item in json.SelectToken("departments"))
             {
                 departments.Add(new Models.API.Deparment.Department(item.ToString()));
@@ -45,9 +51,8 @@ namespace StudentAPI.Libs
         internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(string id)
         {
             List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}")).SelectToken("categories");
-            Logs.Output.Log(json.ToString());
-            foreach (JObject item in json)
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
+            foreach (JObject item in json.SelectToken("categories"))
             {
                 categories.Add(new Models.API.Categorie.Categorie(item));
             }
