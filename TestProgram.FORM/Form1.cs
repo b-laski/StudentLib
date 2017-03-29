@@ -111,5 +111,14 @@ namespace TestProgram.FORM
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("WYBUCHY!","ERROR JAK CHUJ", MessageBoxButtons.OK , MessageBoxIcon.Error);
+        }
+
+        private void btnAddCollage_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

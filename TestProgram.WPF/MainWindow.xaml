@@ -4,9 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestProgram.WPF"
+        xmlns:viewModels="clr-namespace:TestProgram.WPF.ViewModels"
+        xmlns:login="clr-namespace:TestProgram.WPF.ViewModels.LoginWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Margin="0"
+        Padding="1"
+        Title="MainWindow" Height="600" Width="1000">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <viewModels:TopBar x:Name="TopBar" TopBarButtonClick="TopBar_TopBarButtonClick" MouseMove="TopBar_MouseMove"/>
+        </Border>
+        <Grid x:Name="loginSector" Grid.Row="1" Visibility="Collapsed">
+            <login:LoginWindow x:Name="loginWindow" Visibility="Visible" LoginButtonClick="loginWindow_LoginButtonClick"/>
+            <login:LoginBrowser x:Name="webClient" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="54" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid Grid.Row="0">
+                    <viewModels:Portrait/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ namespace StudentAPI.Models.API.Categorie
 {
     public class Categorie
     {
+        //Variable
         [JsonProperty("id")]
         private int _id;
         [JsonProperty("name")]
@@ -18,18 +19,17 @@ namespace StudentAPI.Models.API.Categorie
         [JsonProperty("dependencies")]
         private List<string> _groupList = new List<string>();
 
+        //Propety
         public int ID
         {
             get { return _id; }
             set { _id = value; }
         }
-
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-
         public List<string> GroupList
         {
             get { return _groupList; }

@@ -101,6 +101,23 @@ namespace StudentAPI.Libs
         }
         #endregion
 
+        #region CreateObject
+
+        internal static string CreateCollege(string name, List<string> alias, string cover, string photo, string description)
+        {
+            var date = "{\"name:\"" + name + ",\"alias\":[";
+            foreach(var item in alias)
+            {
+                date += $"\"{alias}\"";
+            }
+            date += "], \"cover:\" \"" + cover + "\", \"photo:\"" + photo + "\", \"description:\"" + description + "\"";
+
+            return date;
+
+        }
+
+        #endregion
+
         #region Settings
 
         /// <summary>
