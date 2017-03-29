@@ -59,12 +59,12 @@ namespace StudentAPI.Models.API.Collage
         }
 
         //Ctor
-        public College(string jsonStr)
+        public College(JToken json)
         {
-            JObject json = JObject.Parse(jsonStr);
+            //JObject json = JObject.Parse(jsonStr);
             int id, endDate, createDate;
 
-            if (int.TryParse(json.SelectToken("userID")?.ToString(), out id)) ID = id;
+            if (int.TryParse(json.SelectToken("id")?.ToString(), out id)) ID = id;
             if (int.TryParse(json.SelectToken("registerTime")?.ToString(), out endDate)) EndDate = endDate;
             if (int.TryParse(json.SelectToken("birthday")?.ToString(), out createDate)) CreateDate = createDate;
 

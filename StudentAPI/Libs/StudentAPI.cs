@@ -42,7 +42,7 @@ namespace StudentAPI.Libs
 
             foreach(JToken item in json)
             {
-                colleges.Add(new Models.API.Collage.College(item.ToString()));
+                colleges.Add(new Models.API.Collage.College(item));
             }
             return colleges;
         }
