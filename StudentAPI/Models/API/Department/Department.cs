@@ -6,6 +6,7 @@ namespace StudentAPI.Models.API.Deparment
     public class Department
     {
         //Variable
+        #region Variable
         [JsonProperty("id")]
         private int _id;
         [JsonProperty("name")]
@@ -20,8 +21,10 @@ namespace StudentAPI.Models.API.Deparment
         private int? _endDate;
         [JsonProperty("createDate")]
         private int _createDate;
+        #endregion
 
         //Property
+        #region Property
         public int ID
         {
             get { return _id; }
@@ -57,6 +60,8 @@ namespace StudentAPI.Models.API.Deparment
             get { return _createDate; }
             set { _createDate = value; }
         }
+        #endregion
+
 
         //Ctor
         public Department(string jsonStr)

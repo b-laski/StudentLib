@@ -39,6 +39,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.TestBox = new System.Windows.Forms.TextBox();
             this.NumericBox = new System.Windows.Forms.NumericUpDown();
+            this.btnAddCollage = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,11 +157,43 @@
             this.NumericBox.Size = new System.Drawing.Size(158, 20);
             this.NumericBox.TabIndex = 10;
             // 
+            // btnAddCollage
+            // 
+            this.btnAddCollage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddCollage.Location = new System.Drawing.Point(963, 117);
+            this.btnAddCollage.Name = "btnAddCollage";
+            this.btnAddCollage.Size = new System.Drawing.Size(106, 23);
+            this.btnAddCollage.TabIndex = 11;
+            this.btnAddCollage.Text = "Add College";
+            this.btnAddCollage.UseVisualStyleBackColor = true;
+            this.btnAddCollage.Click += new System.EventHandler(this.btnAddCollage_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(963, 146);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(106, 23);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(963, 175);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(106, 23);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 577);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAddCollage);
             this.Controls.Add(this.NumericBox);
             this.Controls.Add(this.TestBox);
             this.Controls.Add(this.button2);
@@ -193,6 +228,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox TestBox;
         private System.Windows.Forms.NumericUpDown NumericBox;
+        private System.Windows.Forms.Button btnAddCollage;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
