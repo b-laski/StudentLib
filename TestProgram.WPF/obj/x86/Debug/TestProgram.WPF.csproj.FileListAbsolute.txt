@@ -31,3 +31,5 @@ D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.Properties.Resour
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.csproj.GenerateResource.Cache
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.exe
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.pdb
+D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\ViewModels\Menu.g.cs
+D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\ViewModels\Menu.baml

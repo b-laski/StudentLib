@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace StudentAPI.Models.API.Collage
 {
-    public class College
+    public class College : Utilities.ViewModelBase
     {
         //Variable
         [JsonProperty("id")]
@@ -25,37 +25,37 @@ namespace StudentAPI.Models.API.Collage
         public int ID
         {
             get { return _id; }
-            set { _id = value; }
+            set { _id = value; OnPropertyChanged("ID"); }
         }
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set { _name = value; OnPropertyChanged("Name"); }
         }
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set { _description = value; OnPropertyChanged("Description"); }
         }
         public string Photo
         {
             get { return _photo; }
-            set { _photo = value; }
+            set { _photo = value; OnPropertyChanged("Photo"); }
         }
         public string Cover
         {
             get { return _cover; }
-            set { _cover = value; }
+            set { _cover = value; OnPropertyChanged("Cover");}
         }
         public int? EndDate
         {
             get { return _endDate; }
-            set { _endDate = value; }
+            set { _endDate = value; OnPropertyChanged("EndDate"); }
         }
         public int CreateDate
         {
             get { return _createDate; }
-            set { _createDate = value; }
+            set { _createDate = value; OnPropertyChanged("CreateDate"); }
         }
 
         //Ctor

@@ -67,17 +67,19 @@ namespace TestProgram.WPF
             loginWindow.Visibility = Visibility.Collapsed;
             webClient.Visibility = Visibility.Visible;
             webClient.SetAdress(_url);
+            lodingScreen.Visibility = Visibility.Visible;
             webClient.LoginStatus += (s, e) => {
                 if (e == ViewModels.LoginWindow.LoginBrowser.LoginStatusEnum.Succes)
                 {
-                    MessageBox.Show("OK");
                     webClient.Visibility = Visibility.Collapsed;
+                    mainWindow.Visibility = Visibility.Visible;
+                    lodingScreen.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    MessageBox.Show("FAIL");
                     webClient.Visibility = Visibility.Collapsed;
                     loginWindow.Visibility = Visibility.Visible;
+                    lodingScreen.Visibility = Visibility.Collapsed;
                 }
 
             };

@@ -20,18 +20,26 @@
         <Border Grid.Row="0">
             <viewModels:TopBar x:Name="TopBar" TopBarButtonClick="TopBar_TopBarButtonClick" MouseMove="TopBar_MouseMove"/>
         </Border>
-        <Grid x:Name="loginSector" Grid.Row="1" Visibility="Collapsed">
+        <Grid x:Name="loginSector" Grid.Row="1" Visibility="Visible">
             <login:LoginWindow x:Name="loginWindow" Visibility="Visible" LoginButtonClick="loginWindow_LoginButtonClick"/>
             <login:LoginBrowser x:Name="webClient" Visibility="Collapsed"/>
+            <ProgressBar x:Name="lodingScreen" IsIndeterminate="True" Visibility="Collapsed"/>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid x:Name="mainWindow" Grid.Row="1" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="54" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid>
-                <Grid Grid.Row="0">
-                    <viewModels:Portrait/>
+            <Grid Grid.Row="0">
+                <viewModels:Portrait/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <viewModels:Menu x:Name="Menu"/>
                 </Grid>
             </Grid>
         </Grid>
