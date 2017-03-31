@@ -21,6 +21,7 @@ namespace TestProgram.WPF.ViewModels
     /// </summary>
     public partial class Menu : UserControl
     {
+
         public StudentAPI.Models.API.Collage.College ConvertModel
         {
             get
@@ -36,9 +37,9 @@ namespace TestProgram.WPF.ViewModels
             InitializeComponent();
         }
 
-        public Menu(StudentAPI.Models.API.Collage.College _conntent) : this()
+        public Menu(List<StudentAPI.Models.API.Collage.College> _content) : this()
         {
-            this.DataContext = _conntent;
+            this.DataContext = _content;
         }
     }
 }

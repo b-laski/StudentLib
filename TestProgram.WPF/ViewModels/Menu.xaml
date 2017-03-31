@@ -10,7 +10,11 @@
     <Grid>
         <StackPanel Panel.ZIndex="2" x:Name="pnlButtonMenu" Orientation="Vertical">
             <TreeView>
-                <TreeViewItem />
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type Menu}" ItemsSource="{Binding DataContext}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
             </TreeView>
         </StackPanel>
     </Grid>

@@ -17,7 +17,7 @@ D:\StudentAPI\StudentAPI\StudentAPI\obj\Debug\StudentAPI.csprojResolveAssemblyRe
 D:\KotStudentLib\StudentAPI\bin\Debug\StudentAPI.dll
 D:\KotStudentLib\StudentAPI\bin\Debug\StudentAPI.pdb
 D:\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.dll
+D:\KotStudentLib\StudentAPI\bin\Debug\Utilities.dll
 D:\KotStudentLib\StudentAPI\bin\Debug\Newtonsoft.Json.xml
-D:\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.csprojResolveAssemblyReference.cache
 D:\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.dll
 D:\KotStudentLib\StudentAPI\obj\Debug\StudentAPI.pdb

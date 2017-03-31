@@ -74,6 +74,7 @@ namespace TestProgram.WPF
                     webClient.Visibility = Visibility.Collapsed;
                     mainWindow.Visibility = Visibility.Visible;
                     lodingScreen.Visibility = Visibility.Collapsed;
+                    
                 }
                 else
                 {

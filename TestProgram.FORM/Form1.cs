@@ -74,7 +74,7 @@ namespace TestProgram.FORM
 
             foreach(var item in list)
             {
-                InfoBox.Items.Add(item.ToString());
+                InfoBox.Items.Add(item);
             }
         }
 
@@ -86,7 +86,7 @@ namespace TestProgram.FORM
             {
                 foreach (var item in list)
                 {
-                    InfoBox.Items.Add(item.ToString());
+                    InfoBox.Items.Add(item);
                 }
             }
             else

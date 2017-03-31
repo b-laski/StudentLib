@@ -6,19 +6,12 @@ namespace StudentAPI.Models.API.Collage
     public class College : Utilities.ViewModelBase
     {
         //Variable
-        [JsonProperty("id")]
         private int _id { get; set; }
-        [JsonProperty("name")]
         private string _name { get; set; }
-        [JsonProperty("description")]
         private string _description { get; set; }
-        [JsonProperty("photo")]
         private string _photo { get; set; }
-        [JsonProperty("cover")]
         private string _cover { get; set; }
-        [JsonProperty("endDate")]
         private int? _endDate { get; set; }
-        [JsonProperty("createDate")]
         private int _createDate { get; set; }
 
         //Property
