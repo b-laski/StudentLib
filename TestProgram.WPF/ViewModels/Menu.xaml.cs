@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using StudentAPI.Models.API;
 
 namespace TestProgram.WPF.ViewModels
 {
@@ -37,9 +38,22 @@ namespace TestProgram.WPF.ViewModels
             InitializeComponent();
         }
 
-        public Menu(List<StudentAPI.Models.API.Collage.College> _content) : this()
+        public void AddCollage(List<StudentAPI.Models.API.Collage.College> _content)
         {
-            this.DataContext = _content;
+            foreach (var i in _content)
+            {
+                CollageView.Items.Add(i);
+            }
+        }
+
+        private void CollageView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            List<StudentAPI.Models.API.Deparment.Department> _departments = StudentAPI.StudentAPI.GetDepartmentList((CollageView.SelectedItem as StudentAPI.Models.API.Collage.College).ID);
+            CollageView.Items.Clear();
+            foreach (var item in _departments)
+            {
+                CollageView.Items.Add(item);
+            }
         }
     }
 }

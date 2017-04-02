@@ -9,12 +9,12 @@
              d:DesignHeight="500" d:DesignWidth="300">
     <Grid>
         <StackPanel Panel.ZIndex="2" x:Name="pnlButtonMenu" Orientation="Vertical">
-            <TreeView>
+            <TreeView x:Name="CollageView" MouseDoubleClick="CollageView_MouseDoubleClick">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type Menu}" ItemsSource="{Binding DataContext}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Collage}">
+                            <TextBlock Text="{Binding Name}" />
+                        </HierarchicalDataTemplate>
+                 </TreeView.ItemTemplate>
             </TreeView>
         </StackPanel>
     </Grid>
