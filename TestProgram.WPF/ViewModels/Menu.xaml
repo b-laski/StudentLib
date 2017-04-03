@@ -6,10 +6,44 @@
              xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:TestProgram.WPF.ViewModels"
              mc:Ignorable="d"
-             MinHeight="320" MinWidth="56"
+             MinHeight="320" MinWidth="48"
              MaxWidth="200"
-             d:DesignHeight="500" d:DesignWidth="56">
-    <Grid>
-        
+             d:DesignHeight="500" d:DesignWidth="48">
+    <Grid x:Name="pnlMenu">
+        <StackPanel>
+            <StackPanel Panel.ZIndex="2" x:Name="pnlButtonMenu" Orientation="Vertical">
+            <Button x:Name="btnGroups" Style="{DynamicResource MaterialDesignToolButton}" HorizontalContentAlignment="Left" Margin="0,8,0,0" Height="48" MouseDown="btnGroups_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <material:PackIcon Grid.Column="0" Kind="AccountMultiple" Margin="12,0,0,0" Width="16" Height="16"/>
+                    <TextBlock x:Name="groupTextBlock" Grid.Column="1" Text="Groups" Margin="24,0,0,0" Visibility="Collapsed" />
+                </Grid>
+            </Button>
+                <Button x:Name="btnMessage" Style="{DynamicResource MaterialDesignToolButton}" HorizontalContentAlignment="Left" Margin="0,8,0,0" Height="48" MouseDown="btnMessage_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <material:PackIcon Grid.Column="0" Kind="Message" Margin="12,0,0,0" Width="16" Height="16"/>
+                    <TextBlock x:Name="messageTextBlock" Grid.Column="1" Text="Messages" Margin="24,0,0,0" Visibility="Collapsed" />
+                </Grid>
+            </Button>
+                <Button x:Name="btnSettings" Style="{DynamicResource MaterialDesignToolButton}" HorizontalContentAlignment="Left" Margin="0,8,0,0" Height="48" MouseDown="btnSettings_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <material:PackIcon Grid.Column="0" Kind="Settings" Margin="12,0,0,0" Width="16" Height="16"/>
+                    <TextBlock x:Name="settingsTextBlock" Grid.Column="1" Text="Settings" Margin="24,0,0,0" Visibility="Collapsed" />
+                </Grid>
+            </Button>
+        </StackPanel>
+            <Separator x:Name="separatorekXD" HorizontalAlignment="Center" Width="36"/>
+        </StackPanel>
     </Grid>
 </UserControl>

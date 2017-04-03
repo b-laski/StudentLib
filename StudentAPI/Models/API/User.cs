@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
+using Utilities;
 
 namespace StudentAPI.Models.API
 {
-    public class User
+    public class User : Utilities.ViewModelBase
     {
         //Variable
         private int _userID;
@@ -20,52 +21,92 @@ namespace StudentAPI.Models.API
         public int UserID
         {
             get { return _userID; }
-            set { _userID = value; }
+            set
+            {
+                _userID = value;
+                OnPropertyChanged("UserID");
+            }
         }
         public string Email
         {
             get { return _email; }
-            set { _email = value; }
+            set
+            {
+                _email = value;
+                OnPropertyChanged("Email");
+            }
         }
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged("Name");
+            }
         }
         public int RegisterTime
         {
             get { return _registerTime; }
-            set { _registerTime = value; }
+            set
+            {
+                _registerTime = value;
+                OnPropertyChanged("RegisterTime");
+            }
         }
         public string Gender
         {
             get { return _gender; }
-            set { _gender = value; }
+            set
+            {
+                _gender = value;
+                OnPropertyChanged("Gender");
+            }
         }
         public int Birthday
         {
             get { return _birthday; }
-            set { _birthday = value; }
+            set
+            {
+                _birthday = value;
+                OnPropertyChanged("Birthday");
+            }
         }
         public string Photo
         {
             get { return _photo; }
-            set { _photo = value; }
+            set
+            {
+                _photo = value;
+                OnPropertyChanged("Photo");
+            }
         }
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            set
+            {
+                _lastName = value;
+                OnPropertyChanged("LastName");
+            }
         }
         public string MiddleName
         {
             get { return _middleName; }
-            set { _middleName = value; }
+            set
+            {
+                _middleName = value;
+                OnPropertyChanged("MiddleName");
+            }
         }
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set
+            {
+                _firstName = value;
+                OnPropertyChanged("FirstName");
+            }
         }
 
         //ctor

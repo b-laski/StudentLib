@@ -10,7 +10,6 @@
              d:DesignHeight="36" d:DesignWidth="300">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="16,0,0,0" >
-            <material:PackIcon Kind="Android" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
             <TextBlock Text="Kot #Student" Margin="6,0,0,0" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

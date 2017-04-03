@@ -64,17 +64,22 @@ namespace TestProgram.WPF
 
         private void loginWindow_LoginButtonClick(object sender, string _url)
         {
-            loginWindow.Visibility = Visibility.Collapsed;
-            webClient.Visibility = Visibility.Visible;
-            webClient.SetAdress(_url);
-            lodingScreen.Visibility = Visibility.Visible;
+            Utilities.Animations.OpacityAnimation(loginWindow, 0, TimeSpan.FromMilliseconds(400),() =>{
+                loginWindow.Visibility = Visibility.Collapsed;
+                webClient.Visibility = Visibility.Visible;
+                webClient.SetAdress(_url);
+                lodingScreen.Visibility = Visibility.Collapsed;
+            });
             webClient.LoginStatus += (s, e) => {
                 if (e == ViewModels.LoginWindow.LoginBrowser.LoginStatusEnum.Succes)
                 {
+                    PortraitBox.SetupAll();
                     webClient.Visibility = Visibility.Collapsed;
                     mainWindow.Visibility = Visibility.Visible;
-                    lodingScreen.Visibility = Visibility.Collapsed;
-                    //Menu.AddCollage();
+                    Utilities.Animations.OpacityAnimation(mainWindow, 1, TimeSpan.FromMilliseconds(800), () =>
+                    {
+                        lodingScreen.Visibility = Visibility.Collapsed;
+                    }); 
                 }
                 else
                 {
@@ -88,5 +93,24 @@ namespace TestProgram.WPF
 
         #endregion
 
+        private void pnlMenu_MenuButtons(object sender, ViewModels.Menu.MenuList e)
+        {
+            foreach (Control item in panelUserControl.Children)
+            {
+                item.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Portrait_OpenMenu(object sender, ViewModels.Portrait.OpenHideMenu e)
+        {
+            if(e == ViewModels.Portrait.OpenHideMenu.Open)
+            {
+                pnlMenu.OpenMenu();
+            }
+            else if (e == ViewModels.Portrait.OpenHideMenu.Close)
+            {
+                pnlMenu.CloseMenu();
+            }
+        }
     }
 }

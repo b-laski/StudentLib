@@ -10,8 +10,8 @@
         AllowsTransparency="True"
         WindowStyle="None"
         Margin="0"
-        Padding="1"
-        Title="MainWindow" Height="600" Width="1000">
+        Padding="0"
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,21 +20,36 @@
         <Border Grid.Row="0">
             <viewModels:TopBar x:Name="TopBar" TopBarButtonClick="TopBar_TopBarButtonClick" MouseMove="TopBar_MouseMove"/>
         </Border>
-        <Grid x:Name="loginSector" Grid.Row="1" Visibility="Visible">
+        
+        <!--Login sector!!-->
+        <Grid x:Name="loginSector" Grid.Row="1" Opacity="1" Visibility="Visible">
             <login:LoginWindow x:Name="loginWindow" Visibility="Visible" LoginButtonClick="loginWindow_LoginButtonClick"/>
-            <login:LoginBrowser x:Name="webClient" Visibility="Collapsed"/>
+            <login:LoginBrowser x:Name="webClient" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
             <ProgressBar x:Name="lodingScreen" IsIndeterminate="True" Visibility="Collapsed"/>
         </Grid>
-        <Grid x:Name="mainWindow" Grid.Row="1" Visibility="Collapsed">
+        
+        <!--MAIN WINDOW-->
+        <Grid x:Name="mainWindow" Grid.Row="1" Opacity="0" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="54" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <viewModels:Portrait/>
+                <viewModels:Portrait x:Name="PortraitBox" OpenMenu="Portrait_OpenMenu"/>
             </Grid>
             <Grid Grid.Row="1">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Background="{DynamicResource MaterialDesignChipBackground}">
+                    <StackPanel Orientation="Horizontal">
+                        <viewModels:Menu x:Name="pnlMenu" HorizontalAlignment="Left" MenuButtons="pnlMenu_MenuButtons"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" x:Name="panelUserControl">
+                    
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

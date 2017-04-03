@@ -34,3 +34,6 @@ D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\MainWindow.baml
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.g.resources
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.Properties.Resources.resources
 D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\TestProgram.WPF.csproj.GenerateResource.Cache
+D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\Artefact.dll
+D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\ViewModels\Profile.g.cs
+D:\KotStudentLib\TestProgram.WPF\obj\x86\Debug\ViewModels\Profile.baml

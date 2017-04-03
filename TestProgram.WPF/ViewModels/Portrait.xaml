@@ -8,10 +8,27 @@
              mc:Ignorable="d" 
              Background="{DynamicResource PrimaryHueMidBrush}"
              Effect="{DynamicResource MaterialDesignShadowDepth2}"
-             d:DesignHeight="56" d:DesignWidth="300">
+             d:DesignHeight="56" d:DesignWidth="600">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <ToggleButton x:Name="btnMenu" Margin="16" Height="26" Width="26" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
-        </StackPanel>  
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <StackPanel HorizontalAlignment="Left">
+                <ToggleButton x:Name="btnMenu" Margin="16" Height="26" Width="26" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{StaticResource MaterialDesignHamburgerToggleButton}" Click="btnMenu_Click"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBox VerticalAlignment="Center" HorizontalAlignment="Right" Width="150"/>
+                <Button HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{DynamicResource MaterialDesignFlatButton}">
+                    <Grid>
+                        <material:PackIcon Kind="Magnify"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,48,0">
+            <local:Profile x:Name="Profil"/>
+        </Grid>
     </Grid>
 </UserControl>

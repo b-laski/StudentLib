@@ -35,8 +35,10 @@ namespace TestProgram.WPF.ViewModels.LoginWindow
 
         public void SetAdress(string _url)
         {
-            WebClient.Navigate(new Uri(_url));
-            WebClient.Navigating += WebClient_Navigating;
+            wb.Loaded += (s, e) => {
+                wb.Source = new Uri("https://www.facebook.com/dialog/oauth?client_id=388432308196913&redirect_uri=https://www.facebook.com/connect/login_success.html&display=popup&scope=public_profile+email+user_education_history&response_type=token");
+                wb.Navigating += WebClient_Navigating;
+            };
         }
 
         private void WebClient_Navigating(object sender, NavigatingCancelEventArgs e)
