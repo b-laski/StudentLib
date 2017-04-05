@@ -29,7 +29,7 @@
         </Grid>
         
         <!--MAIN WINDOW-->
-        <Grid x:Name="mainWindow" Grid.Row="1" Opacity="0" Visibility="Collapsed">
+        <Grid x:Name="mainWindow" Grid.Row="1" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="54" />
                 <RowDefinition />

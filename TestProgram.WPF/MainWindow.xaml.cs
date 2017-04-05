@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -76,10 +77,7 @@ namespace TestProgram.WPF
                     PortraitBox.SetupAll();
                     webClient.Visibility = Visibility.Collapsed;
                     mainWindow.Visibility = Visibility.Visible;
-                    Utilities.Animations.OpacityAnimation(mainWindow, 1, TimeSpan.FromMilliseconds(800), () =>
-                    {
-                        lodingScreen.Visibility = Visibility.Collapsed;
-                    }); 
+                    lodingScreen.Visibility = Visibility.Collapsed; 
                 }
                 else
                 {
