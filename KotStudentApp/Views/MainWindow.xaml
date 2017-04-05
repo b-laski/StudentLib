@@ -10,6 +10,11 @@
         WindowStyle="None"
         Margin="0"
         Padding="0"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Title="MainWindow" Height="720" Width="1280">
     <Grid>
         <Grid.RowDefinitions>

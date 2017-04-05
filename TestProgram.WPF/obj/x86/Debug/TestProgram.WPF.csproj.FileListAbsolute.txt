@@ -7,7 +7,6 @@ D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\MaterialDesignThemes.Wpf.dll
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\StudentAPI.dll
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\Utilities.dll
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\Newtonsoft.Json.dll
-D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\MaterialDesignColors.pdb
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\MaterialDesignThemes.Wpf.pdb
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\MaterialDesignThemes.Wpf.xml
 D:\KotStudentLib\TestProgram.WPF\bin\x86\Debug\StudentAPI.pdb

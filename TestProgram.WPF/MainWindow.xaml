@@ -23,8 +23,8 @@
         
         <!--Login sector!!-->
         <Grid x:Name="loginSector" Grid.Row="1" Opacity="1" Visibility="Visible">
+            <login:LoginBrowser x:Name="webClient" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
             <login:LoginWindow x:Name="loginWindow" Visibility="Visible" LoginButtonClick="loginWindow_LoginButtonClick"/>
-            <login:LoginBrowser x:Name="webClient" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
             <ProgressBar x:Name="lodingScreen" IsIndeterminate="True" Visibility="Collapsed"/>
         </Grid>
         

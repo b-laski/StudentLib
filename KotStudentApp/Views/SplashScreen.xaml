@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KotStudentApp.Views"
+             xmlns:local="clr-namespace:KotStudentApp.Views.LoginWindows"
              mc:Ignorable="d" 
              Background="{DynamicResource PrimaryHueDarkBrush}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <Image x:Name="icon" Width="200" Height="200"/>
+        <Image x:Name="icon" Width="200" Height="200" Margin="0,0,0,350"/>
+        <local:LoginScreen x:Name="loginScreen" Margin="0,150,0,0" Visibility="Visible"/>
     </Grid>
 </UserControl>

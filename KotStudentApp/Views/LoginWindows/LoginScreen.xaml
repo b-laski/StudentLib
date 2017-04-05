@@ -1,20 +1,38 @@
-﻿<UserControl x:Class="KotStudentApp.Views.LoginWindows.LoginScreen"
+﻿<UserControl x:Name="MainParent" x:Class="KotStudentApp.Views.LoginWindows.LoginScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:KotStudentApp.Views.LoginWindows"
              mc:Ignorable="d" 
-             Background="{DynamicResource PrimaryHueDarkBrush}"
-             Foreground=""
-             MinHeight="500" MinWidth="400"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <StackPanel Margin="28">
-            <Label Content="Username:" Margin="0,56,0,0"/>
-            <TextBox/>
-            <Label Content="Password" Margin="0,56,0,0"/>
-            <TextBox Margin="0,0,0,0"/>
-        </StackPanel>
-    </Grid>
+             MinHeight="200" MinWidth="200"
+             MaxWidth="300" MaxHeight="300"
+             d:DesignHeight="300" d:DesignWidth="300"
+             Effect="{DynamicResource MaterialDesignShadowDepth1}" Loaded="MainParent_Loaded">
+    <Border CornerRadius="2" Background="{DynamicResource MaterialDesignPaper}">
+        <Grid>
+            <Grid x:Name="grdContent" Margin="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Login" FontSize="20" VerticalAlignment="Center" Margin="12" />
+                <TextBox x:Name="usernameBox" Grid.Row="1" material:HintAssist.Hint="Username" Margin="6" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+                <PasswordBox Grid.Row="2" Margin="6" material:HintAssist.Hint="Password" Style="{DynamicResource MaterialDesignFloatingHintPasswordBox}" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+                <Button Margin="6" Grid.Row="3">
+                    <TextBlock Text="LOGIN"/>
+                </Button>
+                <Button x:Name="btnFacebookLogin" Grid.Row="4" Margin="6" Background="#3b5998" BorderBrush="#3b5998">
+                    <TextBlock Text="FACEBOOK LOGIN"/>
+                </Button>
+            </Grid>
+            <Grid x:Name="grdProgressBar" Visibility="Collapsed" Opacity="0">
+                <ProgressBar  Style="{DynamicResource MaterialDesignCircularProgressBar}" IsIndeterminate="True" Width="36" Height="36" />
+            </Grid>
+        </Grid>
+    </Border>
 </UserControl>
