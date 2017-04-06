@@ -26,9 +26,18 @@
                 <Button Margin="6" Grid.Row="3">
                     <TextBlock Text="LOGIN"/>
                 </Button>
-                <Button x:Name="btnFacebookLogin" Grid.Row="4" Margin="6" Background="#3b5998" BorderBrush="#3b5998">
+                <Button x:Name="btnFacebookLogin" Grid.Row="4" Margin="6" Background="#3b5998" BorderBrush="#3b5998" Click="btnFacebookLogin_Click">
                     <TextBlock Text="FACEBOOK LOGIN"/>
                 </Button>
+            </Grid>
+            <Grid x:Name="wbClient" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Height="56" Background="{DynamicResource PrimaryHueMidBrush}" VerticalAlignment="Top">
+                </Grid>
+                <WebBrowser x:Name="webBrowser" Grid.Row="1"/>
             </Grid>
             <Grid x:Name="grdProgressBar" Visibility="Collapsed" Opacity="0">
                 <ProgressBar  Style="{DynamicResource MaterialDesignCircularProgressBar}" IsIndeterminate="True" Width="36" Height="36" />
