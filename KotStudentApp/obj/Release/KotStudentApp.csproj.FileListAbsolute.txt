@@ -24,3 +24,9 @@ D:\KotStudentLib\KotStudentApp\obj\Release\Views\LoginWindows\LoginScreen.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Release\Views\SplashScreen.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Release\Views\LoginWindows\LoginScreen.baml
 D:\KotStudentLib\KotStudentApp\obj\Release\Views\SplashScreen.baml
+D:\KotStudentLib\KotStudentApp\bin\Release\Artefact.dll
+D:\KotStudentLib\KotStudentApp\bin\Release\Utilities.dll
+D:\KotStudentLib\KotStudentApp\bin\Release\StudentAPI.dll
+D:\KotStudentLib\KotStudentApp\bin\Release\Newtonsoft.Json.dll
+D:\KotStudentLib\KotStudentApp\bin\Release\StudentAPI.pdb
+D:\KotStudentLib\KotStudentApp\bin\Release\Newtonsoft.Json.xml
