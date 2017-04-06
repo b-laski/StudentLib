@@ -15,7 +15,6 @@ namespace KotStudentApp.Views
         public SplashScreen()
         {
             InitializeComponent();
-            icon.Source = new BitmapImage(new Uri("http://materialdesignblog.com/wp-content/uploads/2015/04/387b93c8b66379c32e1cc2b98dcf5197.png"));
         }
     }
 }

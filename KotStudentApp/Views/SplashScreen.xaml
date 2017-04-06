@@ -8,7 +8,7 @@
              Background="{DynamicResource PrimaryHueDarkBrush}"
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <Image x:Name="icon" Width="200" Height="200" Margin="0,0,0,350"/>
+        <Image x:Name="icon" Source="/Images/web_hi_res_512.png" Width="200" Height="200" Margin="0,0,0,350"/>
         <local:LoginScreen x:Name="loginScreen" Margin="0,150,0,0" Visibility="Visible"/>
     </Grid>
 </UserControl>

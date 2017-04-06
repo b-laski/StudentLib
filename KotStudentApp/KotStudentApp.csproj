@@ -132,7 +132,14 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\testicon.png" />
+    <Resource Include="Images\mipmap-hdpi\ic_launcher.png" />
+    <Resource Include="Images\mipmap-mdpi\ic_launcher.png" />
+    <Resource Include="Images\mipmap-xhdpi\ic_launcher.png" />
+    <Resource Include="Images\mipmap-xxhdpi\ic_launcher.png" />
+    <Resource Include="Images\mipmap-xxxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\web_hi_res_512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
