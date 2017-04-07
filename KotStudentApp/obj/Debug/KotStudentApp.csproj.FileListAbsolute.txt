@@ -26,3 +26,9 @@ D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.Properties.Resources.reso
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.csproj.GenerateResource.Cache
 D:\KotStudentLib\KotStudentApp\bin\Debug\Artefact.dll
 D:\KotStudentLib\KotStudentApp\bin\Debug\Utilities.dll
+D:\KotStudentLib\KotStudentApp\bin\Debug\StudentAPI.dll
+D:\KotStudentLib\KotStudentApp\bin\Debug\Newtonsoft.Json.dll
+D:\KotStudentLib\KotStudentApp\bin\Debug\StudentAPI.pdb
+D:\KotStudentLib\KotStudentApp\bin\Debug\Newtonsoft.Json.xml
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControl.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControl.baml

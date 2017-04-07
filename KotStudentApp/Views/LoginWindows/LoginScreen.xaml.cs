@@ -13,8 +13,6 @@ namespace KotStudentApp.Views.LoginWindows
         public LoginScreen()
         {
             InitializeComponent();
-            Properties.Settings.Default.OAuthToken = "";
-            Properties.Settings.Default.Save();
         }
 
         public void StartingAnimation()
@@ -87,7 +85,7 @@ namespace KotStudentApp.Views.LoginWindows
             else
             {
                 BrowserAnimation();
-                webBrowser.Navigate(new Uri("https://www.facebook.com/dialog/oauth?client_id=388432308196913&redirect_uri=https://www.facebook.com/connect/login_success.html&display=popup&scope=public_profile+email+user_education_history&response_type=token"));
+                webBrowser.Navigate("https://www.facebook.com/dialog/oauth?client_id=388432308196913&redirect_uri=https://www.facebook.com/connect/login_success.html&display=popup&scope=public_profile+email+user_education_history&response_type=token");
                 webBrowser.Navigating += WebBrowser_Navigating;
             }
 
@@ -114,7 +112,7 @@ namespace KotStudentApp.Views.LoginWindows
             }
             else
             {
-                //MessageBox.Show("NOT OK!");
+                
             }
         }
     }
