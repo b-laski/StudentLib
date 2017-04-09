@@ -27,7 +27,31 @@
         </Grid>
         <Grid Grid.Column="3">
             <Button Width="36" Height="36" Style="{DynamicResource MaterialDesignToolButton}">
-                <material:PackIcon Kind="DotsVertical" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+                <material:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="itemProfil" Header="Profil" Click="itemProfil_Click">
+                            <MenuItem.Icon>
+                                <material:PackIcon Kind="Account" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="itemMessage" Header="Wiadomości" Click="itemMessage_Click">
+                            <MenuItem.Icon>
+                                <material:PackIcon Kind="Message" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="itemSettings" Header="Settings" Click="itemSettings_Click">
+                            <MenuItem.Icon>
+                                <material:PackIcon Kind="Settings" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="itemLogout" Header="Sign Out" Click="itemLogout_Click">
+                            <MenuItem.Icon>
+                                <material:PackIcon Kind="Logout" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
             </Button>
         </Grid>
     </Grid>

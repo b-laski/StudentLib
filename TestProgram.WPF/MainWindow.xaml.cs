@@ -99,13 +99,13 @@ namespace TestProgram.WPF
             }
         }
 
-        private void Portrait_OpenMenu(object sender, ViewModels.Portrait.OpenHideMenu e)
+        private void Portrait_OpenMenu(object sender, ViewModels.Portrait.OpenMenuEnum e)
         {
-            if(e == ViewModels.Portrait.OpenHideMenu.Open)
+            if(e == ViewModels.Portrait.OpenMenuEnum.Open)
             {
                 pnlMenu.OpenMenu();
             }
-            else if (e == ViewModels.Portrait.OpenHideMenu.Close)
+            else if (e == ViewModels.Portrait.OpenMenuEnum.Close)
             {
                 pnlMenu.CloseMenu();
             }

@@ -17,11 +17,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" >
             <StackPanel HorizontalAlignment="Left">
-                <ToggleButton x:Name="btnMenu" Margin="16" Height="26" Width="26" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
+                <ToggleButton x:Name="btnMenu" Margin="16" Height="26" Width="26" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{StaticResource MaterialDesignHamburgerToggleButton}" Click="btnMenu_Click"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,48,0">
-            <ProfileViewModel:Profile x:Name="profile"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,8,0">
+            <ProfileViewModel:Profile x:Name="profile" ContextButtonClicked="profile_ContextButtonClicked"/>
         </Grid>
     </Grid>
 </UserControl>

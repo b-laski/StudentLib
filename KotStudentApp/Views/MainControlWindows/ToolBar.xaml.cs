@@ -20,8 +20,11 @@ namespace KotStudentApp.Views.MainControlWindows
     /// </summary>
     public partial class ToolBar : UserControl
     {
-        public delegate void Load_User();
-        public event Load_User LoaUser;
+        public delegate void OpenMenuHundler(object sender, Enums.OpenCloseStatus e);
+        public event OpenMenuHundler OpenCloseMenu;
+
+        public delegate void OpenProfileHundler();
+        public event OpenProfileHundler OpenProfilControl;
 
         public ToolBar()
         {
@@ -31,6 +34,26 @@ namespace KotStudentApp.Views.MainControlWindows
         public void LoadAll()
         {
             profile.LoadPerson();
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnMenu.IsChecked == true)
+            {
+                OpenCloseMenu?.Invoke(sender, Enums.OpenCloseStatus.Open);
+            }
+            else
+            {
+                OpenCloseMenu?.Invoke(sender, Enums.OpenCloseStatus.Close);
+            }
+        }
+
+        private void profile_ContextButtonClicked(object sender, ViewModels.Profile.SelectedOption e)
+        {
+            if(e == ViewModels.Profile.SelectedOption.Profile)
+            {
+                OpenProfilControl?.Invoke();
+            }
         }
     }
 }

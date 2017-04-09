@@ -57,9 +57,14 @@ namespace KotStudentApp
 
         private void SplashScreen_StartLoad(object sender, EventArgs e)
         {
-            MainControl.LoadAllAsync();
-            SplashScreen.Visibility = Visibility.Collapsed;
-            MainControl.Visibility = Visibility.Visible;
+            MainControl.LoadAll();
+            Utilities.Animations.OpacityAnimation(SplashScreen, 0, TimeSpan.FromMilliseconds(600), () =>
+            {
+                SplashScreen.Visibility = Visibility.Collapsed;
+                MainControl.Opacity = 0;
+                MainControl.Visibility = Visibility.Visible;
+                Utilities.Animations.OpacityAnimation(MainControl, 1, TimeSpan.FromMilliseconds(600));
+            });
         }
     }
 }

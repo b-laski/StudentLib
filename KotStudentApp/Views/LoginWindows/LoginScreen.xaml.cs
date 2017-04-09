@@ -65,16 +65,19 @@ namespace KotStudentApp.Views.LoginWindows
             Utilities.Animations.OpacityAnimation(wbClient, 0, TimeSpan.FromMilliseconds(600), () =>
             {
                 wbClient.Visibility = Visibility.Collapsed;
-                MainParent.MinWidth = 26;
-                MainParent.MinHeight = 26;
-                MainParent.Background = new SolidColorBrush(Colors.Transparent);
-                Utilities.Animations.WidthAnimation(MainParent, 48, TimeSpan.FromMilliseconds(600));
-                Utilities.Animations.HeightAnimation(MainParent, 48, TimeSpan.FromMilliseconds(600), () =>
-                {
-                    grdProgressBar.Opacity = 0;
-                    grdProgressBar.Visibility = Visibility.Visible;
-                    Utilities.Animations.OpacityAnimation(grdProgressBar, 1, TimeSpan.FromMilliseconds(600));
+                Utilities.Animations.OpacityAnimation(grdContent, 0, TimeSpan.FromMilliseconds(600), () => {
+                    grdContent.Visibility = Visibility.Collapsed;
+                    MainParent.MinWidth = 48;
+                    MainParent.MinHeight = 48;
+                    Utilities.Animations.WidthAnimation(MainParent, 48, TimeSpan.FromMilliseconds(600));
+                    Utilities.Animations.HeightAnimation(MainParent, 48, TimeSpan.FromMilliseconds(600), () =>
+                    {
+                        grdProgressBar.Opacity = 0;
+                        grdProgressBar.Visibility = Visibility.Visible;
+                        Utilities.Animations.OpacityAnimation(grdProgressBar, 1, TimeSpan.FromMilliseconds(600));
+                    });
                 });
+
             });
         }
 

@@ -20,14 +20,32 @@ namespace KotStudentApp.Views
     /// </summary>
     public partial class MainControl : UserControl
     {
+
         public MainControl()
         {
             InitializeComponent();
         }
 
-        public void LoadAllAsync()
+        public void LoadAll()
         {
             ToolBar.LoadAll();
+        }
+
+        private void ToolBar_OpenCloseMenu(object sender, Enums.OpenCloseStatus e)
+        {
+            if (e == Enums.OpenCloseStatus.Open)
+            {
+                grdMenu.OpenMenu();
+            }
+            else if (e == Enums.OpenCloseStatus.Close)
+            {
+                grdMenu.CloseMenu();
+            }
+        }
+
+        private void ToolBar_OpenProfilControl()
+        {
+
         }
     }
 }

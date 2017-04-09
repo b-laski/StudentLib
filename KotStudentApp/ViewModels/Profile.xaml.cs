@@ -20,6 +20,15 @@ namespace KotStudentApp.ViewModels
     /// </summary>
     public partial class Profile : UserControl
     {
+        public delegate void ContextMenuHundler(object sender, SelectedOption e);
+        public event ContextMenuHundler ContextButtonClicked;
+        public enum SelectedOption
+        {
+            Profile,
+            Message,
+            Settings,
+            Logout
+        }
         public Profile()
         {
             InitializeComponent();
@@ -60,5 +69,30 @@ namespace KotStudentApp.ViewModels
                 viewBox.Child = g;
             }
         }
+
+        #region ContextMenu
+
+        private void itemProfil_Click(object sender, RoutedEventArgs e)
+        {
+            ContextButtonClicked?.Invoke(sender, SelectedOption.Profile);
+        }
+
+        private void itemMessage_Click(object sender, RoutedEventArgs e)
+        {
+            ContextButtonClicked?.Invoke(sender, SelectedOption.Message);
+        }
+
+        private void itemSettings_Click(object sender, RoutedEventArgs e)
+        {
+            ContextButtonClicked?.Invoke(sender, SelectedOption.Settings);
+        }
+
+        private void itemLogout_Click(object sender, RoutedEventArgs e)
+        {
+            //ContextButtonClicked?.Invoke(sender, SelectedOption.Logout);
+        }
+
+        #endregion
+
     }
 }

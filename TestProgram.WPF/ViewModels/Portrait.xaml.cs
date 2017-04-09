@@ -20,9 +20,9 @@ namespace TestProgram.WPF.ViewModels
     /// </summary>
     public partial class Portrait : UserControl
     {
-        public delegate void MenuEventHundler(object sender, OpenHideMenu e);
+        public delegate void MenuEventHundler(object sender, OpenMenuEnum type);
         public event MenuEventHundler OpenMenu;
-        public enum OpenHideMenu
+        public enum OpenMenuEnum
         {
             Open,
             Close
@@ -42,11 +42,11 @@ namespace TestProgram.WPF.ViewModels
         {
             if(btnMenu.IsChecked == true)
             {
-                OpenMenu?.Invoke(sender, OpenHideMenu.Open);
+                OpenMenu?.Invoke(sender, OpenMenuEnum.Open);
             }
             else
             {
-                OpenMenu?.Invoke(sender, OpenHideMenu.Close);
+                OpenMenu?.Invoke(sender, OpenMenuEnum.Close);
             }
 
         }
