@@ -13,28 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestProgram.WPF.ViewModels
+namespace KotStudentApp.ViewModels
 {
     /// <summary>
     /// Interaction logic for Profile.xaml
     /// </summary>
     public partial class Profile : UserControl
     {
-
         public Profile()
         {
             InitializeComponent();
-
-            btnMoreOptions.AddHandler(MouseDownEvent, new MouseButtonEventHandler(BtnMoreOption_Click), true);
-            btnSignOut.AddHandler(MouseDownEvent, new MouseButtonEventHandler(btnSignOut_MouseDown), true);
         }
 
-        public void SetUser()
+        public async void LoadPerson()
         {
-            var user = StudentAPI.StudentAPI.GetUserObject();
-            userNameBlock.Text = user.FirstName;
+            StudentAPI.Models.API.User user = await StudentAPI.StudentAPI.GetUserObjectAsync();
+            firstNameProfil.Text = user.FirstName;
 
-            if(user.Photo != "")
+            if (user.Photo != "")
             {
                 var uri = new Uri(user.Photo);
                 imageBox.Source = new BitmapImage(uri);
@@ -45,40 +41,24 @@ namespace TestProgram.WPF.ViewModels
                 Grid g = new Grid();
                 TextBlock tb = new TextBlock();
                 Ellipse e = new Ellipse();
-                e.Width = 26;
-                e.Height = 26;
-                e.Fill = new SolidColorBrush(Colors.Black);
+                e.Width = 48;
+                e.Height = 48;
+                e.Fill = new SolidColorBrush(Colors.White);
 
                 tb.Text = user.FirstName.Substring(0, 1);
                 tb.HorizontalAlignment = HorizontalAlignment.Center;
                 tb.VerticalAlignment = VerticalAlignment.Center;
                 tb.TextAlignment = TextAlignment.Center;
-                
+                tb.Foreground = new SolidColorBrush(Colors.Black);
+
                 g.Children.Add(e);
                 g.Children.Add(tb);
 
-                g.Width = 26;
-                g.Height = 26;
+                g.Width = 48;
+                g.Height = 48;
 
                 viewBox.Child = g;
             }
-
-
-        }
-
-        private void BtnMoreOption_Click(object sender, MouseButtonEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-            {
-                MoreOptionsContextMenu.IsOpen = true;
-            }
-        }
-
-        private void btnSignOut_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Libs.LogOut.DeleteEveryCookie(new Uri("https://login.facebook.com/login.php"));
-            Libs.LogOut.DeleteEveryCookie(new Uri("https://ssl.facebook.com/desktopapp.php"));
-            MessageBox.Show("XD");
         }
     }
 }

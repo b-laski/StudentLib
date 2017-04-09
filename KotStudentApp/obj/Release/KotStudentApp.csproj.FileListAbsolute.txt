@@ -30,3 +30,9 @@ D:\KotStudentLib\KotStudentApp\bin\Release\StudentAPI.dll
 D:\KotStudentLib\KotStudentApp\bin\Release\Newtonsoft.Json.dll
 D:\KotStudentLib\KotStudentApp\bin\Release\StudentAPI.pdb
 D:\KotStudentLib\KotStudentApp\bin\Release\Newtonsoft.Json.xml
+D:\KotStudentLib\KotStudentApp\obj\Release\Views\MainControl.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Release\Views\MainControl.baml
+D:\KotStudentLib\KotStudentApp\obj\Release\ViewModels\Profile.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Release\Views\MainControlWindows\ToolBar.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Release\ViewModels\Profile.baml
+D:\KotStudentLib\KotStudentApp\obj\Release\Views\MainControlWindows\ToolBar.baml

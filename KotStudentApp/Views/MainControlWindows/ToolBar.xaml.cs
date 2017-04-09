@@ -13,21 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KotStudentApp.Views
+namespace KotStudentApp.Views.MainControlWindows
 {
     /// <summary>
-    /// Interaction logic for MainControl.xaml
+    /// Interaction logic for ToolBar.xaml
     /// </summary>
-    public partial class MainControl : UserControl
+    public partial class ToolBar : UserControl
     {
-        public MainControl()
+        public delegate void Load_User();
+        public event Load_User LoaUser;
+
+        public ToolBar()
         {
             InitializeComponent();
         }
 
-        public void LoadAllAsync()
+        public void LoadAll()
         {
-            ToolBar.LoadAll();
+            profile.LoadPerson();
         }
     }
 }

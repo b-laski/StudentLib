@@ -10,6 +10,14 @@ namespace KotStudentApp.Views.LoginWindows
     /// </summary>
     public partial class LoginScreen : UserControl
     {
+        public delegate void LoginStatus(object sender, LoginTypes e);
+        public event LoginStatus isLogin;
+        public enum LoginTypes
+        {
+            Succes,
+            Fail
+        }
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -109,10 +117,11 @@ namespace KotStudentApp.Views.LoginWindows
                 Properties.Settings.Default.OAuthToken = access_token;
                 Properties.Settings.Default.Save();
                 LoadingModelsAnimation();
+                isLogin?.Invoke(this, LoginTypes.Succes);
             }
             else
             {
-                
+                isLogin.Invoke(this, LoginTypes.Fail);
             }
         }
     }

@@ -70,11 +70,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginWindows\LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainControlWindows\ToolBar.xaml.cs">
+      <DependentUpon>ToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
@@ -82,11 +88,19 @@
     <Compile Include="Views\TitleBar\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
+    <Page Include="ViewModels\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginWindows\LoginScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainControlWindows\ToolBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mipmap-hdpi\ic_launcher.png" />

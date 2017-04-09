@@ -26,7 +26,10 @@
             <titleBar:TitleBar x:Name="TitleBar" TopBarButtonClick="TitleBar_TopBarButtonClick" MouseMove="TitleBar_MouseMove"/>
         </Border>
         <Grid Grid.Row="1">
-            <local:SplashScreen/>
+            <local:SplashScreen x:Name="SplashScreen" StartLoad="SplashScreen_StartLoad"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <local:MainControl x:Name="MainControl" Visibility="Collapsed" />
         </Grid>
     </Grid>
 </Window>
