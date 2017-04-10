@@ -82,7 +82,6 @@ namespace StudentAPI.Models.API
                 OnPropertyChanged("Photo");
             }
         }
-
         public string Cover
         {
             get { return _cover; }

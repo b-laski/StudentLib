@@ -36,12 +36,20 @@
             this.btnLoadCollege = new System.Windows.Forms.Button();
             this.btnLoadDeparments = new System.Windows.Forms.Button();
             this.btnLoadCategories = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCreateDepartment = new System.Windows.Forms.Button();
             this.TestBox = new System.Windows.Forms.TextBox();
             this.NumericBox = new System.Windows.Forms.NumericUpDown();
             this.btnAddCollage = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCourses = new System.Windows.Forms.Button();
+            this.btnThreads = new System.Windows.Forms.Button();
+            this.btnCreateCategories = new System.Windows.Forms.Button();
+            this.btnCreateCurse = new System.Windows.Forms.Button();
+            this.btnCreateThread = new System.Windows.Forms.Button();
+            this.btnCreatePost = new System.Windows.Forms.Button();
+            this.TextCB = new System.Windows.Forms.CheckBox();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.btnDeletePost = new System.Windows.Forms.Button();
+            this.btnEditPost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +59,7 @@
             this.InfoBox.Location = new System.Drawing.Point(16, 15);
             this.InfoBox.Margin = new System.Windows.Forms.Padding(4);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(940, 355);
+            this.InfoBox.Size = new System.Drawing.Size(939, 355);
             this.InfoBox.TabIndex = 0;
             // 
             // btnSignIn
@@ -67,7 +75,7 @@
             // 
             // btnLoadSession
             // 
-            this.btnLoadSession.Location = new System.Drawing.Point(964, 51);
+            this.btnLoadSession.Location = new System.Drawing.Point(964, 46);
             this.btnLoadSession.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadSession.Name = "btnLoadSession";
             this.btnLoadSession.Size = new System.Drawing.Size(105, 23);
@@ -78,7 +86,7 @@
             // 
             // btnLoadUser
             // 
-            this.btnLoadUser.Location = new System.Drawing.Point(964, 87);
+            this.btnLoadUser.Location = new System.Drawing.Point(964, 77);
             this.btnLoadUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadUser.Name = "btnLoadUser";
             this.btnLoadUser.Size = new System.Drawing.Size(105, 23);
@@ -111,7 +119,7 @@
             // 
             // btnLoadDeparments
             // 
-            this.btnLoadDeparments.Location = new System.Drawing.Point(99, 378);
+            this.btnLoadDeparments.Location = new System.Drawing.Point(99, 379);
             this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadDeparments.Name = "btnLoadDeparments";
             this.btnLoadDeparments.Size = new System.Drawing.Size(75, 23);
@@ -122,7 +130,7 @@
             // 
             // btnLoadCategories
             // 
-            this.btnLoadCategories.Location = new System.Drawing.Point(182, 378);
+            this.btnLoadCategories.Location = new System.Drawing.Point(182, 379);
             this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCategories.Name = "btnLoadCategories";
             this.btnLoadCategories.Size = new System.Drawing.Size(75, 23);
@@ -131,20 +139,20 @@
             this.btnLoadCategories.UseVisualStyleBackColor = true;
             this.btnLoadCategories.Click += new System.EventHandler(this.btnLoadCategories_Click);
             // 
-            // button2
+            // btnCreateDepartment
             // 
-            this.button2.Location = new System.Drawing.Point(265, 378);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCreateDepartment.Location = new System.Drawing.Point(964, 137);
+            this.btnCreateDepartment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateDepartment.Name = "btnCreateDepartment";
+            this.btnCreateDepartment.Size = new System.Drawing.Size(105, 23);
+            this.btnCreateDepartment.TabIndex = 8;
+            this.btnCreateDepartment.Text = "CreateDepartment";
+            this.btnCreateDepartment.UseVisualStyleBackColor = true;
+            this.btnCreateDepartment.Click += new System.EventHandler(this.btnCreateDepartment_Click);
             // 
             // TestBox
             // 
-            this.TestBox.Location = new System.Drawing.Point(16, 408);
+            this.TestBox.Location = new System.Drawing.Point(16, 412);
             this.TestBox.Margin = new System.Windows.Forms.Padding(2);
             this.TestBox.Name = "TestBox";
             this.TestBox.Size = new System.Drawing.Size(158, 20);
@@ -152,7 +160,7 @@
             // 
             // NumericBox
             // 
-            this.NumericBox.Location = new System.Drawing.Point(182, 409);
+            this.NumericBox.Location = new System.Drawing.Point(179, 412);
             this.NumericBox.Name = "NumericBox";
             this.NumericBox.Size = new System.Drawing.Size(158, 20);
             this.NumericBox.TabIndex = 10;
@@ -160,43 +168,139 @@
             // btnAddCollage
             // 
             this.btnAddCollage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAddCollage.Location = new System.Drawing.Point(963, 117);
+            this.btnAddCollage.Location = new System.Drawing.Point(964, 107);
             this.btnAddCollage.Name = "btnAddCollage";
-            this.btnAddCollage.Size = new System.Drawing.Size(106, 23);
+            this.btnAddCollage.Size = new System.Drawing.Size(105, 23);
             this.btnAddCollage.TabIndex = 11;
-            this.btnAddCollage.Text = "Add College";
+            this.btnAddCollage.Text = "CreateCollega";
             this.btnAddCollage.UseVisualStyleBackColor = true;
             this.btnAddCollage.Click += new System.EventHandler(this.btnAddCollage_Click);
             // 
-            // button3
+            // btnCourses
             // 
-            this.button3.Location = new System.Drawing.Point(963, 146);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCourses.Location = new System.Drawing.Point(264, 379);
+            this.btnCourses.Name = "btnCourses";
+            this.btnCourses.Size = new System.Drawing.Size(75, 23);
+            this.btnCourses.TabIndex = 12;
+            this.btnCourses.Text = "Courses";
+            this.btnCourses.UseVisualStyleBackColor = true;
+            this.btnCourses.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
+            // btnThreads
             // 
-            this.button4.Location = new System.Drawing.Point(963, 175);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnThreads.Location = new System.Drawing.Point(345, 379);
+            this.btnThreads.Name = "btnThreads";
+            this.btnThreads.Size = new System.Drawing.Size(75, 23);
+            this.btnThreads.TabIndex = 13;
+            this.btnThreads.Text = "Threads";
+            this.btnThreads.UseVisualStyleBackColor = true;
+            this.btnThreads.Click += new System.EventHandler(this.btnThreads_Click);
+            // 
+            // btnCreateCategories
+            // 
+            this.btnCreateCategories.Location = new System.Drawing.Point(964, 168);
+            this.btnCreateCategories.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateCategories.Name = "btnCreateCategories";
+            this.btnCreateCategories.Size = new System.Drawing.Size(105, 23);
+            this.btnCreateCategories.TabIndex = 14;
+            this.btnCreateCategories.Text = "CreateCategories";
+            this.btnCreateCategories.UseVisualStyleBackColor = true;
+            this.btnCreateCategories.Click += new System.EventHandler(this.btnCreateThread_Click);
+            // 
+            // btnCreateCurse
+            // 
+            this.btnCreateCurse.Location = new System.Drawing.Point(964, 199);
+            this.btnCreateCurse.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateCurse.Name = "btnCreateCurse";
+            this.btnCreateCurse.Size = new System.Drawing.Size(105, 23);
+            this.btnCreateCurse.TabIndex = 15;
+            this.btnCreateCurse.Text = "CreateCurse";
+            this.btnCreateCurse.UseVisualStyleBackColor = true;
+            this.btnCreateCurse.Click += new System.EventHandler(this.btnCreateCurse_Click);
+            // 
+            // btnCreateThread
+            // 
+            this.btnCreateThread.Location = new System.Drawing.Point(964, 230);
+            this.btnCreateThread.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateThread.Name = "btnCreateThread";
+            this.btnCreateThread.Size = new System.Drawing.Size(105, 23);
+            this.btnCreateThread.TabIndex = 16;
+            this.btnCreateThread.Text = "CreateThread";
+            this.btnCreateThread.UseVisualStyleBackColor = true;
+            this.btnCreateThread.Click += new System.EventHandler(this.btnCreateThread_Click_1);
+            // 
+            // btnCreatePost
+            // 
+            this.btnCreatePost.Location = new System.Drawing.Point(963, 261);
+            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreatePost.Name = "btnCreatePost";
+            this.btnCreatePost.Size = new System.Drawing.Size(105, 23);
+            this.btnCreatePost.TabIndex = 17;
+            this.btnCreatePost.Text = "CreatePost";
+            this.btnCreatePost.UseVisualStyleBackColor = true;
+            this.btnCreatePost.Click += new System.EventHandler(this.btnCreatePost_Click);
+            // 
+            // TextCB
+            // 
+            this.TextCB.AutoSize = true;
+            this.TextCB.Location = new System.Drawing.Point(343, 412);
+            this.TextCB.Name = "TextCB";
+            this.TextCB.Size = new System.Drawing.Size(126, 17);
+            this.TextCB.TabIndex = 18;
+            this.TextCB.Text = "Kontrolka True/False";
+            this.TextCB.UseVisualStyleBackColor = true;
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(994, 412);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 19;
+            this.btnTest.Text = "TestButton";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // btnDeletePost
+            // 
+            this.btnDeletePost.Location = new System.Drawing.Point(964, 323);
+            this.btnDeletePost.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeletePost.Name = "btnDeletePost";
+            this.btnDeletePost.Size = new System.Drawing.Size(105, 23);
+            this.btnDeletePost.TabIndex = 20;
+            this.btnDeletePost.Text = "Delete Post";
+            this.btnDeletePost.UseVisualStyleBackColor = true;
+            this.btnDeletePost.Click += new System.EventHandler(this.btnDeletePost_Click);
+            // 
+            // btnEditPost
+            // 
+            this.btnEditPost.Location = new System.Drawing.Point(964, 292);
+            this.btnEditPost.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditPost.Name = "btnEditPost";
+            this.btnEditPost.Size = new System.Drawing.Size(105, 23);
+            this.btnEditPost.TabIndex = 21;
+            this.btnEditPost.Text = "EditPost";
+            this.btnEditPost.UseVisualStyleBackColor = true;
+            this.btnEditPost.Click += new System.EventHandler(this.btnEditPost_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 577);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnEditPost);
+            this.Controls.Add(this.btnDeletePost);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.TextCB);
+            this.Controls.Add(this.btnCreatePost);
+            this.Controls.Add(this.btnCreateThread);
+            this.Controls.Add(this.btnCreateCurse);
+            this.Controls.Add(this.btnCreateCategories);
+            this.Controls.Add(this.btnThreads);
+            this.Controls.Add(this.btnCourses);
             this.Controls.Add(this.btnAddCollage);
             this.Controls.Add(this.NumericBox);
             this.Controls.Add(this.TestBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCreateDepartment);
             this.Controls.Add(this.btnLoadCategories);
             this.Controls.Add(this.btnLoadDeparments);
             this.Controls.Add(this.btnLoadCollege);
@@ -225,12 +329,20 @@
         private System.Windows.Forms.Button btnLoadCollege;
         private System.Windows.Forms.Button btnLoadDeparments;
         private System.Windows.Forms.Button btnLoadCategories;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCreateDepartment;
         private System.Windows.Forms.TextBox TestBox;
         private System.Windows.Forms.NumericUpDown NumericBox;
         private System.Windows.Forms.Button btnAddCollage;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCourses;
+        private System.Windows.Forms.Button btnThreads;
+        private System.Windows.Forms.Button btnCreateCategories;
+        private System.Windows.Forms.Button btnCreateCurse;
+        private System.Windows.Forms.Button btnCreateThread;
+        private System.Windows.Forms.Button btnCreatePost;
+        private System.Windows.Forms.CheckBox TextCB;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnDeletePost;
+        private System.Windows.Forms.Button btnEditPost;
     }
 }
 

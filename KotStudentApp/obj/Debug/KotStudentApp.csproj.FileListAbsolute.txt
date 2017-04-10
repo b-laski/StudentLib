@@ -19,7 +19,6 @@ D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Menu.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ToolBar.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainWindow.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\SplashScreen.g.cs
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\TitleBar\TitleBar.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\App.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp_MarkupCompile.cache
@@ -30,13 +29,14 @@ D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Menu.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ToolBar.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainWindow.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\SplashScreen.baml
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\TitleBar\TitleBar.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.g.resources
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.Properties.Resources.resources
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.csproj.GenerateResource.Cache
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.exe
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.pdb
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Profil.g.cs
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ProfilView.g.cs
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Profil.baml
-D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ProfilView.baml
+D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfilToolbar.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfilViewModel.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\TitleBar\TitleBar.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfilToolbar.baml
+D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfilViewModel.baml
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\TitleBar\TitleBar.baml

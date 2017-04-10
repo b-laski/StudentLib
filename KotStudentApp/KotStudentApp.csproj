@@ -71,8 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Enums\OpenCloseStatus.cs" />
-    <Compile Include="Views\MainControlWindows\Profile.xaml.cs">
-      <DependentUpon>Profil.xaml</DependentUpon>
+    <Compile Include="ViewModels\ProfilToolbar.xaml.cs">
+      <DependentUpon>ProfilToolbar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindows\LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
@@ -83,8 +83,8 @@
     <Compile Include="Views\MainControlWindows\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainControlWindows\ProfilView.xaml.cs">
-      <DependentUpon>ProfilView.xaml</DependentUpon>
+    <Compile Include="ViewModels\ProfilViewModel.xaml.cs">
+      <DependentUpon>ProfilViewModel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainControlWindows\ToolBar.xaml.cs">
       <DependentUpon>ToolBar.xaml</DependentUpon>
@@ -95,7 +95,7 @@
     <Compile Include="Views\TitleBar\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\MainControlWindows\Profil.xaml">
+    <Page Include="ViewModels\ProfilToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,7 +111,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainControlWindows\ProfilView.xaml">
+    <Page Include="ViewModels\ProfilViewModel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mipmap-hdpi\ic_launcher.png" />

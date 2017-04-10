@@ -60,16 +60,19 @@ namespace TestProgram.FORM
 
         private void btnLoadSession_Click(object sender, EventArgs e)
         {
+            InfoBox.Items.Clear();
             InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetSessionID()} Token: {StudentAPI.StudentAPI.GetSessionToken()}");
         }
 
         private void btnLoadUser_Click(object sender, EventArgs e)
         {
+            InfoBox.Items.Clear();
             InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetUserObject().ToString()}");
         }
 
         private async void btnLoadCollege_Click(object sender, EventArgs e)
         {
+            InfoBox.Items.Clear();
             var list = await StudentAPI.StudentAPI.GetCollegeListAsync(TestBox.Text);
 
             foreach(var item in list)
@@ -80,8 +83,8 @@ namespace TestProgram.FORM
 
         private async void btnLoadDeparments_Click(object sender, EventArgs e)
         {
+            InfoBox.Items.Clear();
             var list = await StudentAPI.StudentAPI.GetDepartmentListAsync((int)NumericBox.Value);
-
             if (list != null)
             {
                 foreach (var item in list)
@@ -97,6 +100,7 @@ namespace TestProgram.FORM
 
         private async void btnLoadCategories_Click(object sender, EventArgs e)
         {
+            InfoBox.Items.Clear();
             var list = await StudentAPI.StudentAPI.GetCategoriesListAsync((int)NumericBox.Value);
             if(list!=null)
             {
@@ -112,13 +116,89 @@ namespace TestProgram.FORM
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("WYBUCHY!","ERROR JAK CHUJ", MessageBoxButtons.OK , MessageBoxIcon.Error);
+            InfoBox.Items.Clear();
+            var list = await StudentAPI.StudentAPI.GetCoursesListAsync((int)NumericBox.Value);
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Niema wydzialow!");
+            }
+        }
+
+        private void btnCreateThread_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.CreateCategorie(TestBox.Text, (int)NumericBox.Value);
+        }
+
+        private void btnCreateDepartment_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.CreateDepartment(TestBox.Text, (int)NumericBox.Value, "Test wydział");
+        }
+
+        private void btnCreateCurse_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.CreateCurses(TestBox.Text, (int)NumericBox.Value);
         }
 
         private void btnAddCollage_Click(object sender, EventArgs e)
         {
+            var list = new List<string>();
+
+            list.Add("Test1");
+            list.Add("Test2");
+            list.Add("Test3");
+
+            StudentAPI.StudentAPI.CreateCollege(TestBox.Text, list, "Testowy opis uczelni!");
+        }
+
+        private void btnCreateThread_Click_1(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.CreateThread((int)NumericBox.Value, TestBox.Text, TextCB.Checked);
+        }
+
+        private void btnCreatePost_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.CreatePost((int)NumericBox.Value, TestBox.Text);
+        }
+
+        private async void btnThreads_Click(object sender, EventArgs e)
+        {
+            InfoBox.Items.Clear();
+            var list = await StudentAPI.StudentAPI.GetThreadsListAsync((int)NumericBox.Value);
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Niema wydzialow!");
+            }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEditPost_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.EditPost((int)NumericBox.Value, TestBox.Text);
+        }
+
+        private void btnDeletePost_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.DeletePost((int)NumericBox.Value);
         }
     }
 }

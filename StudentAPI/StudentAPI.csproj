@@ -95,9 +95,11 @@
     <Compile Include="Logs\Output.cs" />
     <Compile Include="Models\API\Categorie\Categorie.cs" />
     <Compile Include="Models\API\Collage\College.cs" />
+    <Compile Include="Models\API\Courses\Course.cs" />
     <Compile Include="Models\API\Department\Department.cs" />
     <Compile Include="Models\API\Group\Groups.cs" />
     <Compile Include="Models\API\Session.cs" />
+    <Compile Include="Models\API\Threads\Thread.cs" />
     <Compile Include="Models\API\User.cs" />
     <Compile Include="StudentAPI.cs" />
     <Compile Include="StudentClient.cs" />

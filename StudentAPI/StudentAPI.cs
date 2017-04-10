@@ -81,6 +81,62 @@ namespace StudentAPI
         /// <returns></returns>
         public static async Task<List<Models.API.Categorie.Categorie>> GetCategoriesListAsync(int ID) => await Libs.StudentAPI.GetCategorieObject(ID);
 
+        /// <summary>
+        /// [SYNC] GET CURESES LIST!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static List<Models.API.Courses.Course> GetCoursesList(int ID) => Task.Run(() => Libs.StudentAPI.GetCursesObject(ID)).Result;
+
+        /// <summary>
+        /// [ASYNC] GET CURESES LIST!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.API.Courses.Course>> GetCoursesListAsync(int ID) => await Libs.StudentAPI.GetCursesObject(ID);
+
+        /// <summary>
+        /// [SYNC] GET THREAD LIST IN CURSE!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static List<Models.API.Threads.Thread> GetThreadsList(int ID) => Task.Run(() => Libs.StudentAPI.GetThreadList(ID)).Result;
+
+        /// <summary>
+        /// [ASYNC] GET THREAD LIST IN CURSE!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.API.Threads.Thread>> GetThreadsListAsync(int ID) => await Libs.StudentAPI.GetThreadList(ID);
+
+        #endregion
+
+        #region CreateMethods
+
+        public static void CreateCollege(string name, List<string> alias, string description) => Libs.StudentAPI.CreateCollege(name, alias, description);
+
+        public static void CreateDepartment(string name, int college_id, string description) => Libs.StudentAPI.CreateDepartment(name, college_id, description);
+
+        public static void CreateCategorie(string name, int department_id) => Libs.StudentAPI.CreateCategories(name, department_id);
+
+        public static void CreateCurses(string name, int category_id) => Libs.StudentAPI.CreateCourse(name, category_id);
+
+        public static void CreateThread(int group_id, string title, bool isPinned) => Libs.StudentAPI.CreateThread(group_id, title, isPinned);
+
+        public static void CreatePost(int thread_id, string message) => Libs.StudentAPI.CreatePost(thread_id, message);
+
+        #endregion
+
+        #region EditMethods
+
+        public static void EditPost(int post_id, string content) => Libs.StudentAPI.EditPost(post_id, content);
+
+        #endregion
+
+        #region DeleteMethods
+
+        public static void DeletePost(int ID) => Libs.StudentAPI.DeletePost(ID);
+
         #endregion
 
         #region Settings

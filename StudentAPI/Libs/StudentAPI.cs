@@ -14,7 +14,7 @@ namespace StudentAPI.Libs
         //URL to server
         readonly static string URL = "http://193.239.80.171:3100";
 
-        #region Get Objects
+        #region GetObjects
         
         /// <summary>
         /// Giving user object signed on this moment.
@@ -99,21 +99,137 @@ namespace StudentAPI.Libs
             //List<Models.API.Categorie.Categorie> categories = JsonConvert.DeserializeObject<List<Models.API.Categorie.Categorie>>(json.SelectToken("categories").ToString());
             //return categories;
         }
+
+        internal static async Task<List<Models.API.Courses.Course>> GetCursesObject(int id)
+        {
+            List<Models.API.Courses.Course> curses = new List<Models.API.Courses.Course>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/category/courses?category_id={id}"));
+            foreach(JObject item in json.SelectToken("courses"))
+            {
+                curses.Add(new Models.API.Courses.Course(item));
+            }
+            return curses;
+        }
+
+        internal static async Task<List<Models.API.Threads.Thread>> GetThreadList(int id)
+        {
+            List<Models.API.Threads.Thread> threads = new List<Models.API.Threads.Thread>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/threads?group_id={id}"));
+            foreach(JObject item in json.SelectToken("GroupThreads"))
+            {
+                threads.Add(new Models.API.Threads.Thread(item));
+            }
+            return threads;
+        }
+
+
         #endregion
 
-        #region CreateObject
+        #region CreateMethods
 
-        internal static string CreateCollege(string name, List<string> alias, string cover, string photo, string description)
+        /// <summary>
+        /// Creating new collega.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="alias"></param>
+        /// <param name="description"></param>
+        /// <param name="cover"></param>
+        /// <param name="photo"></param>
+        internal static async void CreateCollege(string name, List<string> alias, string description, string cover = "null", string photo = "null")
         {
-            var date = "{\"name:\"" + name + ",\"alias\":[";
-            foreach(var item in alias)
+            var data = "{\"name\":\"" + name + "\", \"alias\": [ ";
+            for(int i=0; i< alias.Count; i++)
             {
-                date += $"\"{alias}\"";
+                if(i+1 == alias.Count)
+                {
+                    data += $"\"{alias[i]}\" ";
+                }
+                else
+                {
+                    data += $"\"{alias[i]}\", ";
+                }   
             }
-            date += "], \"cover:\" \"" + cover + "\", \"photo:\"" + photo + "\", \"description:\"" + description + "\"";
+            data += " ], \"cover\": \"" + cover + "\", \"photo\": \"" + photo + "\", \"description\":\"" + description + "\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college", "PUT", data));
 
-            return date;
+        }
 
+        /// <summary>
+        /// Creating new department in selected college.
+        /// </summary>
+        /// <param name="name">Deprtment`s name</param>
+        /// <param name="college_id">College`s ID</param>
+        /// <param name="description">Department`s description</param>
+        /// <param name="cover">Cover image</param>
+        /// <param name="photo">Department`s photo</param>
+        internal static async void CreateDepartment(string name, int college_id, string description, string cover = "null", string photo = "null")
+        {
+            var data= "{\"name\": \"" + name + "\", \"college_id\": \"" + college_id + "\", \"cover\": null, \"photo\": null, \"description\": \"" + description + "\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department", "PUT", data));
+        }
+
+        /// <summary>
+        /// Creating new categorie in selected department.
+        /// </summary>
+        /// <param name="name">Categorie`s name</param>
+        /// <param name="department_id">Department`s ID</param>
+        internal static async void CreateCategories(string name, int department_id)
+        {
+            var data = "{\"name\": \"" + name + "\", \"department_id\": \""+ department_id +"\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department/category", "PUT", data));
+        }
+
+        /// <summary>
+        /// Creating new course in selected categorie.
+        /// </summary>
+        /// <param name="name">Course`s name </param>
+        /// <param name="category_id">Categorie`s ID</param>
+        internal static async void CreateCourse(string name, int category_id)
+        {
+            var data = "{\"name\": \"" + name + "\", \"category_id\": " + category_id + "}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department/category/course", "PUT", data));
+        }
+
+        /// <summary>
+        /// Creating new thread in course.
+        /// </summary>
+        /// <param name="group_id"></param>
+        /// <param name="title"></param>
+        /// <param name="isPinned"></param>
+        internal static async void CreateThread(int group_id, string title, bool isPinned)
+        {
+            var data = "{\"group_id\": " + group_id + ", \"title\": \"" + title + "\", \"isPinned\": " + isPinned.ToString().ToLower() + "}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads", "PUT", data));
+        }
+
+        /// <summary>
+        /// Creating new post in thread.
+        /// </summary>
+        /// <param name="thread_id"></param>
+        /// <param name="message"></param>
+        internal static async void CreatePost(int thread_id, string message)
+        {
+            var data = "{\"thread_id\": " + thread_id + ", \"content\": \"" + message + "\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/thread/posts", "PUT", data));
+        }
+
+        #endregion
+
+        #region EditMethods
+
+        internal static async void EditPost(int post_id, string content)
+        {
+            var data = "{\"post_id\": " + post_id + ", \"content\": \"" + content + "\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads/posts", "POST", data));
+        }
+
+        #endregion
+
+        #region DeleteMetods
+
+        internal static async void DeletePost(int id)
+        {
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college?post_id={id}", "DELETE"));
         }
 
         #endregion

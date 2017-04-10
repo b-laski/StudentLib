@@ -39,7 +39,7 @@ namespace StudentAPI.Libs
         }
 
         //OtherMethod
-        internal static async Task<string> MakeRestRequest(string URL, string method, string sessionID = null, string sessionToken = null, string requestData = null, byte[] data = null)
+        internal static async Task<string> MakeRestRequest(string URL, string method, string requestData = null, byte[] data = null)
         {
             if (data == null)
                 data = new UTF8Encoding().GetBytes(requestData ?? "");

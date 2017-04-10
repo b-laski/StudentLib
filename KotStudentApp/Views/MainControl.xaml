@@ -23,6 +23,7 @@
                 <local:Menu x:Name="grdMenu"/>
             </Grid>
             <Grid x:Name="grdMainActivity" Grid.Column="1" Background="{DynamicResource MaterialDesignChipBackground}">
+                
             </Grid>
         </Grid>
     </Grid>
