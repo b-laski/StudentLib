@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ProfileViewModel="clr-namespace:KotStudentApp.ViewModels"
              xmlns:local="clr-namespace:KotStudentApp.Views.MainControlWindows"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              Background="{DynamicResource PrimaryHueMidBrush}"
              Effect="{DynamicResource MaterialDesignShadowDepth2}"
              d:DesignHeight="56" d:DesignWidth="600">
@@ -20,8 +20,7 @@
                 <ToggleButton x:Name="btnMenu" Margin="16" Height="26" Width="26" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Style="{StaticResource MaterialDesignHamburgerToggleButton}" Click="btnMenu_Click"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,8,0">
-            <ProfileViewModel:Profile x:Name="profile" ContextButtonClicked="profile_ContextButtonClicked"/>
+        <Grid x:Name="grdProfilPanel" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,8,0">
         </Grid>
     </Grid>
 </UserControl>

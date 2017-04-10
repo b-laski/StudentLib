@@ -13,6 +13,7 @@ namespace StudentAPI.Models.API
         private string _gender;
         private int _birthday;
         private string _photo;
+        private string _cover;
         private string _lastName;
         private string _middleName;
         private string _firstName;
@@ -81,6 +82,16 @@ namespace StudentAPI.Models.API
                 OnPropertyChanged("Photo");
             }
         }
+
+        public string Cover
+        {
+            get { return _cover; }
+            set
+            {
+                _cover = value;
+                OnPropertyChanged("Cover");
+            }
+        }
         public string LastName
         {
             get { return _lastName; }
@@ -121,7 +132,8 @@ namespace StudentAPI.Models.API
             Email = json.SelectToken("email").ToString();
             Name = json.SelectToken("name").ToString();
             Gender = json.SelectToken("gender").ToString();
-            Photo = json.SelectToken("photo").ToString();
+            Photo = json.SelectToken("photo")?.ToString();
+            Cover = json.SelectToken("cover")?.ToString();
             LastName = json.SelectToken("lastName").ToString();
             MiddleName = json.SelectToken("middleName").ToString();
             FirstName = json.SelectToken("firstName").ToString();

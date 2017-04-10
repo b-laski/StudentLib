@@ -71,11 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Enums\OpenCloseStatus.cs" />
-    <Compile Include="ViewModels\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\ProfileViewModel.xaml.cs">
-      <DependentUpon>ProfileViewModel.xaml</DependentUpon>
+    <Compile Include="Views\MainControlWindows\Profile.xaml.cs">
+      <DependentUpon>Profil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindows\LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
@@ -86,6 +83,9 @@
     <Compile Include="Views\MainControlWindows\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainControlWindows\ProfilView.xaml.cs">
+      <DependentUpon>ProfilView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainControlWindows\ToolBar.xaml.cs">
       <DependentUpon>ToolBar.xaml</DependentUpon>
     </Compile>
@@ -95,11 +95,7 @@
     <Compile Include="Views\TitleBar\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
-    <Page Include="ViewModels\Profile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewModels\ProfileViewModel.xaml">
+    <Page Include="Views\MainControlWindows\Profil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainControlWindows\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainControlWindows\ProfilView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mipmap-hdpi\ic_launcher.png" />
@@ -179,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\web_hi_res_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cover.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon-person1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,17 +23,30 @@ namespace KotStudentApp.Views.MainControlWindows
         public delegate void OpenMenuHundler(object sender, Enums.OpenCloseStatus e);
         public event OpenMenuHundler OpenCloseMenu;
 
-        public delegate void OpenProfileHundler();
-        public event OpenProfileHundler OpenProfilControl;
+        public delegate void Action();
+        public event Action ShowProfile;
+
+        ViewModels.Profile profile = null;
 
         public ToolBar()
         {
             InitializeComponent();
         }
 
-        public void LoadAll()
+        public async void LoadControls()
         {
-            profile.LoadPerson();
+            profile = new ViewModels.Profile(await StudentAPI.StudentAPI.GetUserObjectAsync());
+            grdProfilPanel.Children.Add(profile);
+
+            profile.ContextButtonClicked += Profile_ContextButtonClicked;
+        }
+
+        private void Profile_ContextButtonClicked(object sender, ViewModels.Profile.SelectedOption e)
+        {
+            if(e == ViewModels.Profile.SelectedOption.Profile)
+            {
+                ShowProfile?.Invoke();
+            }
         }
 
         private void btnMenu_Click(object sender, RoutedEventArgs e)
@@ -48,12 +61,6 @@ namespace KotStudentApp.Views.MainControlWindows
             }
         }
 
-        private void profile_ContextButtonClicked(object sender, ViewModels.Profile.SelectedOption e)
-        {
-            if(e == ViewModels.Profile.SelectedOption.Profile)
-            {
-                OpenProfilControl?.Invoke();
-            }
-        }
+
     }
 }

@@ -13,7 +13,6 @@ D:\KotStudentLib\KotStudentApp\bin\Debug\StudentAPI.pdb
 D:\KotStudentLib\KotStudentApp\bin\Debug\Newtonsoft.Json.xml
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.csprojResolveAssemblyReference.cache
 D:\KotStudentLib\KotStudentApp\obj\Debug\App.baml
-D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\Profile.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\LoginWindows\LoginScreen.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControl.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Menu.g.cs
@@ -25,7 +24,6 @@ D:\KotStudentLib\KotStudentApp\obj\Debug\App.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp_MarkupCompile.cache
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp_MarkupCompile.lref
-D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\Profile.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\LoginWindows\LoginScreen.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControl.baml
 D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Menu.baml
@@ -38,5 +36,7 @@ D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.Properties.Resources.reso
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.csproj.GenerateResource.Cache
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.exe
 D:\KotStudentLib\KotStudentApp\obj\Debug\KotStudentApp.pdb
-D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfileViewModel.g.cs
-D:\KotStudentLib\KotStudentApp\obj\Debug\ViewModels\ProfileViewModel.baml
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Profil.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ProfilView.g.cs
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\Profil.baml
+D:\KotStudentLib\KotStudentApp\obj\Debug\Views\MainControlWindows\ProfilView.baml

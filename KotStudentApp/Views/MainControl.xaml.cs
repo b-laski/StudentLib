@@ -28,7 +28,7 @@ namespace KotStudentApp.Views
 
         public void LoadAll()
         {
-            ToolBar.LoadAll();
+            ToolBar.LoadControls();
         }
 
         private void ToolBar_OpenCloseMenu(object sender, Enums.OpenCloseStatus e)
@@ -43,9 +43,13 @@ namespace KotStudentApp.Views
             }
         }
 
-        private void ToolBar_OpenProfilControl()
+        private async void ToolBar_ShowProfile()
         {
-
+            MainControlWindows.ProfilView fullProfil = new MainControlWindows.ProfilView(await StudentAPI.StudentAPI.GetUserObjectAsync());
+            fullProfil.Width = grdMainActivity.Width;
+            fullProfil.Height = grdMainActivity.Height;
+            fullProfil.Margin = new Thickness(80,20,80,0);
+            grdMainActivity.Children.Add(fullProfil);
         }
     }
 }

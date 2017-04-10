@@ -1,0 +1,9 @@
+D:\KotStudentLib\StudentAPI\bin\Release\StudentAPI.dll
+D:\KotStudentLib\StudentAPI\bin\Release\StudentAPI.pdb
+D:\KotStudentLib\StudentAPI\bin\Release\Newtonsoft.Json.dll
+D:\KotStudentLib\StudentAPI\bin\Release\Utilities.dll
+D:\KotStudentLib\StudentAPI\bin\Release\Artefact.dll
+D:\KotStudentLib\StudentAPI\bin\Release\Newtonsoft.Json.xml
+D:\KotStudentLib\StudentAPI\obj\Release\StudentAPI.csprojResolveAssemblyReference.cache
+D:\KotStudentLib\StudentAPI\obj\Release\StudentAPI.dll
+D:\KotStudentLib\StudentAPI\obj\Release\StudentAPI.pdb
