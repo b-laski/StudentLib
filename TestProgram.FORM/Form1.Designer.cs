@@ -51,25 +51,27 @@
             this.btnDeletePost = new System.Windows.Forms.Button();
             this.btnEditPost = new System.Windows.Forms.Button();
             this.btnPosts = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreateComment = new System.Windows.Forms.Button();
+            this.btnComments = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).BeginInit();
             this.SuspendLayout();
             // 
             // InfoBox
             // 
             this.InfoBox.FormattingEnabled = true;
-            this.InfoBox.ItemHeight = 16;
-            this.InfoBox.Location = new System.Drawing.Point(21, 18);
-            this.InfoBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.InfoBox.Location = new System.Drawing.Point(16, 15);
+            this.InfoBox.Margin = new System.Windows.Forms.Padding(4);
             this.InfoBox.Name = "InfoBox";
-            this.InfoBox.Size = new System.Drawing.Size(1251, 436);
+            this.InfoBox.Size = new System.Drawing.Size(939, 563);
             this.InfoBox.TabIndex = 0;
             // 
             // btnSignIn
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(1285, 18);
-            this.btnSignIn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSignIn.Location = new System.Drawing.Point(964, 15);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(140, 28);
+            this.btnSignIn.Size = new System.Drawing.Size(105, 23);
             this.btnSignIn.TabIndex = 1;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = true;
@@ -77,10 +79,10 @@
             // 
             // btnLoadSession
             // 
-            this.btnLoadSession.Location = new System.Drawing.Point(1285, 57);
-            this.btnLoadSession.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLoadSession.Location = new System.Drawing.Point(964, 46);
+            this.btnLoadSession.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadSession.Name = "btnLoadSession";
-            this.btnLoadSession.Size = new System.Drawing.Size(140, 28);
+            this.btnLoadSession.Size = new System.Drawing.Size(105, 23);
             this.btnLoadSession.TabIndex = 2;
             this.btnLoadSession.Text = "Load session";
             this.btnLoadSession.UseVisualStyleBackColor = true;
@@ -88,10 +90,10 @@
             // 
             // btnLoadUser
             // 
-            this.btnLoadUser.Location = new System.Drawing.Point(1285, 95);
-            this.btnLoadUser.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLoadUser.Location = new System.Drawing.Point(964, 77);
+            this.btnLoadUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadUser.Name = "btnLoadUser";
-            this.btnLoadUser.Size = new System.Drawing.Size(140, 28);
+            this.btnLoadUser.Size = new System.Drawing.Size(105, 23);
             this.btnLoadUser.TabIndex = 3;
             this.btnLoadUser.Text = "Show user!";
             this.btnLoadUser.UseVisualStyleBackColor = true;
@@ -99,21 +101,21 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(21, 551);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(36, 31);
+            this.webBrowser1.Location = new System.Drawing.Point(16, 656);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1404, 140);
+            this.webBrowser1.Size = new System.Drawing.Size(1053, 114);
             this.webBrowser1.TabIndex = 4;
             this.webBrowser1.Visible = false;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_FrameLoadStart);
             // 
             // btnLoadCollege
             // 
-            this.btnLoadCollege.Location = new System.Drawing.Point(21, 466);
-            this.btnLoadCollege.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLoadCollege.Location = new System.Drawing.Point(16, 593);
+            this.btnLoadCollege.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCollege.Name = "btnLoadCollege";
-            this.btnLoadCollege.Size = new System.Drawing.Size(100, 28);
+            this.btnLoadCollege.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCollege.TabIndex = 5;
             this.btnLoadCollege.Text = "Colleges";
             this.btnLoadCollege.UseVisualStyleBackColor = true;
@@ -121,10 +123,10 @@
             // 
             // btnLoadDeparments
             // 
-            this.btnLoadDeparments.Location = new System.Drawing.Point(132, 466);
-            this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLoadDeparments.Location = new System.Drawing.Point(16, 625);
+            this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadDeparments.Name = "btnLoadDeparments";
-            this.btnLoadDeparments.Size = new System.Drawing.Size(100, 28);
+            this.btnLoadDeparments.Size = new System.Drawing.Size(75, 23);
             this.btnLoadDeparments.TabIndex = 6;
             this.btnLoadDeparments.Text = "Departments";
             this.btnLoadDeparments.UseVisualStyleBackColor = true;
@@ -132,10 +134,10 @@
             // 
             // btnLoadCategories
             // 
-            this.btnLoadCategories.Location = new System.Drawing.Point(243, 466);
-            this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLoadCategories.Location = new System.Drawing.Point(99, 593);
+            this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCategories.Name = "btnLoadCategories";
-            this.btnLoadCategories.Size = new System.Drawing.Size(100, 28);
+            this.btnLoadCategories.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCategories.TabIndex = 7;
             this.btnLoadCategories.Text = "Categories";
             this.btnLoadCategories.UseVisualStyleBackColor = true;
@@ -143,10 +145,10 @@
             // 
             // btnCreateDepartment
             // 
-            this.btnCreateDepartment.Location = new System.Drawing.Point(1285, 169);
-            this.btnCreateDepartment.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateDepartment.Location = new System.Drawing.Point(964, 137);
+            this.btnCreateDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateDepartment.Name = "btnCreateDepartment";
-            this.btnCreateDepartment.Size = new System.Drawing.Size(140, 28);
+            this.btnCreateDepartment.Size = new System.Drawing.Size(105, 23);
             this.btnCreateDepartment.TabIndex = 8;
             this.btnCreateDepartment.Text = "CreateDepartment";
             this.btnCreateDepartment.UseVisualStyleBackColor = true;
@@ -154,27 +156,25 @@
             // 
             // TestBox
             // 
-            this.TestBox.Location = new System.Drawing.Point(21, 507);
-            this.TestBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TestBox.Location = new System.Drawing.Point(612, 593);
+            this.TestBox.Margin = new System.Windows.Forms.Padding(2);
             this.TestBox.Name = "TestBox";
-            this.TestBox.Size = new System.Drawing.Size(209, 22);
+            this.TestBox.Size = new System.Drawing.Size(158, 20);
             this.TestBox.TabIndex = 9;
             // 
             // NumericBox
             // 
-            this.NumericBox.Location = new System.Drawing.Point(239, 507);
-            this.NumericBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NumericBox.Location = new System.Drawing.Point(612, 618);
             this.NumericBox.Name = "NumericBox";
-            this.NumericBox.Size = new System.Drawing.Size(211, 22);
+            this.NumericBox.Size = new System.Drawing.Size(158, 20);
             this.NumericBox.TabIndex = 10;
             // 
             // btnAddCollage
             // 
             this.btnAddCollage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAddCollage.Location = new System.Drawing.Point(1285, 132);
-            this.btnAddCollage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCollage.Location = new System.Drawing.Point(964, 107);
             this.btnAddCollage.Name = "btnAddCollage";
-            this.btnAddCollage.Size = new System.Drawing.Size(140, 28);
+            this.btnAddCollage.Size = new System.Drawing.Size(105, 23);
             this.btnAddCollage.TabIndex = 11;
             this.btnAddCollage.Text = "CreateCollega";
             this.btnAddCollage.UseVisualStyleBackColor = true;
@@ -182,10 +182,9 @@
             // 
             // btnCourses
             // 
-            this.btnCourses.Location = new System.Drawing.Point(352, 466);
-            this.btnCourses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCourses.Location = new System.Drawing.Point(99, 623);
             this.btnCourses.Name = "btnCourses";
-            this.btnCourses.Size = new System.Drawing.Size(100, 28);
+            this.btnCourses.Size = new System.Drawing.Size(75, 23);
             this.btnCourses.TabIndex = 12;
             this.btnCourses.Text = "Courses";
             this.btnCourses.UseVisualStyleBackColor = true;
@@ -193,10 +192,9 @@
             // 
             // btnThreads
             // 
-            this.btnThreads.Location = new System.Drawing.Point(460, 466);
-            this.btnThreads.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThreads.Location = new System.Drawing.Point(181, 593);
             this.btnThreads.Name = "btnThreads";
-            this.btnThreads.Size = new System.Drawing.Size(100, 28);
+            this.btnThreads.Size = new System.Drawing.Size(75, 23);
             this.btnThreads.TabIndex = 13;
             this.btnThreads.Text = "Threads";
             this.btnThreads.UseVisualStyleBackColor = true;
@@ -204,10 +202,10 @@
             // 
             // btnCreateCategories
             // 
-            this.btnCreateCategories.Location = new System.Drawing.Point(1285, 207);
-            this.btnCreateCategories.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateCategories.Location = new System.Drawing.Point(964, 168);
+            this.btnCreateCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateCategories.Name = "btnCreateCategories";
-            this.btnCreateCategories.Size = new System.Drawing.Size(140, 28);
+            this.btnCreateCategories.Size = new System.Drawing.Size(105, 23);
             this.btnCreateCategories.TabIndex = 14;
             this.btnCreateCategories.Text = "CreateCategories";
             this.btnCreateCategories.UseVisualStyleBackColor = true;
@@ -215,10 +213,10 @@
             // 
             // btnCreateCurse
             // 
-            this.btnCreateCurse.Location = new System.Drawing.Point(1285, 245);
-            this.btnCreateCurse.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateCurse.Location = new System.Drawing.Point(964, 199);
+            this.btnCreateCurse.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateCurse.Name = "btnCreateCurse";
-            this.btnCreateCurse.Size = new System.Drawing.Size(140, 28);
+            this.btnCreateCurse.Size = new System.Drawing.Size(105, 23);
             this.btnCreateCurse.TabIndex = 15;
             this.btnCreateCurse.Text = "CreateCurse";
             this.btnCreateCurse.UseVisualStyleBackColor = true;
@@ -226,10 +224,10 @@
             // 
             // btnCreateThread
             // 
-            this.btnCreateThread.Location = new System.Drawing.Point(1285, 283);
-            this.btnCreateThread.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateThread.Location = new System.Drawing.Point(964, 230);
+            this.btnCreateThread.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateThread.Name = "btnCreateThread";
-            this.btnCreateThread.Size = new System.Drawing.Size(140, 28);
+            this.btnCreateThread.Size = new System.Drawing.Size(105, 23);
             this.btnCreateThread.TabIndex = 16;
             this.btnCreateThread.Text = "CreateThread";
             this.btnCreateThread.UseVisualStyleBackColor = true;
@@ -237,10 +235,10 @@
             // 
             // btnCreatePost
             // 
-            this.btnCreatePost.Location = new System.Drawing.Point(1284, 321);
-            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreatePost.Location = new System.Drawing.Point(963, 261);
+            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreatePost.Name = "btnCreatePost";
-            this.btnCreatePost.Size = new System.Drawing.Size(140, 28);
+            this.btnCreatePost.Size = new System.Drawing.Size(105, 23);
             this.btnCreatePost.TabIndex = 17;
             this.btnCreatePost.Text = "CreatePost";
             this.btnCreatePost.UseVisualStyleBackColor = true;
@@ -249,20 +247,18 @@
             // TextCB
             // 
             this.TextCB.AutoSize = true;
-            this.TextCB.Location = new System.Drawing.Point(457, 507);
-            this.TextCB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextCB.Location = new System.Drawing.Point(775, 595);
             this.TextCB.Name = "TextCB";
-            this.TextCB.Size = new System.Drawing.Size(162, 21);
+            this.TextCB.Size = new System.Drawing.Size(126, 17);
             this.TextCB.TabIndex = 18;
             this.TextCB.Text = "Kontrolka True/False";
             this.TextCB.UseVisualStyleBackColor = true;
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(1325, 507);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTest.Location = new System.Drawing.Point(993, 618);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(100, 28);
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 19;
             this.btnTest.Text = "TestButton";
             this.btnTest.UseVisualStyleBackColor = true;
@@ -270,10 +266,10 @@
             // 
             // btnDeletePost
             // 
-            this.btnDeletePost.Location = new System.Drawing.Point(1285, 398);
-            this.btnDeletePost.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDeletePost.Location = new System.Drawing.Point(964, 323);
+            this.btnDeletePost.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePost.Name = "btnDeletePost";
-            this.btnDeletePost.Size = new System.Drawing.Size(140, 28);
+            this.btnDeletePost.Size = new System.Drawing.Size(105, 23);
             this.btnDeletePost.TabIndex = 20;
             this.btnDeletePost.Text = "Delete Post";
             this.btnDeletePost.UseVisualStyleBackColor = true;
@@ -281,10 +277,10 @@
             // 
             // btnEditPost
             // 
-            this.btnEditPost.Location = new System.Drawing.Point(1285, 359);
-            this.btnEditPost.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnEditPost.Location = new System.Drawing.Point(963, 292);
+            this.btnEditPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditPost.Name = "btnEditPost";
-            this.btnEditPost.Size = new System.Drawing.Size(140, 28);
+            this.btnEditPost.Size = new System.Drawing.Size(105, 23);
             this.btnEditPost.TabIndex = 21;
             this.btnEditPost.Text = "EditPost";
             this.btnEditPost.UseVisualStyleBackColor = true;
@@ -292,20 +288,53 @@
             // 
             // btnPosts
             // 
-            this.btnPosts.Location = new System.Drawing.Point(568, 466);
-            this.btnPosts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPosts.Location = new System.Drawing.Point(181, 622);
             this.btnPosts.Name = "btnPosts";
-            this.btnPosts.Size = new System.Drawing.Size(100, 28);
+            this.btnPosts.Size = new System.Drawing.Size(75, 23);
             this.btnPosts.TabIndex = 22;
             this.btnPosts.Text = "Posts";
             this.btnPosts.UseVisualStyleBackColor = true;
             this.btnPosts.Click += new System.EventHandler(this.btnPosts_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(964, 354);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Delete Post";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateComment
+            // 
+            this.btnCreateComment.Location = new System.Drawing.Point(964, 385);
+            this.btnCreateComment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateComment.Name = "btnCreateComment";
+            this.btnCreateComment.Size = new System.Drawing.Size(105, 23);
+            this.btnCreateComment.TabIndex = 24;
+            this.btnCreateComment.Text = "Create Comment";
+            this.btnCreateComment.UseVisualStyleBackColor = true;
+            this.btnCreateComment.Click += new System.EventHandler(this.btnCreateComment_Click);
+            // 
+            // btnComments
+            // 
+            this.btnComments.Location = new System.Drawing.Point(262, 593);
+            this.btnComments.Name = "btnComments";
+            this.btnComments.Size = new System.Drawing.Size(75, 23);
+            this.btnComments.TabIndex = 25;
+            this.btnComments.Text = "Comments";
+            this.btnComments.UseVisualStyleBackColor = true;
+            this.btnComments.Click += new System.EventHandler(this.btnComments_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1441, 710);
+            this.ClientSize = new System.Drawing.Size(1081, 783);
+            this.Controls.Add(this.btnComments);
+            this.Controls.Add(this.btnCreateComment);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPosts);
             this.Controls.Add(this.btnEditPost);
             this.Controls.Add(this.btnDeletePost);
@@ -329,7 +358,7 @@
             this.Controls.Add(this.btnLoadSession);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.InfoBox);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -364,6 +393,9 @@
         private System.Windows.Forms.Button btnDeletePost;
         private System.Windows.Forms.Button btnEditPost;
         private System.Windows.Forms.Button btnPosts;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateComment;
+        private System.Windows.Forms.Button btnComments;
     }
 }
 

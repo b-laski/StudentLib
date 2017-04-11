@@ -90,6 +90,7 @@
     <Compile Include="Exceptions\NotFoundPath.cs" />
     <Compile Include="Exceptions\ServerError.cs" />
     <Compile Include="Exceptions\VerifyAccessTokenFailed.cs" />
+    <Compile Include="Libs\Helper.cs" />
     <Compile Include="Libs\Request.cs" />
     <Compile Include="Libs\StudentAPI.cs" />
     <Compile Include="Logs\Output.cs" />
@@ -98,12 +99,13 @@
     <Compile Include="Models\API\Courses\Course.cs" />
     <Compile Include="Models\API\Department\Department.cs" />
     <Compile Include="Models\API\Group\Groups.cs" />
+    <Compile Include="Models\API\PostComent\Comment.cs" />
+    <Compile Include="Models\API\PostComent\CommentList.cs" />
     <Compile Include="Models\API\PostComent\Post.cs" />
     <Compile Include="Models\API\Session.cs" />
     <Compile Include="Models\API\Threads\Thread.cs" />
     <Compile Include="Models\API\User.cs" />
     <Compile Include="StudentAPI.cs" />
-    <Compile Include="StudentClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using StudentAPI;
 
 namespace StudentAPI
 {
@@ -96,22 +92,48 @@ namespace StudentAPI
         public static async Task<List<Models.API.Courses.Course>> GetCoursesListAsync(int ID) => await Libs.StudentAPI.GetCursesObject(ID);
 
         /// <summary>
-        /// [SYNC] GET THREAD LIST IN CURSE!
+        /// [SYNC] GET THREAD LIST IN COURSE!
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
         public static List<Models.API.Threads.Thread> GetThreadsList(int ID) => Task.Run(() => Libs.StudentAPI.GetThreadList(ID)).Result;
 
         /// <summary>
-        /// [ASYNC] GET THREAD LIST IN CURSE!
+        /// [ASYNC] GET THREAD LIST IN COURSE!
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
         public static async Task<List<Models.API.Threads.Thread>> GetThreadsListAsync(int ID) => await Libs.StudentAPI.GetThreadList(ID);
 
+        /// <summary>
+        /// [SYNC] GET POSTS LIST IN CURSE!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="OP"></param>
+        /// <returns></returns>
         public static List<Models.API.PostComent.Post> GetPostList(int ID, int OP) => Task.Run(() => Libs.StudentAPI.GetPostList(ID, OP)).Result;
 
+        /// <summary>
+        /// [ASYNC] GET POSTS LIST IN THREAD!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="OP"></param>
+        /// <returns></returns>
         public static async Task<List<Models.API.PostComent.Post>> GetPostListAsync(int ID, int OP) => await Libs.StudentAPI.GetPostList(ID, OP);
+
+        /// <summary>
+        /// [SYNC] GET COMMENTS LIST IN POST!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static List<Models.API.PostComent.CommentList> GetCommentsList(int ID) => Task.Run(() => Libs.StudentAPI.GetCommentList(ID)).Result;
+
+        /// <summary>
+        /// [ASYNC] GET COMMENTS LIST IN POST!
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.API.PostComent.CommentList>> GetCommentsListAsync(int ID) => await Libs.StudentAPI.GetCommentList(ID);
 
         #endregion
 
@@ -128,6 +150,8 @@ namespace StudentAPI
         public static void CreateThread(int group_id, string title, bool isPinned) => Libs.StudentAPI.CreateThread(group_id, title, isPinned);
 
         public static void CreatePost(int thread_id, string message) => Libs.StudentAPI.CreatePost(thread_id, message);
+
+        public static void CreatComment(int post_id, string message) => Libs.StudentAPI.CreateComment(post_id, message);
 
         #endregion
 

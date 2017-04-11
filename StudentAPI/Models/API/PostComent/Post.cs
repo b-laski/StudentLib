@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentAPI.Models.API.PostComent
 {
@@ -12,8 +9,9 @@ namespace StudentAPI.Models.API.PostComent
         private int _id;
         private string _content;
         private int _userid;
-        private int? _createDate;
-        private int? _modifyDate;
+        private DateTime _createDate;
+        private string _modifyDate;
+        public List<Comment> _comments;
 
         public int ID
         {
@@ -30,31 +28,44 @@ namespace StudentAPI.Models.API.PostComent
             get { return _userid; }
             set { _userid = value; OnPropertyChanged("UserID"); }
         }
-        public int? CreateDate
+        public DateTime CreateDate
         {
             get { return _createDate; }
             set { _createDate = value; OnPropertyChanged("CreateDate"); }
         }
-        public int? ModifyDate
+        public string ModifyDate
         {
             get { return _modifyDate; }
             set { _modifyDate = value; OnPropertyChanged("ModifyDate"); }
         }
+        public List<Comment> Comments
+        {
+            get { return _comments; }
+            set { _comments = value; OnPropertyChanged("Comments"); }
+        }
 
         public Post(JToken json)
         {
-            int id, userid, createDate, modifyDate;
+            int id, userid;
             if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
             if (int.TryParse(json.SelectToken("userID").ToString(), out userid)) UserID = userid;
-            if (int.TryParse(json.SelectToken("createDate").ToString(), out createDate)) CreateDate = createDate;
-            if (int.TryParse(json.SelectToken("modifyDate").ToString(), out modifyDate)) ModifyDate = modifyDate;
+            CreateDate = Libs.Helper.UnixTimeStampToDateTime((double)json.SelectToken("createDate"));
+            ModifyDate = json.SelectToken("modifyDate").ToString();
 
             Content = json.SelectToken("content").ToString();
+            Comments = new List<Comment>();
+            if (json.SelectToken("lastComments") != null)
+                foreach (var item in json.SelectToken("lastComments"))
+                    Comments.Add(new Comment(item));
         }
 
         public override string ToString()
         {
-            return $"{ID}, {Content} {UserID}";
+            string data =  $"{ID}, {Content} {UserID} ||";
+            if (Comments != null)
+                foreach (var item in Comments)
+                    data += $"{item.ToString()}";
+            return data;
         }
     }
 }

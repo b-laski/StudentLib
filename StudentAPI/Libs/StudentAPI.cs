@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace StudentAPI.Libs
@@ -15,21 +12,11 @@ namespace StudentAPI.Libs
         readonly static string URL = "http://193.239.80.171:3100";
 
         #region GetObjects
-        
-        /// <summary>
-        /// Giving user object signed on this moment.
-        /// </summary>
-        /// <returns></returns>
         internal static async Task<Models.API.User> GetUserObject()
         {
             return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("user"));
         }
-            
-        /// <summary>
-        /// Giving college list, can be use to search college.
-        /// </summary>
-        /// <param name="pattern">Part of College`s name</param>
-        /// <returns></returns>
+
         internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject(string pattern = null)
         {
             List<Models.API.Collage.College> colleges = new List<Models.API.Collage.College>();
@@ -47,11 +34,6 @@ namespace StudentAPI.Libs
             return colleges;
         }
  
-        /// <summary>
-        /// Giving deparment list of college
-        /// </summary>
-        /// <param name="id">College`s ID</param>
-        /// <returns></returns>
         internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(int id)
         {
             try
@@ -71,11 +53,6 @@ namespace StudentAPI.Libs
 
         }
 
-        /// <summary>
-        /// Giving categories list of department
-        /// </summary>
-        /// <param name="id">Department`s ID</param>
-        /// <returns></returns>
         internal static async Task<List<Models.API.Categorie.Categorie>> GetCategorieObject(int id)
         {
             try
@@ -90,14 +67,8 @@ namespace StudentAPI.Libs
             }
             catch (Exception)
             {
-
                 return null;
             }
-
-
-            //JObject json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
-            //List<Models.API.Categorie.Categorie> categories = JsonConvert.DeserializeObject<List<Models.API.Categorie.Categorie>>(json.SelectToken("categories").ToString());
-            //return categories;
         }
 
         internal static async Task<List<Models.API.Courses.Course>> GetCursesObject(int id)
@@ -122,10 +93,10 @@ namespace StudentAPI.Libs
             return threads;
         }
 
-        internal static async Task<List<Models.API.PostComent.Post>> GetPostList(int id, int older_then=0)
+        internal static async Task<List<Models.API.PostComent.Post>> GetPostList(int id, int older_than=0)
         {
             List<Models.API.PostComent.Post> posts = new List<Models.API.PostComent.Post>();
-            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/thread/posts?thread_id={id}&older_than={older_then}"));
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/thread/posts?thread_id={id}&older_than={older_than}"));
             foreach(var item in json.SelectToken("ThreadPosts"))
             {
                 posts.Add(new Models.API.PostComent.Post(item));
@@ -133,18 +104,21 @@ namespace StudentAPI.Libs
             return posts;
         }
 
+        internal static async Task<List<Models.API.PostComent.CommentList>> GetCommentList(int id, int older_than=0)
+        {
+            List<Models.API.PostComent.CommentList> comments = new List<Models.API.PostComent.CommentList>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/threads/posts/comments?root_id={id}&older_than={older_than}"));
+            foreach (var item in json.SelectToken("PostComments"))
+            {
+                comments.Add(new Models.API.PostComent.CommentList(item));
+            }
+            return comments;
+        }
+
         #endregion
 
         #region CreateMethods
 
-        /// <summary>
-        /// Creating new collega.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="alias"></param>
-        /// <param name="description"></param>
-        /// <param name="cover"></param>
-        /// <param name="photo"></param>
         internal static async void CreateCollege(string name, List<string> alias, string description, string cover = "null", string photo = "null")
         {
             var data = "{\"name\":\"" + name + "\", \"alias\": [ ";
@@ -164,63 +138,40 @@ namespace StudentAPI.Libs
 
         }
 
-        /// <summary>
-        /// Creating new department in selected college.
-        /// </summary>
-        /// <param name="name">Deprtment`s name</param>
-        /// <param name="college_id">College`s ID</param>
-        /// <param name="description">Department`s description</param>
-        /// <param name="cover">Cover image</param>
-        /// <param name="photo">Department`s photo</param>
         internal static async void CreateDepartment(string name, int college_id, string description, string cover = "null", string photo = "null")
         {
             var data= "{\"name\": \"" + name + "\", \"college_id\": \"" + college_id + "\", \"cover\": null, \"photo\": null, \"description\": \"" + description + "\"}";
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department", "PUT", data));
         }
 
-        /// <summary>
-        /// Creating new categorie in selected department.
-        /// </summary>
-        /// <param name="name">Categorie`s name</param>
-        /// <param name="department_id">Department`s ID</param>
         internal static async void CreateCategories(string name, int department_id)
         {
             var data = "{\"name\": \"" + name + "\", \"department_id\": \""+ department_id +"\"}";
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department/category", "PUT", data));
         }
 
-        /// <summary>
-        /// Creating new course in selected categorie.
-        /// </summary>
-        /// <param name="name">Course`s name </param>
-        /// <param name="category_id">Categorie`s ID</param>
         internal static async void CreateCourse(string name, int category_id)
         {
             var data = "{\"name\": \"" + name + "\", \"category_id\": " + category_id + "}";
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department/category/course", "PUT", data));
         }
 
-        /// <summary>
-        /// Creating new thread in course.
-        /// </summary>
-        /// <param name="group_id"></param>
-        /// <param name="title"></param>
-        /// <param name="isPinned"></param>
         internal static async void CreateThread(int group_id, string title, bool isPinned)
         {
             var data = "{\"group_id\": " + group_id + ", \"title\": \"" + title + "\", \"isPinned\": " + isPinned.ToString().ToLower() + "}";
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads", "PUT", data));
         }
 
-        /// <summary>
-        /// Creating new post in thread.
-        /// </summary>
-        /// <param name="thread_id"></param>
-        /// <param name="message"></param>
         internal static async void CreatePost(int thread_id, string message)
         {
             var data = "{\"thread_id\": " + thread_id + ", \"content\": \"" + message + "\"}";
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/thread/posts", "PUT", data));
+        }
+
+        internal static async void CreateComment(int post_id, string message)
+        {
+            var data = "{\"root_id\": " + post_id + ", \"content\": \"" + message + "\"}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/thread/posts/comments", "PUT", data));
         }
 
         #endregion
@@ -246,12 +197,6 @@ namespace StudentAPI.Libs
 
         #region Settings
 
-        /// <summary>
-        /// Login by provider!
-        /// </summary>
-        /// <param name="auth_provider">Provider like a "facebook"</param>
-        /// <param name="accessToken">Access to provider</param>
-        /// <returns>true/false</returns>
         internal static async Task<bool> SetSession(string auth_provider, string accessToken)
         {
             try
@@ -265,10 +210,6 @@ namespace StudentAPI.Libs
             }
         }
 
-        /// <summary>
-        /// Give information about first login to KotStudent
-        /// </summary>
-        /// <returns>true/false</returns>
         internal static bool isNew()
         {
             if (Models.API.Session.New == true)
@@ -277,10 +218,6 @@ namespace StudentAPI.Libs
             return false;
         }
 
-        /// <summary>
-        /// Giving SessionID
-        /// </summary>
-        /// <returns></returns>
         internal static string GetSessionID()
         {
             if (!string.IsNullOrEmpty(Models.API.Session.SesionID))
@@ -289,10 +226,6 @@ namespace StudentAPI.Libs
             return null;
         }
 
-        /// <summary>
-        /// Giving SessionToken
-        /// </summary>
-        /// <returns></returns>
         internal static string GetSessionToken()
         {
             if (!string.IsNullOrEmpty(Models.API.Session.SesionToken))
