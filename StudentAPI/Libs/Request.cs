@@ -10,7 +10,7 @@ namespace StudentAPI.Libs
     internal class Request
     {
         //GetMethod
-        internal static async Task<string> MakeGetRequest(string URL, string sessionID = null, string sessionToken=null)
+        internal static async Task<string> MakeGetRequest(string URL)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri($"{URL}"));
             try

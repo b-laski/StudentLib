@@ -122,6 +122,16 @@ namespace StudentAPI.Libs
             return threads;
         }
 
+        internal static async Task<List<Models.API.PostComent.Post>> GetPostList(int id, int older_then=0)
+        {
+            List<Models.API.PostComent.Post> posts = new List<Models.API.PostComent.Post>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/thread/posts?thread_id={id}&older_than={older_then}"));
+            foreach(var item in json.SelectToken("ThreadPosts"))
+            {
+                posts.Add(new Models.API.PostComent.Post(item));
+            }
+            return posts;
+        }
 
         #endregion
 
@@ -229,7 +239,7 @@ namespace StudentAPI.Libs
 
         internal static async void DeletePost(int id)
         {
-            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college?post_id={id}", "DELETE"));
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads/posts?post_id={id}", "DELETE"));
         }
 
         #endregion

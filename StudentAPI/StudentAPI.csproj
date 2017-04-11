@@ -98,6 +98,7 @@
     <Compile Include="Models\API\Courses\Course.cs" />
     <Compile Include="Models\API\Department\Department.cs" />
     <Compile Include="Models\API\Group\Groups.cs" />
+    <Compile Include="Models\API\PostComent\Post.cs" />
     <Compile Include="Models\API\Session.cs" />
     <Compile Include="Models\API\Threads\Thread.cs" />
     <Compile Include="Models\API\User.cs" />

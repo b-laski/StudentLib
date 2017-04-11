@@ -109,6 +109,10 @@ namespace StudentAPI
         /// <returns></returns>
         public static async Task<List<Models.API.Threads.Thread>> GetThreadsListAsync(int ID) => await Libs.StudentAPI.GetThreadList(ID);
 
+        public static List<Models.API.PostComent.Post> GetPostList(int ID, int OP) => Task.Run(() => Libs.StudentAPI.GetPostList(ID, OP)).Result;
+
+        public static async Task<List<Models.API.PostComent.Post>> GetPostListAsync(int ID, int OP) => await Libs.StudentAPI.GetPostList(ID, OP);
+
         #endregion
 
         #region CreateMethods

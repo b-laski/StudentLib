@@ -200,5 +200,22 @@ namespace TestProgram.FORM
         {
             StudentAPI.StudentAPI.DeletePost((int)NumericBox.Value);
         }
+
+        private async void btnPosts_Click(object sender, EventArgs e)
+        {
+            InfoBox.Items.Clear();
+            var list = await StudentAPI.StudentAPI.GetPostListAsync((int)NumericBox.Value, 0);
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Niema wydzialow!");
+            }
+        }
     }
 }
