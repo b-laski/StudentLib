@@ -135,6 +135,9 @@ namespace StudentAPI
         /// <returns></returns>
         public static async Task<List<Models.API.PostComent.CommentList>> GetCommentsListAsync(int ID) => await Libs.StudentAPI.GetCommentList(ID);
 
+        public static List<Models.API.Group.GroupMembers> GetMemberList(int ID) => Task.Run(() => Libs.StudentAPI.GetMemberList(ID)).Result;
+
+        public static async Task<List<Models.API.Group.GroupMembers>> GetMemberListAsync(int ID) => await Libs.StudentAPI.GetMemberList(ID);
         #endregion
 
         #region CreateMethods
@@ -153,6 +156,8 @@ namespace StudentAPI
 
         public static void CreatComment(int post_id, string message) => Libs.StudentAPI.CreateComment(post_id, message);
 
+        public static void JoinToGroup(int group_id) => Libs.StudentAPI.JoinToGroup(group_id);
+
         #endregion
 
         #region EditMethods
@@ -164,6 +169,8 @@ namespace StudentAPI
         #region DeleteMethods
 
         public static void DeletePost(int ID) => Libs.StudentAPI.DeletePost(ID);
+
+        public static void LeaveFromGroup(int groupID, int memberID) => Libs.StudentAPI.LeaveFormGroup(groupID, memberID);
 
         #endregion
 

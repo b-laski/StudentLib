@@ -8,7 +8,7 @@ namespace StudentAPI.Models.API.PostComent
         private int _id;
         private string _content;
         private int _userID;
-        private DateTime _createDate;
+        private DateTime? _createDate;
 
         public int ID
         {
@@ -37,7 +37,7 @@ namespace StudentAPI.Models.API.PostComent
                 OnPropertyChanged("UserID");
             }
         }
-        public DateTime CreateDate
+        public DateTime? CreateDate
         {
             get { return _createDate; }
             set
@@ -50,11 +50,16 @@ namespace StudentAPI.Models.API.PostComent
         public Comment(JToken json)
         {
             int id, userID;
+            double createDate;
             if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
             if (int.TryParse(json.SelectToken("userID").ToString(), out userID)) UserID = userID;
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out createDate))
+                CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
+            else
+                CreateDate = null;
             
             Content = json.SelectToken("content").ToString();
-            CreateDate = Libs.Helper.UnixTimeStampToDateTime((double)json.SelectToken("createDate"));
+
         }
 
         public override string ToString()

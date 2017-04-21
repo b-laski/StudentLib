@@ -27,11 +27,15 @@ namespace StudentAPI.Libs
             else
                 json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/colleges?by_name={pattern.ToLower()}")).SelectToken("colleges");
 
-            foreach(JToken item in json)
+            if(json.HasValues)
             {
-                colleges.Add(new Models.API.Collage.College(item));
+                 foreach (JToken item in json)
+                 {
+                     colleges.Add(new Models.API.Collage.College(item));
+                 }
+                return colleges;
             }
-            return colleges;
+            return null;
         }
  
         internal static async Task<List<Models.API.Deparment.Department>> GetDepartmentObject(int id)
@@ -40,11 +44,15 @@ namespace StudentAPI.Libs
             {
                 List<Models.API.Deparment.Department> departments = new List<Models.API.Deparment.Department>();
                 var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/departments?college_id={id}"));
-                foreach(JObject item in json.SelectToken("departments"))
+                if(json.SelectToken("departments").HasValues)
                 {
-                    departments.Add(new Models.API.Deparment.Department(item.ToString()));
+                    foreach(JObject item in json.SelectToken("departments"))
+                    {
+                        departments.Add(new Models.API.Deparment.Department(item.ToString()));
+                    }
+                    return departments;
                 }
-                return departments;
+                return null;
             }
             catch (Exception)
             {
@@ -59,11 +67,15 @@ namespace StudentAPI.Libs
             {
                 List<Models.API.Categorie.Categorie> categories = new List<Models.API.Categorie.Categorie>();
                 var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/categories?department_id={id}"));
-                foreach (JObject item in json.SelectToken("categories"))
+                if (json.SelectToken("categories").HasValues)
                 {
-                    categories.Add(new Models.API.Categorie.Categorie(item));
+                    foreach (JObject item in json.SelectToken("categories"))
+                    {
+                        categories.Add(new Models.API.Categorie.Categorie(item));
+                    }
+                    return categories;
                 }
-                return categories;
+                return null;
             }
             catch (Exception)
             {
@@ -75,49 +87,81 @@ namespace StudentAPI.Libs
         {
             List<Models.API.Courses.Course> curses = new List<Models.API.Courses.Course>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/college/department/category/courses?category_id={id}"));
-            foreach(JObject item in json.SelectToken("courses"))
+            if (json.SelectToken("courses").HasValues)
             {
-                curses.Add(new Models.API.Courses.Course(item));
+                foreach (JObject item in json.SelectToken("courses"))
+                {
+                    curses.Add(new Models.API.Courses.Course(item));
+                }
+                return curses;
             }
-            return curses;
+            return null;
         }
 
         internal static async Task<List<Models.API.Threads.Thread>> GetThreadList(int id)
         {
             List<Models.API.Threads.Thread> threads = new List<Models.API.Threads.Thread>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/threads?group_id={id}"));
-            foreach(JObject item in json.SelectToken("GroupThreads"))
-            {
-                threads.Add(new Models.API.Threads.Thread(item));
+            if(json.SelectToken("GroupThreads").HasValues)
+            { 
+                foreach(JObject item in json.SelectToken("GroupThreads"))
+                {
+                    threads.Add(new Models.API.Threads.Thread(item));
+                }
+                return threads;
             }
-            return threads;
+            return null;
         }
 
         internal static async Task<List<Models.API.PostComent.Post>> GetPostList(int id, int older_than=0)
         {
             List<Models.API.PostComent.Post> posts = new List<Models.API.PostComent.Post>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/thread/posts?thread_id={id}&older_than={older_than}"));
-            foreach(var item in json.SelectToken("ThreadPosts"))
+            if (json.SelectToken("ThreadPosts").HasValues)
             {
-                posts.Add(new Models.API.PostComent.Post(item));
+                foreach (var item in json.SelectToken("ThreadPosts"))
+                {
+                    posts.Add(new Models.API.PostComent.Post(item));
+                }
+                return posts;
             }
-            return posts;
+            return null;
         }
 
         internal static async Task<List<Models.API.PostComent.CommentList>> GetCommentList(int id, int older_than=0)
         {
             List<Models.API.PostComent.CommentList> comments = new List<Models.API.PostComent.CommentList>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/threads/posts/comments?root_id={id}&older_than={older_than}"));
-            foreach (var item in json.SelectToken("PostComments"))
+            if (json.HasValues)
             {
-                comments.Add(new Models.API.PostComent.CommentList(item));
+                foreach (var item in json.SelectToken("PostComments"))
+                {
+                    comments.Add(new Models.API.PostComent.CommentList(item));
+                }
+                return comments;
             }
-            return comments;
+            return null;
+        }
+
+        internal static async Task<List<Models.API.Group.GroupMembers>> GetMemberList(int course_id)
+        {
+            List<Models.API.Group.GroupMembers> members = new List<Models.API.Group.GroupMembers>();
+            var json = JObject.Parse(
+                await Request.MakeGetRequest($"{URL}/group/college/department/category/course/members?course_id={course_id}&member_scope=userid,name,name,firstname,middlename,lastname,photo,gender"));
+            if (json.HasValues)
+            {
+                foreach (var item in json.SelectToken("GroupMembers"))
+                {
+                    members.Add(new Models.API.Group.GroupMembers(item));
+                }
+                return members;
+            }
+            return null;
         }
 
         #endregion
 
-        #region CreateMethods
+        #region Create/AddMethods
 
         internal static async void CreateCollege(string name, List<string> alias, string description, string cover = "null", string photo = "null")
         {
@@ -174,6 +218,12 @@ namespace StudentAPI.Libs
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/thread/posts/comments", "PUT", data));
         }
 
+        internal static async void JoinToGroup(int group_id)
+        {
+            string data = "{\"course_id\": " + group_id + "}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/college/department/category/course/members", "PUT", data));
+        }
+
         #endregion
 
         #region EditMethods
@@ -191,6 +241,12 @@ namespace StudentAPI.Libs
         internal static async void DeletePost(int id)
         {
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads/posts?post_id={id}", "DELETE"));
+        }
+
+        internal static async void LeaveFormGroup(int groupId, int memberId)
+        {
+            string data = "{\"group_id\": "+ groupId + ", \"member_id\": "+ memberId + "}";
+            JObject.Parse(await Request.MakeRestRequest($"{URL}/group/members", "DELETE", data));
         }
 
         #endregion

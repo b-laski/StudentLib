@@ -65,9 +65,16 @@ namespace TestProgram.FORM
             InfoBox.Items.Clear();
             var list = await StudentAPI.StudentAPI.GetCollegeListAsync(TestBox.Text);
 
-            foreach(var item in list)
+            if (list != null)
             {
-                InfoBox.Items.Add(item);
+                foreach(var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Nie ma takiej uczelni!");
             }
         }
         private async void btnLoadDeparments_Click(object sender, EventArgs e)
@@ -83,7 +90,7 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne id albo uczelnia nie posiada wydziałów!");
             }
         }
         private async void btnLoadCategories_Click(object sender, EventArgs e)
@@ -99,7 +106,7 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne id albo wydział nie posiada kierunków!");
             }
 
         }
@@ -116,7 +123,7 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne ID albo kierunek nie ma courses!");
             }
         }
         private async void btnThreads_Click(object sender, EventArgs e)
@@ -132,7 +139,7 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne ID albo Curses nie ma grup!");
             }
         }
         private async void btnComments_Click(object sender, EventArgs e)
@@ -148,7 +155,7 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne ID albo post nie ma komentarzy");
             }
         }
         private async void btnPosts_Click(object sender, EventArgs e)
@@ -164,12 +171,28 @@ namespace TestProgram.FORM
             }
             else
             {
-                InfoBox.Items.Add("Niema wydzialow!");
+                InfoBox.Items.Add("Błędne ID albo wątek nie ma postów!");
             }
         }
+
         private void btnCreateComment_Click(object sender, EventArgs e)
         {
             StudentAPI.StudentAPI.CreatComment((int)NumericBox.Value, TestBox.Text);
+        }
+
+        private async void btnMembers_Click(object sender, EventArgs e)
+        {
+            InfoBox.Items.Clear();
+            var list = await StudentAPI.StudentAPI.GetMemberListAsync((int)NumericBox.Value);
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item.ToString());
+                }
+            }
+            else
+                InfoBox.Items.Add("Grupa nie ma członków");
         }
         #endregion
 
@@ -220,20 +243,14 @@ namespace TestProgram.FORM
             
         }
 
+        private void btnJoin_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.JoinToGroup((int)NumericBox.Value);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void btnLeave_Click(object sender, EventArgs e)
+        {
+            StudentAPI.StudentAPI.LeaveFromGroup((int)NumericBox.Value, 3);
+        }
     }
 }

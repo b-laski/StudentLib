@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace StudentAPI.Models.API.Threads
 {
@@ -7,8 +8,8 @@ namespace StudentAPI.Models.API.Threads
         private int _id;
         private string _title;
         private bool _isPinned;
-        private int _createDate;
-        private string _creatorId;
+        private DateTime? _createDate;
+        private int? _creatorId;
 
         public int ID
         {
@@ -25,12 +26,12 @@ namespace StudentAPI.Models.API.Threads
             get { return _isPinned; }
             set { _isPinned = value; OnPropertyChanged("Pinned"); }
         }
-        public int CreateDate
+        public DateTime? CreateDate
         {
             get { return _createDate; }
             set { _createDate = value; OnPropertyChanged("CreatedDate"); }
         }
-        public string CreatorID
+        public int? CreatorID
         {
             get { return _creatorId; }
             set { _creatorId = value; OnPropertyChanged("CreatordID"); }
@@ -38,15 +39,22 @@ namespace StudentAPI.Models.API.Threads
 
         public Thread(JToken json)
         {
-            int id, createDate;
+            int id, creatorID;
+            double createDate;
             bool pinned;
 
             if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
-            if (int.TryParse(json.SelectToken("createDate").ToString(), out createDate)) CreateDate = createDate;
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out createDate))
+                CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
+            else
+                CreateDate = null;
 
-            if (bool.TryParse(json.SelectToken("creatorId").ToString(), out pinned) && pinned) isPinned = true;
+            if (bool.TryParse(json.SelectToken("isPinned").ToString(), out pinned) && pinned) isPinned = true;
+            if (int.TryParse(json.SelectToken("creatorId").ToString(), out creatorID))
+                CreatorID = creatorID;
+            else
+                CreatorID = null;
 
-            CreatorID = json.SelectToken("creatorId").ToString();
             Title = json.SelectToken("title").ToString();
         }
 

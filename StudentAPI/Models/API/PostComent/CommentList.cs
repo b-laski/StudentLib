@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace StudentAPI.Models.API.PostComent
 {
     public class CommentList : Comment
     {
-        private string _modifyDate;
+        private DateTime? _modifyDate;
 
-        public string ModifyDate
+        public DateTime? ModifyDate
         {
             get { return _modifyDate; }
             set { _modifyDate = value; OnPropertyChanged("ModifyDate"); }
@@ -14,7 +15,17 @@ namespace StudentAPI.Models.API.PostComent
 
         public CommentList(JToken json) : base(json)
         {
-            ModifyDate = json.SelectToken("modifyDate").ToString();
+            double modifyDate;
+
+            if (double.TryParse(json.SelectToken("modifyDate").ToString(), out modifyDate))
+                ModifyDate = Libs.DataConverter.UnixTimeStampToDateTime(modifyDate);
+            else
+                ModifyDate = null;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() +  $"{ModifyDate}";
         }
     }
 }

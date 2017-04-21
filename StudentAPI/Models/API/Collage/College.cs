@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace StudentAPI.Models.API.Collage
 {
@@ -11,8 +12,8 @@ namespace StudentAPI.Models.API.Collage
         private string _description { get; set; }
         private string _photo { get; set; }
         private string _cover { get; set; }
-        private int? _endDate { get; set; }
-        private int _createDate { get; set; }
+        private DateTime? _endDate { get; set; }
+        private DateTime? _createDate { get; set; }
 
         //Property
         public int ID
@@ -40,12 +41,12 @@ namespace StudentAPI.Models.API.Collage
             get { return _cover; }
             set { _cover = value; OnPropertyChanged("Cover");}
         }
-        public int? EndDate
+        public DateTime? EndDate
         {
             get { return _endDate; }
             set { _endDate = value; OnPropertyChanged("EndDate"); }
         }
-        public int CreateDate
+        public DateTime? CreateDate
         {
             get { return _createDate; }
             set { _createDate = value; OnPropertyChanged("CreateDate"); }
@@ -54,12 +55,18 @@ namespace StudentAPI.Models.API.Collage
         //Ctor
         public College(JToken json)
         {
-            //JObject json = JObject.Parse(jsonStr);
-            int id, endDate, createDate;
+            int id;
+            double endDate, createDate;
 
             if (int.TryParse(json.SelectToken("id")?.ToString(), out id)) ID = id;
-            if (int.TryParse(json.SelectToken("registerTime")?.ToString(), out endDate)) EndDate = endDate;
-            if (int.TryParse(json.SelectToken("birthday")?.ToString(), out createDate)) CreateDate = createDate;
+            if (double.TryParse(json.SelectToken("endDate")?.ToString(), out endDate))
+                EndDate = Libs.DataConverter.UnixTimeStampToDateTime(endDate);
+            else
+                EndDate = null;
+            if (double.TryParse(json.SelectToken("createDate")?.ToString(), out createDate))
+                CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
+            else
+                EndDate = null;
 
             Name = json.SelectToken("name")?.ToString();
             Description = json.SelectToken("description")?.ToString();
@@ -69,7 +76,7 @@ namespace StudentAPI.Models.API.Collage
 
         public override string ToString()
         {
-            return $"{ID}, {Name}, {Description}";
+            return $"{ID}, {Name} || {CreateDate}";
         }
     }
 }

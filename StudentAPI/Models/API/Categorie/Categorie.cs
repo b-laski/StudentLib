@@ -7,11 +7,8 @@ namespace StudentAPI.Models.API.Categorie
     public class Categorie
     {
         //Variable
-        [JsonProperty("id")]
         private int _id;
-        [JsonProperty("name")]
         private string _name;
-        [JsonProperty("dependencies")]
         private List<string> _groupList = new List<string>();
 
         //Propety

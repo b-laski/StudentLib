@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace StudentAPI.Models.API.Courses
 {
@@ -9,8 +10,8 @@ namespace StudentAPI.Models.API.Courses
         private string _description;
         private string _photo;
         private string _cover;
-        private int? _endDate;
-        private int _createDate;
+        private DateTime? _endDate;
+        private DateTime? _createDate;
         private bool _opened;
 
         public int ID
@@ -38,12 +39,12 @@ namespace StudentAPI.Models.API.Courses
             get { return _cover; }
             set { _cover = value; OnPropertyChanged("Cover"); }
         }
-        public int? EndDate
+        public DateTime? EndDate
         {
             get { return _endDate; }
             set { _endDate = value; OnPropertyChanged("EndDate"); }
         }
-        public int CreateDate
+        public DateTime? CreateDate
         {
             get { return _createDate; }
             set { _createDate = value; OnPropertyChanged("CreateDate"); }
@@ -57,12 +58,20 @@ namespace StudentAPI.Models.API.Courses
         public Course(JToken json)
         {
             bool opened;
-            int id, endDate, createDate;
+            int id;
+            double endDate, createDate;
             if (bool.TryParse(json.SelectToken("opened").ToString(), out opened) && opened) Opened = true;
 
             if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
-            if (int.TryParse(json.SelectToken("endDate").ToString(), out endDate)) EndDate = endDate;
-            if (int.TryParse(json.SelectToken("createDate").ToString(), out createDate)) CreateDate = createDate;
+            if (double.TryParse(json.SelectToken("endDate").ToString(), out endDate))
+                EndDate = Libs.DataConverter.UnixTimeStampToDateTime(endDate);
+            else
+                EndDate = null;
+
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out createDate))
+                CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
+            else
+                CreateDate = null;
 
             Name = json.SelectToken("name").ToString();
             Description = json.SelectToken("description").ToString();
@@ -73,7 +82,7 @@ namespace StudentAPI.Models.API.Courses
 
         public override string ToString()
         {
-            return $"{ID} {Name} {Description}";
+            return $"{ID} {Name} {Description} || {CreateDate}";
         }
     }
 }
