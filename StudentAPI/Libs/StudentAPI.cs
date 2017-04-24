@@ -234,6 +234,12 @@ namespace StudentAPI.Libs
             JObject.Parse(await Request.MakeRestRequest($"{URL}/group/threads/posts", "POST", data));
         }
 
+        internal static async void EditProfile(string name, string first, string middle, string lastname, string gender, int birthday = 0)
+        {
+            var data = "{\"name\": \"" + name + "\", \"firstName\": \"" + first + "\", \"middleName\": \"" + middle + "\", \"lastName\": \"" + lastname + "\", \"birthday\": \"" + birthday + "\", \"gender\": \"" + gender + "\"}";
+            string json = (JObject.Parse(await Request.MakeRestRequest($"{URL}/user/me", "POST", data))).ToString();
+        }
+
         #endregion
 
         #region DeleteMetods

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KotStudentApp.Views.TitleBar
+namespace KotStudentApp
 {
     /// <summary>
     /// Interaction logic for TitleBar.xaml

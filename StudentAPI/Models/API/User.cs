@@ -128,19 +128,19 @@ namespace StudentAPI.Models.API
             if (int.TryParse(json.SelectToken("registerTime").ToString(), out registertime)) RegisterTime = registertime;
             if (int.TryParse(json.SelectToken("birthday").ToString(), out brithday)) Birthday = brithday;
 
-            Email = json.SelectToken("email").ToString();
-            Name = json.SelectToken("name").ToString();
-            Gender = json.SelectToken("gender").ToString();
+            Email = json.SelectToken("email")?.ToString();
+            Name = json.SelectToken("name")?.ToString();
+            Gender = json.SelectToken("gender")?.ToString();
             Photo = json.SelectToken("photo")?.ToString();
             Cover = json.SelectToken("cover")?.ToString();
-            LastName = json.SelectToken("lastName").ToString();
-            MiddleName = json.SelectToken("middleName").ToString();
-            FirstName = json.SelectToken("firstName").ToString();
+            LastName = json.SelectToken("lastName")?.ToString();
+            MiddleName = json.SelectToken("middleName")?.ToString();
+            FirstName = json.SelectToken("firstName")?.ToString();
         }
 
         public override string ToString()
         {
-            return $"{UserID} | {FirstName} {MiddleName} {LastName} | {Email}";
+            return $"{Birthday}";
         }
     }
 }

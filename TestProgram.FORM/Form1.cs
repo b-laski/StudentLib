@@ -55,10 +55,10 @@ namespace TestProgram.FORM
             InfoBox.Items.Clear();
             InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetSessionID()} Token: {StudentAPI.StudentAPI.GetSessionToken()}");
         }
-        private void btnLoadUser_Click(object sender, EventArgs e)
+        private async void btnLoadUser_Click(object sender, EventArgs e)
         {
-            InfoBox.Items.Clear();
-            InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetUserObject().ToString()}");
+            UserWindow user = new UserWindow(await StudentAPI.StudentAPI.GetUserObjectAsync());
+            user.ShowDialog();
         }
         private async void btnLoadCollege_Click(object sender, EventArgs e)
         {

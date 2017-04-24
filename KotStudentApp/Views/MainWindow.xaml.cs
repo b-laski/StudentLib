@@ -25,20 +25,20 @@ namespace KotStudentApp
             InitializeComponent();
         }
 
-        private void TitleBar_TopBarButtonClick(object sender, Views.TitleBar.TitleBar.TopBarButtons type)
+        private void TitleBar_TopBarButtonClick(object sender, TitleBar.TopBarButtons type)
         {
             switch (type)
             {
-                case Views.TitleBar.TitleBar.TopBarButtons.Minimalization:
+                case TitleBar.TopBarButtons.Minimalization:
                     WindowState = WindowState.Minimized;
                     break;
-                case Views.TitleBar.TitleBar.TopBarButtons.Maximalization:
+                case TitleBar.TopBarButtons.Maximalization:
                     if (WindowState == WindowState.Maximized)
                         WindowState = WindowState.Normal;
                     else
                         WindowState = WindowState.Maximized;
                     break;
-                case Views.TitleBar.TitleBar.TopBarButtons.Close:
+                case TitleBar.TopBarButtons.Close:
                     //var result = MessageBox.Show("Are you sure?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     //if (result == MessageBoxResult.Yes)
                     this.Close();

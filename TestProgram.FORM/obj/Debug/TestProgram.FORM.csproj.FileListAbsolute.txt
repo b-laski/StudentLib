@@ -41,3 +41,4 @@ D:\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.Properties.Resource
 D:\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.csproj.GenerateResource.Cache
 D:\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.exe
 D:\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.pdb
+D:\KotStudentLib\TestProgram.FORM\obj\Debug\TestProgram.FORM.UserWindow.resources

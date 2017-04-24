@@ -164,6 +164,8 @@ namespace StudentAPI
 
         public static void EditPost(int post_id, string content) => Libs.StudentAPI.EditPost(post_id, content);
 
+        public static void EditProfile(string name, string first, string middle, string lastname, string gender) => Libs.StudentAPI.EditProfile(name, first, middle, lastname, gender);
+
         #endregion
 
         #region DeleteMethods
