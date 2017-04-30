@@ -15,3 +15,4 @@ D:\KotStudentLib\TestProgram.FORM\obj\Release\TestProgram.FORM.Properties.Resour
 D:\KotStudentLib\TestProgram.FORM\obj\Release\TestProgram.FORM.csproj.GenerateResource.Cache
 D:\KotStudentLib\TestProgram.FORM\obj\Release\TestProgram.FORM.exe
 D:\KotStudentLib\TestProgram.FORM\obj\Release\TestProgram.FORM.pdb
+D:\KotStudentLib\TestProgram.FORM\obj\Release\TestProgram.FORM.UserWindow.resources
