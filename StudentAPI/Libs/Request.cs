@@ -15,16 +15,12 @@ namespace StudentAPI.Libs
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri($"{URL}"));
             try
             {
-                //if (!string.IsNullOrEmpty(Models.API.Session.SesionID))
-                    
-                //if (!string.IsNullOrEmpty(Models.API.Session.SesionToken))
-                
                 request.AutomaticDecompression = DecompressionMethods.GZip;
                 request.Method = "GET";
                 request.Accept = "application/json";
                 request.ContentType = "application/json";
-                request.Headers.Add("me-session-id", Models.API.Session.SesionID);
-                request.Headers.Add("me-handle", Models.API.Session.SesionToken);
+                request.Headers.Add("me-session-id", Models.API.Session.SessionID);
+                request.Headers.Add("me-handle", Models.API.Session.SessionToken);
 
                 using (var responseStream = await request.GetResponseAsync())
                 {
@@ -48,8 +44,8 @@ namespace StudentAPI.Libs
             request.Method = method;
             request.Accept = "application/json";
             request.ContentType = "application/json";
-            request.Headers.Add("me-session-id", Models.API.Session.SesionID);
-            request.Headers.Add("me-handle", Models.API.Session.SesionToken);
+            request.Headers.Add("me-session-id", Models.API.Session.SessionID);
+            request.Headers.Add("me-handle", Models.API.Session.SessionToken);
 
             using (var requestStream = await request.GetRequestStreamAsync())
             {

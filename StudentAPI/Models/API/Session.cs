@@ -4,18 +4,25 @@ namespace StudentAPI.Models.API
 {
     public class Session
     {
-        public static string SesionID { get; protected set; }
-        public static string SesionToken { get; protected set; }
-        public static bool New { get; protected set; }
+        private static int userID { get; set; }
+        private static string sessionID { get; set; }
+        private static string sessionToken { get; set; }
+        private static bool _new { get; set; }
+        private static long timeNow { get; set; }
+
+
+        public static string SessionID { get => sessionID; }
+        public static string SessionToken { get => sessionToken; }
+        public static bool New { get => _new; }
 
         public Session(JToken json)
         {
-            bool isNew;
+            if (bool.TryParse(json.SelectToken("isNew").ToString(), out bool isNew) && isNew) _new = true;
+            if (int.TryParse(json.SelectToken("userID").ToString(), out int _userID)) userID = _userID;
+            if (int.TryParse(json.SelectToken("timenow").ToString(), out int _timeNow)) timeNow = _timeNow;
 
-            if (bool.TryParse(json.SelectToken("isNew").ToString(), out isNew) && isNew) New = true;
-
-            SesionID = json.SelectToken("sessionid").ToString();
-            SesionToken = json.SelectToken("sessionHandleKey").ToString();
+            sessionID = json.SelectToken("sessionid").ToString();
+            sessionToken = json.SelectToken("sessionHandleKey").ToString();
         }
     }
 }

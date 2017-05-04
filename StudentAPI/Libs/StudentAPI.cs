@@ -282,16 +282,16 @@ namespace StudentAPI.Libs
 
         internal static string GetSessionID()
         {
-            if (!string.IsNullOrEmpty(Models.API.Session.SesionID))
-                return Models.API.Session.SesionID;
+            if (!string.IsNullOrEmpty(Models.API.Session.SessionID))
+                return Models.API.Session.SessionID;
 
             return null;
         }
 
         internal static string GetSessionToken()
         {
-            if (!string.IsNullOrEmpty(Models.API.Session.SesionToken))
-                return Models.API.Session.SesionToken;
+            if (!string.IsNullOrEmpty(Models.API.Session.SessionToken))
+                return Models.API.Session.SessionToken;
 
             return null;
         }
