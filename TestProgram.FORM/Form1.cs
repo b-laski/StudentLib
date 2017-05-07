@@ -43,7 +43,7 @@ namespace TestProgram.FORM
         private void SignIn(string access_token)
         {
             bool flaga = StudentAPI.StudentAPI.SetSession("facebook", access_token);
-            if(flaga)
+            if (flaga)
                 MessageBox.Show("Succes login");
             else
                 MessageBox.Show("Fail login");
@@ -67,7 +67,7 @@ namespace TestProgram.FORM
 
             if (list != null)
             {
-                foreach(var item in list)
+                foreach (var item in list)
                 {
                     InfoBox.Items.Add(item);
                 }
@@ -97,9 +97,9 @@ namespace TestProgram.FORM
         {
             InfoBox.Items.Clear();
             var list = await StudentAPI.StudentAPI.GetCategoriesListAsync((int)NumericBox.Value);
-            if(list!=null)
+            if (list != null)
             {
-                foreach(var item in list)
+                foreach (var item in list)
                 {
                     InfoBox.Items.Add(item);
                 }
@@ -161,7 +161,7 @@ namespace TestProgram.FORM
         private async void btnPosts_Click(object sender, EventArgs e)
         {
             InfoBox.Items.Clear();
-           var list = await StudentAPI.StudentAPI.GetPostListAsync((int)NumericBox.Value, 0);
+            var list = await StudentAPI.StudentAPI.GetPostListAsync((int)NumericBox.Value, 0);
             if (list != null)
             {
                 foreach (var item in list)
@@ -174,12 +174,10 @@ namespace TestProgram.FORM
                 InfoBox.Items.Add("Błędne ID albo wątek nie ma postów!");
             }
         }
-
         private void btnCreateComment_Click(object sender, EventArgs e)
         {
             StudentAPI.StudentAPI.CreatComment((int)NumericBox.Value, TestBox.Text);
         }
-
         private async void btnMembers_Click(object sender, EventArgs e)
         {
             InfoBox.Items.Clear();
@@ -194,11 +192,28 @@ namespace TestProgram.FORM
             else
                 InfoBox.Items.Add("Grupa nie ma członków");
         }
-        #endregion
+        private async void btnGroups_Click(object sender, EventArgs e)
+        {
+            InfoBox.Items.Clear();
+            var list = await StudentAPI.StudentAPI.GetMyGroupsListAsync();
 
-        #region Create/Edit/DeleteButtons
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    InfoBox.Items.Add(item);
+                }
+            }
+            else
+            {
+                InfoBox.Items.Add("Nie ma takiej uczelni!");
+            }
+        }
+    #endregion
 
-        private void btnCreateThread_Click(object sender, EventArgs e)
+    #region Create/Edit/DeleteButtons
+
+    private void btnCreateThread_Click(object sender, EventArgs e)
         {
             StudentAPI.StudentAPI.CreateCategorie(TestBox.Text, (int)NumericBox.Value);
         }
@@ -236,21 +251,22 @@ namespace TestProgram.FORM
         {
             StudentAPI.StudentAPI.DeletePost((int)NumericBox.Value);
         }
-        #endregion
-
         private void btnTest_Click(object sender, EventArgs e)
         {
-            
-        }
 
+        }
         private void btnJoin_Click(object sender, EventArgs e)
         {
             StudentAPI.StudentAPI.JoinToGroup((int)NumericBox.Value);
         }
-
         private void btnLeave_Click(object sender, EventArgs e)
         {
             StudentAPI.StudentAPI.LeaveFromGroup((int)NumericBox.Value, 3);
         }
+        #endregion
+
+
+
+
     }
 }

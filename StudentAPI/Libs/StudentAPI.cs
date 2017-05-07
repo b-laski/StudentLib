@@ -159,6 +159,21 @@ namespace StudentAPI.Libs
             return null;
         }
 
+        internal static async Task<List<Models.API.Group.Groups>> GetCurrentGroup()
+        {
+            List<Models.API.Group.Groups> groups = new List<Models.API.Group.Groups>();
+            var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/memberships"));
+            if (json.SelectToken("Memberships").HasValues)
+            {
+                foreach (var item in json.SelectToken("Memberships"))
+                {
+                    groups.Add(new Models.API.Group.Groups(item));
+                }
+                return groups;
+            }
+            return null;
+        }
+
         #endregion
 
         #region Create/AddMethods

@@ -4,7 +4,7 @@ using System;
 
 namespace StudentAPI.Models.API.Collage
 {
-    public class College : Utilities.ViewModelBase
+    public class College
     {
         //Variable
         private int _id { get; set; }
@@ -19,37 +19,37 @@ namespace StudentAPI.Models.API.Collage
         public int ID
         {
             get { return _id; }
-            set { _id = value; OnPropertyChanged("ID"); }
+            set { _id = value; }
         }
         public string Name
         {
             get { return _name; }
-            set { _name = value; OnPropertyChanged("Name"); }
+            set { _name = value; }
         }
         public string Description
         {
             get { return _description; }
-            set { _description = value; OnPropertyChanged("Description"); }
+            set { _description = value; }
         }
         public string Photo
         {
             get { return _photo; }
-            set { _photo = value; OnPropertyChanged("Photo"); }
+            set { _photo = value; }
         }
         public string Cover
         {
             get { return _cover; }
-            set { _cover = value; OnPropertyChanged("Cover");}
+            set { _cover = value;}
         }
         public DateTime? EndDate
         {
             get { return _endDate; }
-            set { _endDate = value; OnPropertyChanged("EndDate"); }
+            set { _endDate = value; }
         }
         public DateTime? CreateDate
         {
             get { return _createDate; }
-            set { _createDate = value; OnPropertyChanged("CreateDate"); }
+            set { _createDate = value; }
         }
 
         //Ctor

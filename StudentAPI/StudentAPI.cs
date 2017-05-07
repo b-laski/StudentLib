@@ -135,9 +135,27 @@ namespace StudentAPI
         /// <returns></returns>
         public static async Task<List<Models.API.PostComent.CommentList>> GetCommentsListAsync(int ID) => await Libs.StudentAPI.GetCommentList(ID);
 
+        /// <summary>
+        /// [SYNC] GET LIST OF GROUP MEMBERS 
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public static List<Models.API.Group.GroupMembers> GetMemberList(int ID) => Task.Run(() => Libs.StudentAPI.GetMemberList(ID)).Result;
 
+        /// <summary>
+        /// [SYNC] GET LIST OF GROUP MEMBERS
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public static async Task<List<Models.API.Group.GroupMembers>> GetMemberListAsync(int ID) => await Libs.StudentAPI.GetMemberList(ID);
+
+        public static List<Models.API.Group.Groups> GetMyGroupsList() => Task.Run(() => Libs.StudentAPI.GetCurrentGroup()).Result;
+        /// <summary>
+        /// [ASYNC] GET LIST OF GROUPS
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static async Task<List<Models.API.Group.Groups>> GetMyGroupsListAsync() => await Libs.StudentAPI.GetCurrentGroup();
         #endregion
 
         #region CreateMethods

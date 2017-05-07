@@ -1,17 +1,18 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using Utilities;
 
 namespace StudentAPI.Models.API
 {
-    public class User : Utilities.ViewModelBase
+    public class User
     {
         //Variable
         private int _userID;
         private string _email;
         private string _name;
-        private int _registerTime;
+        private DateTime? _registerTime;
         private string _gender;
-        private int _birthday;
+        private DateTime? _birthday;
         private string _photo;
         private string _cover;
         private string _lastName;
@@ -25,7 +26,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _userID = value;
-                OnPropertyChanged("UserID");
             }
         }
         public string Email
@@ -34,7 +34,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _email = value;
-                OnPropertyChanged("Email");
             }
         }
         public string Name
@@ -43,16 +42,14 @@ namespace StudentAPI.Models.API
             set
             {
                 _name = value;
-                OnPropertyChanged("Name");
             }
         }
-        public int RegisterTime
+        public DateTime? RegisterTime
         {
             get { return _registerTime; }
             set
             {
                 _registerTime = value;
-                OnPropertyChanged("RegisterTime");
             }
         }
         public string Gender
@@ -61,16 +58,14 @@ namespace StudentAPI.Models.API
             set
             {
                 _gender = value;
-                OnPropertyChanged("Gender");
             }
         }
-        public int Birthday
+        public DateTime? Birthday
         {
             get { return _birthday; }
             set
             {
                 _birthday = value;
-                OnPropertyChanged("Birthday");
             }
         }
         public string Photo
@@ -79,7 +74,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _photo = value;
-                OnPropertyChanged("Photo");
             }
         }
         public string Cover
@@ -88,7 +82,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _cover = value;
-                OnPropertyChanged("Cover");
             }
         }
         public string LastName
@@ -97,7 +90,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _lastName = value;
-                OnPropertyChanged("LastName");
             }
         }
         public string MiddleName
@@ -106,7 +98,6 @@ namespace StudentAPI.Models.API
             set
             {
                 _middleName = value;
-                OnPropertyChanged("MiddleName");
             }
         }
         public string FirstName
@@ -115,18 +106,24 @@ namespace StudentAPI.Models.API
             set
             {
                 _firstName = value;
-                OnPropertyChanged("FirstName");
             }
         }
 
         //ctor
         public User(JToken json)
         {
-            int userid, registertime,brithday;
+            if (int.TryParse(json.SelectToken("userID")?.ToString(), out int userid)) UserID = userid;
 
-            if (int.TryParse(json.SelectToken("userID").ToString(), out userid)) UserID = userid;
-            if (int.TryParse(json.SelectToken("registerTime").ToString(), out registertime)) RegisterTime = registertime;
-            if (int.TryParse(json.SelectToken("birthday").ToString(), out brithday)) Birthday = brithday;
+            if (double.TryParse(json.SelectToken("registerTime").ToString(), out double registerTime))
+                RegisterTime = Libs.DataConverter.UnixTimeStampToDateTime(registerTime);
+            else
+                RegisterTime = null;
+
+            if (double.TryParse(json.SelectToken("birthday").ToString(), out double birthday))
+                Birthday = Libs.DataConverter.UnixTimeStampToDateTime(birthday);
+            else
+                Birthday = null;
+
 
             Email = json.SelectToken("email")?.ToString();
             Name = json.SelectToken("name")?.ToString();
