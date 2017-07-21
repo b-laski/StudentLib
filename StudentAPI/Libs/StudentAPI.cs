@@ -12,9 +12,10 @@ namespace StudentAPI.Libs
         readonly static string URL = "http://193.239.80.171:3100";
 
         #region GetObjects
+
         internal static async Task<Models.API.User> GetUserObject()
         {
-            return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("user"));
+            return new Models.API.User(JObject.Parse(await Request.MakeGetRequest($"{URL}/user/me")).SelectToken("User"));
         }
 
         internal static async Task<List<Models.API.Collage.College>> GetCollegeListObject(string pattern = null)
@@ -48,7 +49,7 @@ namespace StudentAPI.Libs
                 {
                     foreach(JObject item in json.SelectToken("departments"))
                     {
-                        departments.Add(new Models.API.Deparment.Department(item.ToString()));
+                        departments.Add(new Models.API.Deparment.Department(item));
                     }
                     return departments;
                 }
@@ -98,17 +99,12 @@ namespace StudentAPI.Libs
             return null;
         }
 
-        internal static async Task<List<Models.API.Threads.Thread>> GetThreadList(int id)
+        internal static async Task<Models.API.Threads.ThreadsGroup> GetThreadList(int id)
         {
-            List<Models.API.Threads.Thread> threads = new List<Models.API.Threads.Thread>();
             var json = JObject.Parse(await Request.MakeGetRequest($"{URL}/group/threads?group_id={id}"));
             if(json.SelectToken("GroupThreads").HasValues)
             { 
-                foreach(JObject item in json.SelectToken("GroupThreads"))
-                {
-                    threads.Add(new Models.API.Threads.Thread(item));
-                }
-                return threads;
+                return new Models.API.Threads.ThreadsGroup(json.SelectToken("GroupThreads"));
             }
             return null;
         }
@@ -172,6 +168,11 @@ namespace StudentAPI.Libs
                 return groups;
             }
             return null;
+        }
+
+        internal static async Task<Models.API.Search> Search(string searchingString)
+        {
+           return new Models.API.Search(JObject.Parse(await Request.MakeGetRequest($"{URL}/szukajka-wszystkiego-xd?search_string={searchingString}")).SelectToken("SearchResult"));
         }
 
         #endregion
@@ -325,3 +326,4 @@ namespace StudentAPI.Libs
 
     }
 }
+    

@@ -1,7 +1,0 @@
-D:\KotStudentLib\StudentAPI\bin\x86\Debug\StudentAPI.dll
-D:\KotStudentLib\StudentAPI\bin\x86\Debug\StudentAPI.pdb
-D:\KotStudentLib\StudentAPI\bin\x86\Debug\Newtonsoft.Json.dll
-D:\KotStudentLib\StudentAPI\bin\x86\Debug\Newtonsoft.Json.xml
-D:\KotStudentLib\StudentAPI\obj\x86\Debug\StudentAPI.csprojResolveAssemblyReference.cache
-D:\KotStudentLib\StudentAPI\obj\x86\Debug\StudentAPI.dll
-D:\KotStudentLib\StudentAPI\obj\x86\Debug\StudentAPI.pdb

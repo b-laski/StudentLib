@@ -3,7 +3,7 @@ using System;
 
 namespace StudentAPI.Models.API.Courses
 {
-    public class Course : Utilities.ViewModelBase
+    public class Course
     {
         private int _id;
         private string _name;
@@ -12,47 +12,48 @@ namespace StudentAPI.Models.API.Courses
         private string _cover;
         private DateTime? _endDate;
         private DateTime? _createDate;
+        private string _type;
         private bool _opened;
 
         public int ID
         {
             get { return _id; }
-            set { _id = value; OnPropertyChanged("ID"); }
+            set { _id = value; }
         }
         public string Name
         {
             get { return _name; }
-            set { _name = value; OnPropertyChanged("Name"); }
+            set { _name = value; }
         }
         public string Description
         {
             get { return _description; }
-            set { _description = value; OnPropertyChanged("Description"); }
+            set { _description = value; }
         }
         public string Photo
         {
             get { return _photo; }
-            set { _photo = value; OnPropertyChanged("Photo"); }
+            set { _photo = value; }
         }
         public string Cover
         {
             get { return _cover; }
-            set { _cover = value; OnPropertyChanged("Cover"); }
+            set { _cover = value; }
         }
         public DateTime? EndDate
         {
             get { return _endDate; }
-            set { _endDate = value; OnPropertyChanged("EndDate"); }
+            set { _endDate = value; }
         }
         public DateTime? CreateDate
         {
             get { return _createDate; }
-            set { _createDate = value; OnPropertyChanged("CreateDate"); }
+            set { _createDate = value; }
         }
         public bool Opened
         {
             get { return _opened; }
-            set { _opened = value; OnPropertyChanged("Opened"); }
+            set { _opened = value; }
         }
 
         public Course(JToken json)

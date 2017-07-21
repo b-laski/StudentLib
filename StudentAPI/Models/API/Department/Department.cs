@@ -58,10 +58,8 @@ namespace StudentAPI.Models.API.Deparment
 
 
         //Ctor
-        public Department(string jsonStr)
+        public Department(JToken json)
         {
-            JObject json = JObject.Parse(jsonStr);
-
             int id;
             double endDate, createDate;
 

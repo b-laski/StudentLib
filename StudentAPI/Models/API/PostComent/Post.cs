@@ -4,66 +4,71 @@ using System.Collections.Generic;
 
 namespace StudentAPI.Models.API.PostComent
 {
-    public class Post : Utilities.ViewModelBase
+    public class Post 
     {
         private int _id;
         private string _content;
-        private int _userid;
         private DateTime? _createDate;
         private DateTime? _modifyDate;
+        private User _creator;
         public List<Comment> _comments;
 
         public int ID
         {
             get { return _id; }
-            set { _id = value; OnPropertyChanged("ID"); }
+            set { _id = value; }
         }
         public string Content
         {
             get { return _content; }
-            set { _content = value; OnPropertyChanged("Content"); }
-        }
-        public int UserID
-        {
-            get { return _userid; }
-            set { _userid = value; OnPropertyChanged("UserID"); }
+            set { _content = value;}
         }
         public DateTime? CreateDate
         {
             get { return _createDate; }
-            set { _createDate = value; OnPropertyChanged("CreateDate"); }
+            set { _createDate = value; }
         }
         public DateTime? ModifyDate
         {
             get { return _modifyDate; }
-            set { _modifyDate = value; OnPropertyChanged("ModifyDate"); }
+            set { _modifyDate = value; }
+        }
+        public User Creator
+        {
+            get => _creator;
+            set => _creator = value;
         }
         public List<Comment> Comments
         {
             get { return _comments; }
-            set { _comments = value; OnPropertyChanged("Comments"); }
+            set { _comments = value; }
         }
 
         public Post(JToken json)
         {
-            int id, userid;
-            double createDate, modifyDate;
             Comments = new List<Comment>();
 
-            if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
-            if (int.TryParse(json.SelectToken("userID").ToString(), out userid)) UserID = userid;
+            if (int.TryParse(json.SelectToken("id").ToString(), out int id)) ID = id;
 
-            if (double.TryParse(json.SelectToken("createDate").ToString(), out createDate))
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out double createDate))
                 CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
             else
                 CreateDate = null;
 
-            if (double.TryParse(json.SelectToken("modifyDate").ToString(), out modifyDate))
+
+            if (double.TryParse(json.SelectToken("modifyDate").ToString(), out double modifyDate))
                 ModifyDate = Libs.DataConverter.UnixTimeStampToDateTime(modifyDate);
             else
                 ModifyDate = null;
 
-            Content = json.SelectToken("content").ToString();
+
+            if (json.SelectToken("creator").HasValues)
+                Creator = new User(json.SelectToken("creator"));
+            else
+                Creator = null;
+
+            Content = json.SelectToken("content")?.ToString();
+
             if (json.SelectToken("lastComments") != null)
                 foreach (var item in json.SelectToken("lastComments"))
                     Comments.Add(new Comment(item));
@@ -71,11 +76,7 @@ namespace StudentAPI.Models.API.PostComent
 
         public override string ToString()
         {
-            string data =  $"{ID}, {Content} {UserID} {CreateDate} ||";
-            if (Comments != null)
-                foreach (var item in Comments)
-                    data += $"{item.ToString()}";
-            return data;
+            return  $"{ID}, {Content} {CreateDate} ||";
         }
     }
 }

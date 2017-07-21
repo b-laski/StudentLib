@@ -15,6 +15,11 @@ namespace TestProgram.FORM
         public UserWindow(StudentAPI.Models.API.User user)
         {
             InitializeComponent();
+            LoadAll(user);
+        }
+
+        private void LoadAll(StudentAPI.Models.API.User user)
+        {
             nameBox.Text = user.Name;
             firstNameBox.Text = user.FirstName;
             middleNameBox.Text = user.MiddleName;

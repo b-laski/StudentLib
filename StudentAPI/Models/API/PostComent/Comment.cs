@@ -3,12 +3,13 @@ using System;
 
 namespace StudentAPI.Models.API.PostComent
 {
-    public class Comment : Utilities.ViewModelBase
+    public class Comment
     {
         private int _id;
         private string _content;
-        private int _userID;
         private DateTime? _createDate;
+        private DateTime? _modifyDate;
+        private User _creator;
 
         public int ID
         {
@@ -16,7 +17,6 @@ namespace StudentAPI.Models.API.PostComent
             set
             {
                 _id = value;
-                OnPropertyChanged("ID");
             }
         }
         public string Content
@@ -25,16 +25,6 @@ namespace StudentAPI.Models.API.PostComent
             set
             {
                 _content = value;
-                OnPropertyChanged("Content");
-            }
-        }
-        public int UserID
-        {
-            get { return _userID; }
-            set
-            {
-                _userID = value;
-                OnPropertyChanged("UserID");
             }
         }
         public DateTime? CreateDate
@@ -43,28 +33,49 @@ namespace StudentAPI.Models.API.PostComent
             set
             {
                 _createDate = value;
-                OnPropertyChanged("CreateDate");
             }
+        }
+        public DateTime? ModifyDate
+        {
+            get { return _modifyDate; }
+            set
+            {
+                _modifyDate = value;
+            }
+        }
+
+        public User Creator
+        {
+            get => _creator;
+            set => _creator = value;
         }
 
         public Comment(JToken json)
         {
-            int id, userID;
-            double createDate;
-            if (int.TryParse(json.SelectToken("id").ToString(), out id)) ID = id;
-            if (int.TryParse(json.SelectToken("userID").ToString(), out userID)) UserID = userID;
-            if (double.TryParse(json.SelectToken("createDate").ToString(), out createDate))
+
+            if (int.TryParse(json.SelectToken("id").ToString(), out int id)) ID = id;
+
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out double createDate))
                 CreateDate = Libs.DataConverter.UnixTimeStampToDateTime(createDate);
             else
                 CreateDate = null;
-            
-            Content = json.SelectToken("content").ToString();
 
+            if (double.TryParse(json.SelectToken("createDate").ToString(), out double modifyDate))
+                ModifyDate = Libs.DataConverter.UnixTimeStampToDateTime(modifyDate);
+            else
+                ModifyDate = null;
+
+            if (json.SelectToken("creator").HasValues)
+                Creator = new User(json.SelectToken("creator"));
+            else
+                Creator = null;
+
+            Content = json.SelectToken("content")?.ToString();
         }
 
         public override string ToString()
         {
-            return $" {UserID} {Content}";
+            return $"{Content}";
         }
     }
 }

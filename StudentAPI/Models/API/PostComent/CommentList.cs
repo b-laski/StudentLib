@@ -10,7 +10,7 @@ namespace StudentAPI.Models.API.PostComent
         public DateTime? ModifyDate
         {
             get { return _modifyDate; }
-            set { _modifyDate = value; OnPropertyChanged("ModifyDate"); }
+            set { _modifyDate = value; }
         }
 
         public CommentList(JToken json) : base(json)

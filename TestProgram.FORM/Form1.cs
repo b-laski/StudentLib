@@ -50,11 +50,6 @@ namespace TestProgram.FORM
         }
 
         #region GetButtons
-        private void btnLoadSession_Click(object sender, EventArgs e)
-        {
-            InfoBox.Items.Clear();
-            InfoBox.Items.Add($"ID: {StudentAPI.StudentAPI.GetSessionID()} Token: {StudentAPI.StudentAPI.GetSessionToken()}");
-        }
         private async void btnLoadUser_Click(object sender, EventArgs e)
         {
             UserWindow user = new UserWindow(await StudentAPI.StudentAPI.GetUserObjectAsync());
@@ -132,10 +127,7 @@ namespace TestProgram.FORM
             var list = await StudentAPI.StudentAPI.GetThreadsListAsync((int)NumericBox.Value);
             if (list != null)
             {
-                foreach (var item in list)
-                {
-                    InfoBox.Items.Add(item);
-                }
+                InfoBox.Items.Add(list);
             }
             else
             {
@@ -263,10 +255,63 @@ namespace TestProgram.FORM
         {
             StudentAPI.StudentAPI.LeaveFromGroup((int)NumericBox.Value, 3);
         }
+
+
+
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var searched = await StudentAPI.StudentAPI.Search(TestBox.Text);
 
+                if(searched.Colleges != null)
+                {
+                    InfoBox.Items.Add("COLLEGES:");
+                    foreach (var item in searched.Colleges)
+                    {
+                        InfoBox.Items.Add(item.ToString());
+                    }
+                }
+
+                if(searched.Deparments != null)
+                {
+                    InfoBox.Items.Add("DEPARTMENTS:");
+                    foreach (var item in searched.Deparments)
+                    {
+                        InfoBox.Items.Add(item.ToString());
+                    }
+                }
+
+                if(searched.Groups != null)
+                {
+                    InfoBox.Items.Add("GROUPS:");
+                    foreach (var item in searched.Groups)
+                    {
+                        InfoBox.Items.Add(item.ToString());
+                    }
+                }
+
+                if(searched.Users != null)
+                {
+                    InfoBox.Items.Add("USERS:");
+                    foreach (var item in searched.Users)
+                    {
+                        InfoBox.Items.Add(item.ToString());
+                    }
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+
+        }
     }
 }

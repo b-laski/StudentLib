@@ -112,32 +112,32 @@ namespace StudentAPI.Models.API
         //ctor
         public User(JToken json)
         {
-            if (int.TryParse(json.SelectToken("userID")?.ToString(), out int userid)) UserID = userid;
+            if (int.TryParse(json.SelectToken("userId")?.ToString(), out int userid)) UserID = userid;
 
-            if (double.TryParse(json.SelectToken("registerTime").ToString(), out double registerTime))
+            if (double.TryParse(json.SelectToken("userRegisterTime").ToString(), out double registerTime))
                 RegisterTime = Libs.DataConverter.UnixTimeStampToDateTime(registerTime);
             else
                 RegisterTime = null;
 
-            if (double.TryParse(json.SelectToken("birthday").ToString(), out double birthday))
+            if (double.TryParse(json.SelectToken("userBirthdayTime").ToString(), out double birthday))
                 Birthday = Libs.DataConverter.UnixTimeStampToDateTime(birthday);
             else
                 Birthday = null;
 
 
-            Email = json.SelectToken("email")?.ToString();
-            Name = json.SelectToken("name")?.ToString();
-            Gender = json.SelectToken("gender")?.ToString();
-            Photo = json.SelectToken("photo")?.ToString();
-            Cover = json.SelectToken("cover")?.ToString();
-            LastName = json.SelectToken("lastName")?.ToString();
-            MiddleName = json.SelectToken("middleName")?.ToString();
-            FirstName = json.SelectToken("firstName")?.ToString();
+            Email = json.SelectToken("userEmailAddress")?.ToString();
+            Name = json.SelectToken("userName")?.ToString();
+            Gender = json.SelectToken("userGender")?.ToString();
+            Photo = json.SelectToken("userPhoto")?.ToString();
+            Cover = json.SelectToken("userCover")?.ToString();
+            LastName = json.SelectToken("userLastName")?.ToString();
+            MiddleName = json.SelectToken("userMiddleName")?.ToString();
+            FirstName = json.SelectToken("userFirstName")?.ToString();
         }
 
         public override string ToString()
         {
-            return $"{Birthday}";
+            return $"NICKNAME: {Name}";
         }
     }
 }

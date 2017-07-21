@@ -58,6 +58,7 @@
             this.btnJoin = new System.Windows.Forms.Button();
             this.btnLeave = new System.Windows.Forms.Button();
             this.btnGroups = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NumericBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             this.InfoBox.FormattingEnabled = true;
             this.InfoBox.Location = new System.Drawing.Point(16, 15);
-            this.InfoBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.InfoBox.Margin = new System.Windows.Forms.Padding(4);
             this.InfoBox.Name = "InfoBox";
             this.InfoBox.Size = new System.Drawing.Size(939, 563);
             this.InfoBox.TabIndex = 0;
@@ -73,7 +74,7 @@
             // btnSignIn
             // 
             this.btnSignIn.Location = new System.Drawing.Point(964, 15);
-            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(105, 23);
             this.btnSignIn.TabIndex = 1;
@@ -84,18 +85,17 @@
             // btnLoadSession
             // 
             this.btnLoadSession.Location = new System.Drawing.Point(964, 46);
-            this.btnLoadSession.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadSession.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadSession.Name = "btnLoadSession";
             this.btnLoadSession.Size = new System.Drawing.Size(105, 23);
             this.btnLoadSession.TabIndex = 2;
             this.btnLoadSession.Text = "Load session";
             this.btnLoadSession.UseVisualStyleBackColor = true;
-            this.btnLoadSession.Click += new System.EventHandler(this.btnLoadSession_Click);
             // 
             // btnLoadUser
             // 
             this.btnLoadUser.Location = new System.Drawing.Point(964, 77);
-            this.btnLoadUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadUser.Name = "btnLoadUser";
             this.btnLoadUser.Size = new System.Drawing.Size(105, 23);
             this.btnLoadUser.TabIndex = 3;
@@ -106,7 +106,7 @@
             // webBrowser1
             // 
             this.webBrowser1.Location = new System.Drawing.Point(16, 656);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1053, 114);
@@ -117,7 +117,7 @@
             // btnLoadCollege
             // 
             this.btnLoadCollege.Location = new System.Drawing.Point(16, 593);
-            this.btnLoadCollege.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadCollege.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCollege.Name = "btnLoadCollege";
             this.btnLoadCollege.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCollege.TabIndex = 5;
@@ -128,7 +128,7 @@
             // btnLoadDeparments
             // 
             this.btnLoadDeparments.Location = new System.Drawing.Point(16, 625);
-            this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadDeparments.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadDeparments.Name = "btnLoadDeparments";
             this.btnLoadDeparments.Size = new System.Drawing.Size(75, 23);
             this.btnLoadDeparments.TabIndex = 6;
@@ -139,7 +139,7 @@
             // btnLoadCategories
             // 
             this.btnLoadCategories.Location = new System.Drawing.Point(99, 593);
-            this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadCategories.Name = "btnLoadCategories";
             this.btnLoadCategories.Size = new System.Drawing.Size(75, 23);
             this.btnLoadCategories.TabIndex = 7;
@@ -150,7 +150,7 @@
             // btnCreateDepartment
             // 
             this.btnCreateDepartment.Location = new System.Drawing.Point(964, 137);
-            this.btnCreateDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateDepartment.Name = "btnCreateDepartment";
             this.btnCreateDepartment.Size = new System.Drawing.Size(105, 23);
             this.btnCreateDepartment.TabIndex = 8;
@@ -161,7 +161,7 @@
             // TestBox
             // 
             this.TestBox.Location = new System.Drawing.Point(612, 593);
-            this.TestBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TestBox.Margin = new System.Windows.Forms.Padding(2);
             this.TestBox.Name = "TestBox";
             this.TestBox.Size = new System.Drawing.Size(158, 20);
             this.TestBox.TabIndex = 9;
@@ -207,7 +207,7 @@
             // btnCreateCategories
             // 
             this.btnCreateCategories.Location = new System.Drawing.Point(964, 168);
-            this.btnCreateCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateCategories.Name = "btnCreateCategories";
             this.btnCreateCategories.Size = new System.Drawing.Size(105, 23);
             this.btnCreateCategories.TabIndex = 14;
@@ -218,7 +218,7 @@
             // btnCreateCurse
             // 
             this.btnCreateCurse.Location = new System.Drawing.Point(964, 199);
-            this.btnCreateCurse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateCurse.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateCurse.Name = "btnCreateCurse";
             this.btnCreateCurse.Size = new System.Drawing.Size(105, 23);
             this.btnCreateCurse.TabIndex = 15;
@@ -229,7 +229,7 @@
             // btnCreateThread
             // 
             this.btnCreateThread.Location = new System.Drawing.Point(964, 230);
-            this.btnCreateThread.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateThread.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateThread.Name = "btnCreateThread";
             this.btnCreateThread.Size = new System.Drawing.Size(105, 23);
             this.btnCreateThread.TabIndex = 16;
@@ -240,7 +240,7 @@
             // btnCreatePost
             // 
             this.btnCreatePost.Location = new System.Drawing.Point(963, 261);
-            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreatePost.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreatePost.Name = "btnCreatePost";
             this.btnCreatePost.Size = new System.Drawing.Size(105, 23);
             this.btnCreatePost.TabIndex = 17;
@@ -271,7 +271,7 @@
             // btnDeletePost
             // 
             this.btnDeletePost.Location = new System.Drawing.Point(964, 323);
-            this.btnDeletePost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletePost.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePost.Name = "btnDeletePost";
             this.btnDeletePost.Size = new System.Drawing.Size(105, 23);
             this.btnDeletePost.TabIndex = 20;
@@ -282,7 +282,7 @@
             // btnEditPost
             // 
             this.btnEditPost.Location = new System.Drawing.Point(963, 292);
-            this.btnEditPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditPost.Name = "btnEditPost";
             this.btnEditPost.Size = new System.Drawing.Size(105, 23);
             this.btnEditPost.TabIndex = 21;
@@ -303,17 +303,18 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(964, 354);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 23);
             this.button1.TabIndex = 23;
             this.button1.Text = "Delete Post";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCreateComment
             // 
             this.btnCreateComment.Location = new System.Drawing.Point(964, 385);
-            this.btnCreateComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateComment.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateComment.Name = "btnCreateComment";
             this.btnCreateComment.Size = new System.Drawing.Size(105, 23);
             this.btnCreateComment.TabIndex = 24;
@@ -344,7 +345,7 @@
             // btnJoin
             // 
             this.btnJoin.Location = new System.Drawing.Point(964, 416);
-            this.btnJoin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnJoin.Margin = new System.Windows.Forms.Padding(4);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(105, 23);
             this.btnJoin.TabIndex = 27;
@@ -355,7 +356,7 @@
             // btnLeave
             // 
             this.btnLeave.Location = new System.Drawing.Point(964, 447);
-            this.btnLeave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeave.Margin = new System.Windows.Forms.Padding(4);
             this.btnLeave.Name = "btnLeave";
             this.btnLeave.Size = new System.Drawing.Size(105, 23);
             this.btnLeave.TabIndex = 28;
@@ -373,11 +374,22 @@
             this.btnGroups.UseVisualStyleBackColor = true;
             this.btnGroups.Click += new System.EventHandler(this.btnGroups_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(343, 623);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 30;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 783);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnGroups);
             this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.btnJoin);
@@ -408,7 +420,7 @@
             this.Controls.Add(this.btnLoadSession);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.InfoBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -450,6 +462,7 @@
         private System.Windows.Forms.Button btnJoin;
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnGroups;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
